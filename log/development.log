@@ -30,3 +30,31 @@ Processing StoriesController#index (for 127.0.0.1 at 2009-11-12 12:57:57) [GET]
 Rendering template within layouts/stories
 Rendering stories/index
 Completed in 2162ms (View: 2155, DB: 0) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-12 13:05:09) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+Completed in 34ms (View: 21, DB: 1) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-12 13:05:09) [GET]
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+Completed in 8ms (View: 2, DB: 1) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-12 13:05:09) [GET]
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-12 13:05:10) [GET]
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+Completed in 11ms (View: 3, DB: 1) | 200 OK [http://127.0.0.1/stories]
