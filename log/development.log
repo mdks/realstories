@@ -58,3 +58,175 @@ Processing StoriesController#index (for 127.0.0.1 at 2009-11-12 13:05:10) [GET]
 Rendering template within layouts/stories
 Rendering stories/index
 Completed in 11ms (View: 3, DB: 1) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-12 14:43:55) [GET]
+  Parameters: {"id"=>"feed"}
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Story with ID=feed):
+  app/controllers/stories_controller.rb:17:in `show'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (84.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-12 14:44:29) [GET]
+  Parameters: {"id"=>"feed"}
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Story with ID=feed):
+  app/controllers/stories_controller.rb:17:in `show'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (57.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-12 14:44:31) [GET]
+  Parameters: {"id"=>"feed"}
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Story with ID=feed):
+  app/controllers/stories_controller.rb:17:in `show'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (100.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-12 14:44:31) [GET]
+  Parameters: {"id"=>"feed"}
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Story with ID=feed):
+  app/controllers/stories_controller.rb:17:in `show'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (44.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-12 14:44:31) [GET]
+  Parameters: {"id"=>"feed"}
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Story with ID=feed):
+  app/controllers/stories_controller.rb:17:in `show'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (89.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-12 14:44:32) [GET]
+  Parameters: {"id"=>"feed"}
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Story with ID=feed):
+  app/controllers/stories_controller.rb:17:in `show'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (42.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-12 14:44:32) [GET]
+  Parameters: {"id"=>"feed"}
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Story with ID=feed):
+  app/controllers/stories_controller.rb:17:in `show'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (54.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StoriesController#feed to atom (for 127.0.0.1 at 2009-11-12 14:44:50) [GET]
+
+ActionController::UnknownAction (No action responded to feed. Actions: create, destroy, edit, index, new, show, and update):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing StoriesController#index to atom (for 127.0.0.1 at 2009-11-12 14:47:08) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering stories/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.updated_at) on line #3 of app/views/stories/index.atom.builder:
+1: atom_feed do |feed|
+2:   feed.title("realstori.es")
+3:   feed.updated(@stories.first.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ"))
+4:  
+5:   for story in @stories
+6:     next if story.updated_at.blank?
+
+    app/views/stories/index.atom.builder:3:in `_run_builder_app47views47stories47index46atom46builder'
+    app/views/stories/index.atom.builder:1:in `_run_builder_app47views47stories47index46atom46builder'
+    app/controllers/stories_controller.rb:10:in `index'
+    app/controllers/stories_controller.rb:7:in `index'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (116.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoriesController#index to atom (for 127.0.0.1 at 2009-11-12 14:47:26) [GET]
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering stories/index
+Completed in 16ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/stories/feed]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-12 14:47:39) [GET]
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+Completed in 91ms (View: 83, DB: 0) | 200 OK [http://127.0.0.1/stories/]
+
+
+Processing StoriesController#new (for 127.0.0.1 at 2009-11-12 14:47:40) [GET]
+Rendering template within layouts/stories
+Rendering stories/new
+Completed in 396ms (View: 386, DB: 0) | 200 OK [http://127.0.0.1/stories/new]
+
+
+Processing StoriesController#create (for 127.0.0.1 at 2009-11-12 14:47:44) [POST]
+  Parameters: {"commit"=>"Create", "story"=>{"body"=>"what"}, "authenticity_token"=>"DOOKAVUutuQ2IIgXPyBHFvCeeekSyDX19bj4JltUbxM="}
+  [4;36;1mStory Create (61.0ms)[0m   [0;1mINSERT INTO "stories" ("updated_at", "body", "created_at") VALUES('2009-11-12 21:47:44', 'what', '2009-11-12 21:47:44')[0m
+Redirected to http://127.0.0.1:3000/stories/1
+Completed in 319ms (DB: 61) | 302 Found [http://127.0.0.1/stories]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-12 14:47:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 1) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+Completed in 21ms (View: 10, DB: 0) | 200 OK [http://127.0.0.1/stories/1]
+
+
+Processing StoriesController#index to atom (for 127.0.0.1 at 2009-11-12 14:47:48) [GET]
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering stories/index
+Completed in 322ms (View: 263, DB: 1) | 200 OK [http://127.0.0.1/stories/feed]
