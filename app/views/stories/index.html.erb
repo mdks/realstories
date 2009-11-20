@@ -3,18 +3,25 @@
 <table>
   <tr>
     <th>Body</th>
+    <th>Author</th>
   </tr>
 
 <% @stories.each do |story| %>
   <tr>
     <td><%=h story.body %></td>
+    <td><%= story.user.name %></td>
     <td><%= link_to 'Show', story %></td>
-    <td><%= link_to 'Edit', edit_story_path(story) %></td>
-    <td><%= link_to 'Destroy', story, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if session[:user_id] %>
+      <% if session[:user_id].to_i == story.user.id.to_i  || User.find(session[:user_id]).is_admin? %>
+        <td><%= link_to 'Edit', edit_story_path(story) %></td>
+        <td><%= link_to 'Destroy', story, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
+<% if User.find_by_id(session[:user_id]) %>
 <%= link_to 'New story', new_story_path %>
+<% end %>

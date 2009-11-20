@@ -2,7 +2,13 @@
   <b>Body:</b>
   <%=h @story.body %>
 </p>
-
-
-<%= link_to 'Edit', edit_story_path(@story) %> |
+<p>
+  <b>Author:</b>
+  <%= @story.user.name %>
+</p>  
+<% if session[:user_id] %>
+  <% if session[:user_id].to_i == @story.user.id.to_i  || User.find(session[:user_id]).is_admin? %>
+    <%= link_to 'Edit', edit_story_path(@story) %>
+  <% end %>
+<% end %>
 <%= link_to 'Back', stories_path %>

@@ -1,4 +1,7 @@
 class StoriesController < ApplicationController
+
+  before_filter :authorize, :except => [:index, :show]
+  
   # GET /stories
   # GET /stories.xml
   def index
@@ -36,6 +39,10 @@ class StoriesController < ApplicationController
   
   # GET /stories/1/edit
   def edit
+    unless session[:user_id].to_i == params[:id].to_i  || User.find(session[:user_id]).is_admin?
+      redirect_to :controller => 'stories', :action => 'index'
+      return
+    end
     @story = Story.find(params[:id])
   end
   
@@ -43,6 +50,7 @@ class StoriesController < ApplicationController
   # POST /stories.xml
   def create
     @story = Story.new(params[:story])
+    @story.user_id = session[:user_id]
     
     respond_to do |format|
       if @story.save
@@ -59,6 +67,10 @@ class StoriesController < ApplicationController
   # PUT /stories/1
   # PUT /stories/1.xml
   def update
+    unless session[:user_id].to_i == params[:id].to_i  || User.find(session[:user_id]).is_admin?
+      redirect_to :controller => 'stories', :action => 'index'
+      return
+    end
     @story = Story.find(params[:id])
     
     respond_to do |format|
@@ -76,6 +88,10 @@ class StoriesController < ApplicationController
   # DELETE /stories/1
   # DELETE /stories/1.xml
   def destroy
+    unless session[:user_id].to_i == params[:id].to_i  || User.find(session[:user_id]).is_admin?
+      redirect_to :controller => 'stories', :action => 'index'
+      return
+    end
     @story = Story.find(params[:id])
     @story.destroy
     
@@ -84,4 +100,5 @@ class StoriesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
 end

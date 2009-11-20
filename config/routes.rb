@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :users
+
   map.connect 'stories/feed', :controller => 'stories', :action => 'index', :format => 'atom'
   map.resources :stories
 
