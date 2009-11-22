@@ -39,7 +39,7 @@ class StoriesController < ApplicationController
   
   # GET /stories/1/edit
   def edit
-    unless session[:user_id].to_i == params[:id].to_i  || User.find(session[:user_id]).is_admin?
+    unless session[:user_id].to_i == Story.find(params[:id]).user.id.to_i  || User.find(session[:user_id]).is_admin?
       redirect_to :controller => 'stories', :action => 'index'
       return
     end
@@ -88,7 +88,7 @@ class StoriesController < ApplicationController
   # DELETE /stories/1
   # DELETE /stories/1.xml
   def destroy
-    unless session[:user_id].to_i == params[:id].to_i  || User.find(session[:user_id]).is_admin?
+    unless session[:user_id].to_i == Story.find(params[:id]).user.id.to_i  || User.find(session[:user_id]).is_admin?
       redirect_to :controller => 'stories', :action => 'index'
       return
     end
