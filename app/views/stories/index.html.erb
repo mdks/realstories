@@ -12,7 +12,7 @@
     <td><%= story.user.name %></td>
     <td><%= link_to 'Show', story %></td>
     <% if session[:user_id] %>
-      <% if session[:user_id].to_i == story.user.id.to_i  || User.find(session[:user_id]).is_admin? %>
+      <% if session[:user_id].to_i == story.user.id.to_i || User.find(session[:user_id]).is_admin? %>
         <td><%= link_to 'Edit', edit_story_path(story) %></td>
         <td><%= link_to 'Destroy', story, :confirm => 'Are you sure?', :method => :delete %></td>
       <% end %>

@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
+  # anonymous can only create user
   before_filter :authorize, :except => [:new, :create]
+  # edit profile, destroy user requires auth check
+  before_filter :check_user, :except => [:index, :show, :new, :create]
   
   # GET /users
   # GET /users.xml
@@ -42,12 +45,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    # users can edit their own
-    # admin can edit any
-    unless session[:user_id].to_i == params[:id].to_i  || User.find(session[:user_id]).is_admin?
-      redirect_to :controller => 'stories', :action => 'index'
-      return
-    end
     @user = User.find(params[:id])
   end
 
@@ -60,7 +57,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         flash[:notice] = "User #{@user.name} was successfully created."
-        format.html { redirect_to(:action=>'index') }
+        format.html { redirect_to(:controller => 'stories', :action=>'index') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
@@ -72,17 +69,12 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.xml
   def update
-    unless session[:user_id].to_i == params[:id].to_i  || User.find(session[:user_id]).is_admin?
-      redirect_to :controller => 'stories', :action => 'index'
-      return
-    end
-    
     @user = User.find(params[:id])
     
     respond_to do |format|
       if @user.update_attributes(params[:user])
         flash[:notice] = "User #{@user.name} was successfully updated."
-        format.html { redirect_to(:action=>'index') }
+        format.html { redirect_to(:controller => 'stories', :action=>'index') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -93,19 +85,28 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   # DELETE /users/1.xml
+  # TODO: Delete all of user's posts too.
   def destroy
-    # no one can delete an account except admin
-    unless User.find(session[:user_id]).is_admin?
-      redirect_to :controller => 'stories', :action => 'index'
-      return
-    end
     @user = User.find(params[:id])
+    # destroy all stories!
+    @user.stories.destroy_all
+    # destroy user record!
     @user.destroy
+    # log out!
+    session[:user_id] = nil
 
     respond_to do |format|
-      format.html { redirect_to(users_url) }
+      format.html { redirect_to(:controller => 'stories', :action=>'index') }
       format.xml  { head :ok }
     end
   end
+  
+  private
+    
+    def check_user
+      unless session[:user_id].to_i == params[:id].to_i  || User.find(session[:user_id]).is_admin?
+        redirect_to :controller => 'stories', :action => 'index'
+      end
+    end
   
 end
