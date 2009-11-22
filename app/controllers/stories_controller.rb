@@ -67,7 +67,7 @@ class StoriesController < ApplicationController
   # PUT /stories/1
   # PUT /stories/1.xml
   def update
-    unless session[:user_id].to_i == params[:id].to_i  || User.find(session[:user_id]).is_admin?
+    unless session[:user_id].to_i == Story.find(params[:id]).user.id.to_i  || User.find(session[:user_id]).is_admin?
       redirect_to :controller => 'stories', :action => 'index'
       return
     end
