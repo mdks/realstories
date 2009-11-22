@@ -6127,3 +6127,25 @@ Rendering stories/index
   [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
   [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
 Completed in 33ms (View: 24, DB: 1) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-22 00:21:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 1) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 27ms (View: 16, DB: 2) | 200 OK [http://127.0.0.1/stories/1]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-22 00:21:25) [GET]
+  Parameters: {"id"=>"gdf"}
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Story with ID=gdf):
+  app/controllers/stories_controller.rb:23:in `show'
+
+Rendered rescues/_trace (112.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)

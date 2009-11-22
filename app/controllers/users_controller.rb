@@ -93,7 +93,7 @@ class UsersController < ApplicationController
     # destroy user record!
     @user.destroy
     # log out!
-    session[:user_id] = nil
+    session[:user_id] = nil if session[:user_id].to_i == params[:id].to_i
 
     respond_to do |format|
       format.html { redirect_to(:controller => 'stories', :action=>'index') }
