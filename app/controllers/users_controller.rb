@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
   # possibly unneeded filter
-  #before_filter :authorize, :except => [:new, :create, :send_reset_code, :forgot_password, :reset_password]
+  before_filter :authorize, :except => [:new, :create, :send_reset_code, :forgot_password, :reset_password]
   # edit profile, destroy user requires auth check
-  before_filter :check_user, :only => [:edit, :update, :destroy] #:except => [:index, :show, :new, :create, :send_reset_code, :forgot_password, :reset_password]
+  before_filter :check_user, :except => [:index, :show, :new, :create, :send_reset_code, :forgot_password, :reset_password]
   
   # GET /users
   # GET /users.xml
