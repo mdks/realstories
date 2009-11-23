@@ -127,7 +127,7 @@ class UsersController < ApplicationController
     # Change this to actually log user in our way
     session[:user_id] = user.id if user && user.reset_password_code_until && Time.now < user.reset_password_code_until 
     # Change this, redirect properly
-    redirect_to :controller => "users", :action => "edit", :edit => user.id
+    redirect_to :controller => "users", :action => "edit", :id => user.id
   end
   
   private
