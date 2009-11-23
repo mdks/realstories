@@ -6149,3 +6149,559 @@ ActiveRecord::RecordNotFound (Couldn't find Story with ID=gdf):
 Rendered rescues/_trace (112.0ms)
 Rendered rescues/_request_and_response (0.0ms)
 Rendering rescues/layout (not_found)
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-22 00:43:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 1) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 28ms (View: 18, DB: 0) | 200 OK [http://127.0.0.1/stories/1]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-22 00:43:27) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 34ms (View: 23, DB: 2) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-22 00:43:28) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 33ms (View: 23, DB: 2) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-22 00:43:28) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 34ms (View: 23, DB: 2) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-22 17:22:05) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 41ms (View: 30, DB: 3) | 200 OK [http://127.0.0.1/stories]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateStories (20091112195623)
+Migrating to CreateUsers (20091117223901)
+Migrating to CreateSessions (20091119063734)
+Migrating to AddUserIdToStories (20091119070842)
+Migrating to AddIsAdminToUsers (20091119082158)
+Migrating to ForgotPassword (20091123004040)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mALTER TABLE "users" ADD "reset_password_code" varchar(255)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mALTER TABLE "users" ADD "reset_password_code_until" datetime[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091123004040')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("sessions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("stories")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-22 21:55:56) [GET]
+  [4;35;1mStory Load (2.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (16.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 46ms (View: 18, DB: 19) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-22 21:56:01) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 1) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 39ms (View: 27, DB: 3) | 200 OK [http://127.0.0.1/stories/1]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-22 21:56:05) [GET]
+Rendering access/login
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-22 21:56:08) [POST]
+  Parameters: {"name"=>"jsilver", "commit"=>"Login", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "password"=>"ez"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'jsilver') LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/stories
+Completed in 16ms (DB: 1) | 302 Found [http://127.0.0.1/access/login]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-22 21:56:08) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 40ms (View: 31, DB: 3) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-11-22 21:57:04) [GET]
+  Parameters: {"id"=>"13"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/edit
+Completed in 30ms (View: 15, DB: 2) | 200 OK [http://127.0.0.1/users/13/edit]
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2009-11-22 22:39:14) [GET]
+  Parameters: {"id"=>"forgot_password"}
+
+SyntaxError (c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: syntax error, unexpected tASSOC
+...to logged_in? ? :controller => 'users', :action => 'edit', :...
+                              ^
+c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: syntax error, unexpected ',', expecting kEND
+..._in? ? :controller => 'users', :action => 'edit', :id => use...
+                              ^
+c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: syntax error, unexpected ',', expecting kEND
+...=> 'users', :action => 'edit', :id => user.id :
+                              ^
+c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: syntax error, unexpected ':', expecting kEND
+c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:127: syntax error, unexpected ',', expecting kEND
+     :controller => 'access', :action => 'login' 
+                             ^):
+  
+
+Rendered rescues/_trace (50.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2009-11-22 22:45:22) [GET]
+  Parameters: {"id"=>"forgot_password"}
+
+SyntaxError (c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: syntax error, unexpected tASSOC
+...to logged_in? ? :controller => 'users', :action => 'edit', :...
+                              ^
+c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: syntax error, unexpected ',', expecting kEND
+..._in? ? :controller => 'users', :action => 'edit', :id => use...
+                              ^
+c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: syntax error, unexpected ',', expecting kEND
+...=> 'users', :action => 'edit', :id => user.id : :controller ...
+                              ^
+c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: syntax error, unexpected ':', expecting kEND
+...on => 'edit', :id => user.id : :controller => 'access', :act...
+                              ^
+c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: syntax error, unexpected ',', expecting kEND
+....id : :controller => 'access', :action => 'login' 
+                              ^):
+  
+
+Rendered rescues/_trace (85.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2009-11-22 22:45:23) [GET]
+  Parameters: {"id"=>"forgot_password"}
+
+SyntaxError (c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: syntax error, unexpected tASSOC
+...to logged_in? ? :controller => 'users', :action => 'edit', :...
+                              ^
+c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: syntax error, unexpected ',', expecting kEND
+..._in? ? :controller => 'users', :action => 'edit', :id => use...
+                              ^
+c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: syntax error, unexpected ',', expecting kEND
+...=> 'users', :action => 'edit', :id => user.id : :controller ...
+                              ^
+c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: syntax error, unexpected ':', expecting kEND
+...on => 'edit', :id => user.id : :controller => 'access', :act...
+                              ^
+c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: syntax error, unexpected ',', expecting kEND
+....id : :controller => 'access', :action => 'login' 
+                              ^):
+  
+
+Rendered rescues/_trace (44.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2009-11-22 22:46:49) [GET]
+  Parameters: {"id"=>"forgot_password"}
+
+SyntaxError (c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: syntax error, unexpected '}', expecting ']'
+...ed_in? ? "/users/#{params[:id}/edit" : :controller => 'acces...
+                              ^
+c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: unterminated string meets end of file
+c:/Users/Jonathan/realstories/app/controllers/users_controller.rb:126: syntax error, unexpected $end, expecting '}'):
+  
+
+Rendered rescues/_trace (50.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-22 22:48:51) [GET]
+  Parameters: {"id"=>"forgot_password"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=forgot_password):
+  app/controllers/users_controller.rb:27:in `show'
+
+Rendered rescues/_trace (70.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-22 22:49:16) [GET]
+  Parameters: {"id"=>"forgot_password"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=forgot_password):
+  app/controllers/users_controller.rb:27:in `show'
+
+Rendered rescues/_trace (141.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#forgot_password (for 127.0.0.1 at 2009-11-22 22:51:48) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" IS NULL) LIMIT 1[0m
+Completed in 56ms (View: 42, DB: 1) | 200 OK [http://127.0.0.1/users/forgot_password/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-22 22:53:15) [GET]
+  Parameters: {"id"=>"send_reset_code"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=send_reset_code):
+  app/controllers/users_controller.rb:27:in `show'
+
+Rendered rescues/_trace (58.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-22 22:54:15) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Completed in 105ms (View: 20, DB: 3) | 200 OK [http://127.0.0.1/users/send_reset_code]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-22 22:54:18) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Completed in 49ms (View: 33, DB: 3) | 200 OK [http://127.0.0.1/users/send_reset_code]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-22 22:56:13) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Completed in 39ms (View: 23, DB: 3) | 200 OK [http://127.0.0.1/users/send_reset_code]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-22 22:56:14) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Completed in 38ms (View: 22, DB: 3) | 200 OK [http://127.0.0.1/users/send_reset_code]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-22 22:56:31) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/send_reset_code
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/users/send_reset_code.html.erb:
+1: <h1>Forgot Password?</h1>
+2: 
+3: <% form_for(@user) do |f| %>
+4:   <%= f.error_messages %>
+5:   
+6:   <p>
+
+    app/views/users/send_reset_code.html.erb:3
+
+Rendered rescues/_trace (149.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-22 23:06:24) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/send_reset_code
+
+ActionView::TemplateError (undefined local variable or method `forgot_password_path' for #<ActionView::Base:0x735d390>) on line #3 of app/views/users/send_reset_code.html.erb:
+1: <h1>Forgot Password?</h1>
+2: 
+3: <% form_tag(forgot_password_path, :method => "post") do %>
+4:   <p>
+5:     <%= label_tag :email %><br />
+6:     <%= text_field_tag :email %>
+
+    app/views/users/send_reset_code.html.erb:3
+
+Rendered rescues/_trace (49.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-22 23:06:45) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/send_reset_code
+
+ActionView::TemplateError (undefined local variable or method `forgot_password_path' for #<ActionView::Base:0x4763460>) on line #3 of app/views/users/send_reset_code.html.erb:
+1: <h1>Forgot Password?</h1>
+2: 
+3: <% form_tag(forgot_password_path, :method => "post") do %>
+4:   <p>
+5:     <%= label_tag :email %><br />
+6:     <%= text_field_tag :email %>
+
+    app/views/users/send_reset_code.html.erb:3
+
+Rendered rescues/_trace (51.0ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-22 23:06:54) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/send_reset_code
+
+ActionView::TemplateError (undefined local variable or method `forgot_password_path' for #<ActionView::Base:0x715a138>) on line #3 of app/views/users/send_reset_code.html.erb:
+1: <h1>Forgot Password?</h1>
+2: 
+3: <% form_tag(forgot_password_path, :method => "post") do %>
+4:   <p>
+5:     <%= label_tag :email %><br />
+6:     <%= text_field_tag :email %>
+
+    app/views/users/send_reset_code.html.erb:3
+
+Rendered rescues/_trace (120.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-22 23:06:55) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/send_reset_code
+
+ActionView::TemplateError (undefined local variable or method `forgot_password_path' for #<ActionView::Base:0x72a8ef4>) on line #3 of app/views/users/send_reset_code.html.erb:
+1: <h1>Forgot Password?</h1>
+2: 
+3: <% form_tag(forgot_password_path, :method => "post") do %>
+4:   <p>
+5:     <%= label_tag :email %><br />
+6:     <%= text_field_tag :email %>
+
+    app/views/users/send_reset_code.html.erb:3
+
+Rendered rescues/_trace (52.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-22 23:07:16) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/send_reset_code
+
+ActionView::TemplateError (undefined local variable or method `forgot_password_path' for #<ActionView::Base:0x70f6fe8>) on line #3 of app/views/users/send_reset_code.html.erb:
+1: <h1>Forgot Password?</h1>
+2: 
+3: <% form_tag(forgot_password_path, :method => "post") do %>
+4:   <p>
+5:     <%= label_tag :email %><br />
+6:     <%= text_field_tag :email %>
+
+    app/views/users/send_reset_code.html.erb:3
+
+Rendered rescues/_trace (103.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-22 23:07:26) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/send_reset_code
+
+ActionView::TemplateError (undefined local variable or method `forgot_password_path' for #<ActionView::Base:0x47932f0>) on line #3 of app/views/users/send_reset_code.html.erb:
+1: <h1>Forgot Password?</h1>
+2: 
+3: <% form_tag(forgot_password_path, :method => "post") do %>
+4:   <p>
+5:     <%= label_tag :email %><br />
+6:     <%= text_field_tag :email %>
+
+    app/views/users/send_reset_code.html.erb:3
+
+Rendered rescues/_trace (52.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-22 23:07:27) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/send_reset_code
+
+ActionView::TemplateError (undefined local variable or method `forgot_password_path' for #<ActionView::Base:0x610a120>) on line #3 of app/views/users/send_reset_code.html.erb:
+1: <h1>Forgot Password?</h1>
+2: 
+3: <% form_tag(forgot_password_path, :method => "post") do %>
+4:   <p>
+5:     <%= label_tag :email %><br />
+6:     <%= text_field_tag :email %>
+
+    app/views/users/send_reset_code.html.erb:3
+
+Rendered rescues/_trace (114.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-22 23:07:49) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/send_reset_code
+
+ActionView::TemplateError (undefined local variable or method `f' for #<ActionView::Base:0x61efcc0>) on line #9 of app/views/users/send_reset_code.html.erb:
+6:     <%= text_field_tag :email %>
+7:   </p>
+8:   <p>
+9:     <%= f.submit 'Send Reset Code' %>
+10:   </p>
+11: <% end %>
+
+    app/views/users/send_reset_code.html.erb:9
+    app/views/users/send_reset_code.html.erb:3
+
+Rendered rescues/_trace (67.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-22 23:08:29) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/send_reset_code
+Completed in 29ms (View: 12, DB: 3) | 200 OK [http://127.0.0.1/users/send_reset_code]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-22 23:08:46) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/send_reset_code
+Completed in 89ms (View: 3, DB: 2) | 200 OK [http://127.0.0.1/send_reset_code]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-22 23:13:37) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/send_reset_code
+Completed in 21ms (View: 4, DB: 2) | 200 OK [http://127.0.0.1/send_reset_code]
+
+
+Processing UsersController#forgot_password (for 127.0.0.1 at 2009-11-22 23:20:34) [POST]
+  Parameters: {"commit"=>"Send Reset Code", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "email"=>"jsilverman2@gmail.com"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'jsilverman2@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'jsilver' AND "users".id <> 13) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'jsilverman2@gmail.com' AND "users".id <> 13) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "reset_password_code" = 'c4f7914e1127892a7008912b55a7bffa2a551d44', "reset_password_code_until" = '2009-11-24 06:20:34', "updated_at" = '2009-11-23 06:20:35' WHERE "id" = 13[0m
+Sent mail to jsilverman2@gmail.com
+
+Date: Sun, 22 Nov 2009 23:20:35 -0700
+From: admin@myspyder.net
+To: jsilverman2@gmail.com
+Subject: realstories.heroku.com - Reset Password
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+jsilverman2@gmail.com,
+
+You can reset your password by using the following link http://realstories.heroku.com/reset_password/c4f7914e1127892a7008912b55a7bffa2a551d44
+Completed in 1478ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/forgot_password]

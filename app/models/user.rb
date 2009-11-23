@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   
   validate :password_non_blank
   validates_format_of :email, :with => /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/
+  validates_uniqueness_of :email
   
   def self.authenticate(name, password)
     user = self.find_by_name(name)

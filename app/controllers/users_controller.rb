@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   # anonymous can only create user
   before_filter :authorize, :except => [:new, :create]
   # edit profile, destroy user requires auth check
-  before_filter :check_user, :except => [:index, :show, :new, :create]
+  before_filter :check_user, :except => [:index, :show, :new, :create, :forgot_password, :reset_password]
   
   # GET /users
   # GET /users.xml
@@ -99,6 +99,35 @@ class UsersController < ApplicationController
       format.html { redirect_to(:controller => 'stories', :action=>'index') }
       format.xml  { head :ok }
     end
+  end
+  
+  # ???
+  def send_reset_code
+  end
+  
+  # Forgot password code
+  # Creates a reset code, saves it and then passes it to the ActionMailer
+  # TODO: Change Reset Code format
+  def forgot_password
+    user = User.find_by_email(params[:email])
+    if (user) 
+      user.reset_password_code_until = 1.day.from_now
+      user.reset_password_code =  Digest::SHA1.hexdigest( "#{user.email}#{Time.now.to_s.split(//).sort_by {rand}.join}" )
+      user.save!
+      UserNotifier.deliver_forgot_password(user)
+      render :xml => "<errors><info>Reset Password link emailed to #{user.email}.</info></errors>"
+    else
+      render :xml => "<errors><error>User not found: #{params[:email]}</error></errors>"
+    end 
+  end
+
+  # Creates a user object from the reset code
+  def reset_password
+    user = User.find_by_reset_password_code(params[:reset_code])
+    # Change this to actually log user in our way
+    session[:user_id] = user.id if user && user.reset_password_code_until && Time.now < user.reset_password_code_until 
+    # Change this, redirect properly
+    redirect_to :controller => "users", :action => "edit", :edit => user.id
   end
   
   private
