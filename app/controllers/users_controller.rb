@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
 
-  # possibly unneeded filter
-  before_filter :authorize, :except => [:new, :create, :send_reset_code, :forgot_password, :reset_password]
-  # edit profile, destroy user requires auth check
-  before_filter :check_user, :except => [:index, :show, :new, :create, :send_reset_code, :forgot_password, :reset_password]
-  
+  # up for a rewrite
+  # must be logged in to index, show, edit, update, destroy
+  #before_filter :authorize, :except => [:new, :create, :send_reset_code, :forgot_password, :reset_password]
+  #before_filter :authorize, :only => [:index, :show, :edit, :update, :destroy]
+  # must be the correct user to edit, update, destroy
+  # before_filter :check_user, :except => [:index, :show, :new, :create, :send_reset_code, :forgot_password, :reset_password]
+  before_filter :check_user, :only => [:edit, :update, :destroy]
   # GET /users
   # GET /users.xml
   # Admins only
