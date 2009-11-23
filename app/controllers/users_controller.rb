@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
-  # anonymous can only create user
-  before_filter :authorize, :except => [:new, :create]
+  # possibly unneeded filter
+  #before_filter :authorize, :except => [:new, :create, :send_reset_code, :forgot_password, :reset_password]
   # edit profile, destroy user requires auth check
-  before_filter :check_user, :except => [:index, :show, :new, :create, :forgot_password, :reset_password]
+  before_filter :check_user, :only => [:edit, :update, :destroy] #:except => [:index, :show, :new, :create, :send_reset_code, :forgot_password, :reset_password]
   
   # GET /users
   # GET /users.xml
@@ -101,10 +101,6 @@ class UsersController < ApplicationController
     end
   end
   
-  # ???
-  def send_reset_code
-  end
-  
   # Forgot password code
   # Creates a reset code, saves it and then passes it to the ActionMailer
   # TODO: Change Reset Code format
@@ -115,9 +111,11 @@ class UsersController < ApplicationController
       user.reset_password_code =  Digest::SHA1.hexdigest( "#{user.email}#{Time.now.to_s.split(//).sort_by {rand}.join}" )
       user.save!
       UserNotifier.deliver_forgot_password(user)
-      render :xml => "<errors><info>Reset Password link emailed to #{user.email}.</info></errors>"
+      flash[:notice] = "Reset Password link emailed to #{user.email}"
+      redirect_to :controller => 'stories', :action => 'index'
     else
-      render :xml => "<errors><error>User not found: #{params[:email]}</error></errors>"
+      flash[:notice] = "User not found: #{user.email}"
+      redirect_to :controller => 'stories', :action => 'index'
     end 
   end
 

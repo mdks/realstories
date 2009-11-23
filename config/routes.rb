@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.forgot_password '/forgot_password', :controller => 'users', :action => 'forgot_password'
-  map.connect '/send_reset_code', :controller => 'users', :action => 'send_reset_code'
-  map.connect '/reset_password/:reset_code', :controller => 'users', :action => 'reset_password'
+  map.send_reset_code '/send_reset_code', :controller => 'users', :action => 'send_reset_code'
+  map.reset_password '/reset_password/:reset_code', :controller => 'users', :action => 'reset_password'
   
   map.resources :users
 

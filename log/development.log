@@ -6720,3 +6720,814 @@ Rendering stories/index
   [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
   [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
 Completed in 97ms (View: 59, DB: 4) | 200 OK [http://127.0.0.1/]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 00:46:23) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/send_reset_code
+Completed in 16ms (View: 3, DB: 2) | 200 OK [http://127.0.0.1/send_reset_code]
+
+
+Processing UsersController#forgot_password (for 127.0.0.1 at 2009-11-23 01:12:52) [POST]
+  Parameters: {"commit"=>"Send Reset Code", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "email"=>"jsilverman2@gmail.com"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'jsilverman2@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'jsilver' AND "users".id <> 13) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'jsilverman2@gmail.com' AND "users".id <> 13) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "reset_password_code" = 'a4528efaf9e94df568c0e1eb48a92628990bedcd', "reset_password_code_until" = '2009-11-24 08:12:52', "updated_at" = '2009-11-23 08:12:52' WHERE "id" = 13[0m
+Sent mail to jsilverman2@gmail.com
+
+Date: Mon, 23 Nov 2009 01:12:52 -0700
+From: admin@realstories.heroku.com
+To: jsilverman2@gmail.com
+Subject: realstories.heroku.com - Reset Password
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+jsilverman2@gmail.com,
+
+You can reset your password by using the following link http://realstories.heroku.com/reset_password/a4528efaf9e94df568c0e1eb48a92628990bedcd
+Redirected to http://127.0.0.1:3000/stories
+Completed in 1099ms (DB: 3) | 302 Found [http://127.0.0.1/forgot_password]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 01:12:53) [GET]
+  [4;35;1mStory Load (2.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 45ms (View: 34, DB: 4) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing AccessController#logout (for 127.0.0.1 at 2009-11-23 01:13:09) [GET]
+Redirected to http://127.0.0.1:3000/stories
+Completed in 4ms (DB: 0) | 302 Found [http://127.0.0.1/access/logout]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 01:13:09) [GET]
+  [4;36;1mStory Load (2.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 34ms (View: 22, DB: 5) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:13:11) [GET]
+Rendering access/login
+Completed in 18ms (View: 15, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:15:09) [GET]
+Rendering access/login
+Completed in 16ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:17:40) [GET]
+Rendering access/login
+Completed in 12ms (View: 9, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:19:33) [GET]
+Rendering access/login
+Completed in 12ms (View: 9, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:19:35) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 12ms (DB: 2) | 302 Found [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:19:35) [GET]
+Rendering access/login
+Completed in 8ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:19:36) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 11ms (DB: 1) | 302 Found [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:19:37) [GET]
+Rendering access/login
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:19:37) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 12ms (DB: 1) | 302 Found [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:19:37) [GET]
+Rendering access/login
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:19:38) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 12ms (DB: 2) | 302 Found [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:19:38) [GET]
+Rendering access/login
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:19:46) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 11ms (DB: 2) | 302 Found [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:19:46) [GET]
+Rendering access/login
+Completed in 6ms (View: 3, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:19:47) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 11ms (DB: 1) | 302 Found [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:19:47) [GET]
+Rendering access/login
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:19:47) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 12ms (DB: 1) | 302 Found [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:19:47) [GET]
+Rendering access/login
+Completed in 6ms (View: 3, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:19:51) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 11ms (DB: 1) | 302 Found [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:19:51) [GET]
+Rendering access/login
+Completed in 7ms (View: 3, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 01:20:02) [GET]
+  [4;36;1mStory Load (2.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 33ms (View: 22, DB: 5) | 200 OK [http://127.0.0.1/]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:20:04) [GET]
+Rendering access/login
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:20:04) [POST]
+  Parameters: {"name"=>"", "commit"=>"Login", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "password"=>""}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = '') LIMIT 1[0m
+Rendering access/login
+Completed in 17ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:20:05) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 12ms (DB: 2) | 302 Found [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:20:05) [GET]
+Rendering access/login
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:21:01) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 12ms (DB: 2) | 302 Found [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:21:01) [GET]
+Rendering access/login
+
+ActionView::TemplateError (undefined local variable or method `send_reset_code_path' for #<ActionView::Base:0x5f33ae0>) on line #14 of app/views/access/login.html.erb:
+11:   <%= submit_tag "Login" %>
+12: <% end %>
+13: 
+14: <%= link_to 'Forgot Password', send_reset_code_path %>
+
+    app/views/access/login.html.erb:14
+
+Rendered rescues/_trace (49.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:21:24) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 12ms (DB: 1) | 302 Found [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:21:24) [GET]
+Rendering access/login
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:21:24) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 11ms (DB: 1) | 302 Found [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:21:25) [GET]
+Rendering access/login
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:21:25) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 9ms (DB: 0) | 302 Found [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:21:25) [GET]
+Rendering access/login
+Completed in 6ms (View: 3, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:21:25) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 12ms (DB: 1) | 302 Found [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:21:25) [GET]
+Rendering access/login
+Completed in 6ms (View: 3, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:22:04) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 11ms (DB: 1) | 302 Found [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:22:04) [GET]
+Rendering access/login
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:22:05) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 11ms (DB: 1) | 302 Found [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:22:05) [GET]
+Rendering access/login
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:23:45) [GET]
+Rendering template within layouts/users
+Rendering users/send_reset_code
+Completed in 9ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/send_reset_code]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:24:04) [GET]
+Rendering template within layouts/users
+Rendering users/send_reset_code
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/send_reset_code]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:24:06) [GET]
+Rendering template within layouts/users
+Rendering users/send_reset_code
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/send_reset_code]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:24:14) [GET]
+Rendering template within layouts/users
+Rendering users/send_reset_code
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/send_reset_code]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 01:24:18) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 34ms (View: 23, DB: 2) | 200 OK [http://127.0.0.1/]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:24:20) [GET]
+Rendering access/login
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:24:25) [POST]
+  Parameters: {"name"=>"jsilver", "commit"=>"Login", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "password"=>"ez"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'jsilver') LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/send_reset_code
+Completed in 16ms (DB: 2) | 302 Found [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:24:25) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/send_reset_code
+Completed in 19ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/send_reset_code]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:24:34) [POST]
+  Parameters: {"name"=>"jsilver", "commit"=>"Login", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "password"=>"ez"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'jsilver') LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/stories
+Completed in 83ms (DB: 1) | 302 Found [http://127.0.0.1/access/login]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 01:24:34) [GET]
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 39ms (View: 32, DB: 1) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing AccessController#logout (for 127.0.0.1 at 2009-11-23 01:24:37) [GET]
+Redirected to http://127.0.0.1:3000/stories
+Completed in 4ms (DB: 0) | 302 Found [http://127.0.0.1/access/logout]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 01:24:37) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 35ms (View: 22, DB: 5) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:24:38) [GET]
+Rendering access/login
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:24:43) [POST]
+  Parameters: {"name"=>"jsilver", "commit"=>"Login", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "password"=>"ez"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'jsilver') LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/stories
+Completed in 16ms (DB: 2) | 302 Found [http://127.0.0.1/access/login]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 01:24:43) [GET]
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 50ms (View: 35, DB: 6) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-11-23 01:24:45) [GET]
+  Parameters: {"id"=>"13"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/edit
+Completed in 33ms (View: 18, DB: 2) | 200 OK [http://127.0.0.1/users/13/edit]
+
+
+Processing AccessController#logout (for 127.0.0.1 at 2009-11-23 01:24:49) [GET]
+Redirected to http://127.0.0.1:3000/stories
+Completed in 4ms (DB: 1) | 302 Found [http://127.0.0.1/access/logout]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 01:24:49) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 33ms (View: 20, DB: 5) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:24:51) [GET]
+Rendering access/login
+Completed in 84ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:24:53) [GET]
+Rendering template within layouts/users
+Rendering users/send_reset_code
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/send_reset_code]
+
+
+Processing UsersController#forgot_password (for 127.0.0.1 at 2009-11-23 01:24:58) [POST]
+  Parameters: {"commit"=>"Send Reset Code", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "email"=>"jsilverman2@gmail.com"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 11ms (DB: 1) | 302 Found [http://127.0.0.1/forgot_password]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:24:58) [GET]
+Rendering access/login
+Completed in 8ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:25:07) [GET]
+Rendering template within layouts/users
+Rendering users/send_reset_code
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/send_reset_code]
+
+
+Processing UsersController#forgot_password (for 127.0.0.1 at 2009-11-23 01:25:23) [POST]
+  Parameters: {"commit"=>"Send Reset Code", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "email"=>"jsilverman2@gmail.com"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'jsilverman2@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'jsilver' AND "users".id <> 13) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'jsilverman2@gmail.com' AND "users".id <> 13) LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "reset_password_code" = '35df57d7ce71606315089bd3426cc86270adb725', "reset_password_code_until" = '2009-11-24 08:25:23', "updated_at" = '2009-11-23 08:25:23' WHERE "id" = 13[0m
+Sent mail to jsilverman2@gmail.com
+
+Date: Mon, 23 Nov 2009 01:25:23 -0700
+From: admin@realstories.heroku.com
+To: jsilverman2@gmail.com
+Subject: realstories.heroku.com - Reset Password
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+jsilverman2@gmail.com,
+
+You can reset your password by using the following link http://realstories.heroku.com/reset_password/35df57d7ce71606315089bd3426cc86270adb725
+Redirected to http://127.0.0.1:3000/stories
+Completed in 1127ms (DB: 2) | 302 Found [http://127.0.0.1/forgot_password]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 01:25:24) [GET]
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 34ms (View: 21, DB: 5) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-23 01:30:26) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 12ms (DB: 2) | 302 Found [http://127.0.0.1/users]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:30:26) [GET]
+Rendering access/login
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-23 01:32:23) [GET]
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+
+ActionView::TemplateError (Couldn't find User without an ID) on line #11 of app/views/users/index.html.erb:
+8: <% @users.each do |user| %>
+9:   <tr>
+10:     <td><%=h user.name %></td>
+11:     <% if session[:user_id].to_i == user.id.to_i || User.find(session[:user_id]).is_admin? %>
+12:     <td><%= link_to 'Show', user %></td>
+13:     <td><%= link_to 'Edit', edit_user_path(user) %></td>
+14:     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+
+    app/views/users/index.html.erb:11
+    app/views/users/index.html.erb:8:in `each'
+    app/views/users/index.html.erb:8
+    app/controllers/users_controller.rb:17:in `index'
+
+Rendered rescues/_trace (127.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-23 01:33:11) [GET]
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+
+ActionView::TemplateError (Couldn't find User without an ID) on line #24 of app/views/users/index.html.erb:
+21: 
+22: <br />
+23: 
+24: <% if User.find(session[:user_id]).is_admin? %>
+25: <%= link_to 'New user', new_user_path %>
+26: <% end %>
+
+    app/views/users/index.html.erb:24
+    app/controllers/users_controller.rb:17:in `index'
+
+Rendered rescues/_trace (68.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-23 01:33:28) [GET]
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 25ms (View: 14, DB: 3) | 200 OK [http://127.0.0.1/users]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 01:33:37) [GET]
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 104ms (View: 93, DB: 3) | 200 OK [http://127.0.0.1/]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:33:39) [GET]
+Rendering access/login
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing UsersController#send_reset_code (for 127.0.0.1 at 2009-11-23 01:33:40) [GET]
+Rendering template within layouts/users
+Rendering users/send_reset_code
+Completed in 8ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/send_reset_code]
+
+
+Processing UsersController#forgot_password (for 127.0.0.1 at 2009-11-23 01:33:45) [POST]
+  Parameters: {"commit"=>"Send Reset Code", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "email"=>"jsilverman2@gmail.com"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'jsilverman2@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'jsilver' AND "users".id <> 13) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'jsilverman2@gmail.com' AND "users".id <> 13) LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "reset_password_code" = 'f9bb71bcc7a0013b0e1bf83326280b1b8528382d', "reset_password_code_until" = '2009-11-24 08:33:45', "updated_at" = '2009-11-23 08:33:45' WHERE "id" = 13[0m
+Sent mail to jsilverman2@gmail.com
+
+Date: Mon, 23 Nov 2009 01:33:45 -0700
+From: admin@realstories.heroku.com
+To: jsilverman2@gmail.com
+Subject: realstories.heroku.com - Reset Password
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+jsilverman2@gmail.com,
+
+You can reset your password by using the following link http://realstories.heroku.com/reset_password/f9bb71bcc7a0013b0e1bf83326280b1b8528382d
+Redirected to http://127.0.0.1:3000/stories
+Completed in 1084ms (DB: 4) | 302 Found [http://127.0.0.1/forgot_password]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 01:33:46) [GET]
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 33ms (View: 20, DB: 5) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:33:54) [GET]
+Rendering access/login
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:33:58) [POST]
+  Parameters: {"name"=>"jsilver", "commit"=>"Login", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "password"=>"ez"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'jsilver') LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/users
+Completed in 17ms (DB: 2) | 302 Found [http://127.0.0.1/access/login]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-23 01:33:59) [GET]
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Completed in 36ms (View: 26, DB: 2) | 200 OK [http://127.0.0.1/users]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 01:34:46) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 51ms (View: 40, DB: 3) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing AccessController#logout (for 127.0.0.1 at 2009-11-23 01:34:48) [GET]
+Redirected to http://127.0.0.1:3000/stories
+Completed in 4ms (DB: 0) | 302 Found [http://127.0.0.1/access/logout]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 01:34:48) [GET]
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 34ms (View: 22, DB: 3) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:34:49) [GET]
+Rendering access/login
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:34:56) [POST]
+  Parameters: {"name"=>"jsilver", "commit"=>"Login", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "password"=>"ez"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'jsilver') LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/stories
+Completed in 16ms (DB: 2) | 302 Found [http://127.0.0.1/access/login]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 01:34:57) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 50ms (View: 39, DB: 3) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing AccessController#logout (for 127.0.0.1 at 2009-11-23 01:35:07) [GET]
+Redirected to http://127.0.0.1:3000/stories
+Completed in 4ms (DB: 1) | 302 Found [http://127.0.0.1/access/logout]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 01:35:07) [GET]
+  [4;36;1mStory Load (2.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 33ms (View: 20, DB: 5) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-23 01:35:09) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 1) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 35ms (View: 24, DB: 1) | 200 OK [http://127.0.0.1/stories/1]
+
+
+Processing StoriesController#edit (for 127.0.0.1 at 2009-11-23 01:35:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 11ms (DB: 1) | 302 Found [http://127.0.0.1/stories/1/edit]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:35:12) [GET]
+Rendering access/login
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:35:20) [GET]
+Rendering access/login
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-23 01:35:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 1) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 28ms (View: 17, DB: 2) | 200 OK [http://127.0.0.1/stories/1]
+
+
+Processing StoriesController#edit (for 127.0.0.1 at 2009-11-23 01:35:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 11ms (DB: 1) | 302 Found [http://127.0.0.1/stories/1/edit]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:35:33) [GET]
+Rendering access/login
+Completed in 6ms (View: 3, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 01:35:39) [POST]
+  Parameters: {"name"=>"jsilver", "commit"=>"Login", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "password"=>"ez"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'jsilver') LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/stories/1/edit
+Completed in 16ms (DB: 1) | 302 Found [http://127.0.0.1/access/login]
+
+
+Processing StoriesController#edit (for 127.0.0.1 at 2009-11-23 01:35:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 1) [0m
+Rendering template within layouts/stories
+Rendering stories/edit
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 40ms (View: 17, DB: 3) | 200 OK [http://127.0.0.1/stories/1/edit]

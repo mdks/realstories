@@ -1,18 +1,14 @@
-<div class="depot-form">
-  <% form_tag do %>
-    <fieldset>
-      <legend>Please Log In</legend>
-      <div>
-        <label for="name">Name:</label>
-        <%= text_field_tag :name, params[:name] %>
-      </div>
-      <div>
-        <label for="password">Password:</label>
-        <%= password_field_tag :password, params[:password] %>
-      </div>
-      <div>
-        <%= submit_tag "Login" %>
-      </div>
-    </fieldset>
-  <% end %>
-</div>
+<h1>Please Login</h1>
+<% form_tag do %>
+  <p>
+  <%= label_tag :name %>
+  <%= text_field_tag :name, params[:name] %>
+  </p>
+  <p>
+  <%= label_tag :password %>
+  <%= password_field_tag :password, params[:password] %>
+  </p>
+  <%= submit_tag "Login" %>
+<% end %>
+
+<%= link_to 'Forgot Password', send_reset_code_path %>
