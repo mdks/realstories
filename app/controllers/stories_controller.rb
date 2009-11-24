@@ -52,7 +52,7 @@ class StoriesController < ApplicationController
     @story.user_id = session[:user_id]
     
     respond_to do |format|
-      if @story.save
+      if verify_recaptcha(@user) && @story.save
         flash[:notice] = 'Story was successfully created.'
         format.html { redirect_to(@story) }
         format.xml  { render :xml => @story, :status => :created, :location => @story }

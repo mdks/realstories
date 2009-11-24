@@ -53,17 +53,16 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
-    
     respond_to do |format|
-      if @user.save
-        send_activation_code(@user)
-        flash[:notice] = "User #{@user.name} was successfully created."
-        format.html { redirect_to(:controller => 'stories', :action=>'index') }
-        format.xml  { render :xml => @user, :status => :created, :location => @user }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
-      end
+        if verify_recaptcha(@user) && @user.save
+          send_activation_code(@user)
+          flash[:notice] = "User #{@user.name} was successfully created."
+          format.html { redirect_to(:controller => 'stories', :action=>'index') }
+          format.xml  { render :xml => @user, :status => :created, :location => @user }
+        else
+          format.html { render :action => "new" }
+          format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        end
     end
   end
 
@@ -133,7 +132,7 @@ class UsersController < ApplicationController
     user = User.find_by_activation_code(params[:activation_code])
     user.is_activated = true
     user.save!
-    flash[:notice] = "Thanks for activating your account., #{user.name}"
+    flash[:notice] = "Thanks for activating your account, #{user.name}"
     flash[:notice] += " You may now log in."
     redirect_to :controller => 'access', :action => 'login'
   end   
@@ -142,13 +141,10 @@ class UsersController < ApplicationController
   
     # called by create
     def send_activation_code(user)
-      #user = User.find_by_email(email)
-      if (user) 
-        user.is_activated = false
-        user.activation_code = Digest::SHA1.hexdigest( "#{user.email}#{Time.now.to_s.split(//).sort_by {rand}.join}" + "lol" )
-        user.save!
-        UserNotifier.deliver_activation_code(user)
-      end    
+      user.is_activated = false
+      user.activation_code = Digest::SHA1.hexdigest( "#{user.email}#{Time.now.to_s.split(//).sort_by {rand}.join}" + "lol" )
+      user.save!
+      UserNotifier.deliver_activation_code(user)  
     end
     
     def check_user

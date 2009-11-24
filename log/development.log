@@ -8174,3 +8174,495 @@ Rendering stories/index
   [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
   [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
 Completed in 42ms (View: 29, DB: 5) | 200 OK [http://127.0.0.1/stories]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'jsilver') LIMIT 1[0m
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 18:05:07) [GET]
+Rendering template within layouts/users
+Rendering access/login
+Completed in 9ms (View: 6, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 18:05:10) [POST]
+  Parameters: {"name"=>"jsilver", "commit"=>"Login", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "password"=>"ez"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'jsilver') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering access/login
+Completed in 21ms (View: 4, DB: 2) | 200 OK [http://127.0.0.1/access/login]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'jsilver') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'jsilver' AND "users".id <> 13) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'jsilverman2@gmail.com' AND "users".id <> 13) LIMIT 1[0m
+  [4;36;1mUser Update (2.0ms)[0m   [0;1mUPDATE "users" SET "is_activated" = 't', "updated_at" = '2009-11-24 01:05:55' WHERE "id" = 13[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'jsilver') LIMIT 1[0m
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 18:06:59) [POST]
+  Parameters: {"name"=>"jsilver", "commit"=>"Login", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "password"=>"ez"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'jsilver') LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/stories
+Completed in 14ms (DB: 0) | 302 Found [http://127.0.0.1/access/login]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 18:06:59) [GET]
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (4.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 58ms (View: 43, DB: 7) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-11-23 18:07:02) [GET]
+  Parameters: {"id"=>"13"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/edit
+Completed in 26ms (View: 12, DB: 2) | 200 OK [http://127.0.0.1/users/13/edit]
+
+
+Processing AccessController#logout (for 127.0.0.1 at 2009-11-23 19:01:04) [GET]
+Redirected to http://127.0.0.1:3000/stories
+Completed in 4ms (DB: 1) | 302 Found [http://127.0.0.1/access/logout]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 19:01:04) [GET]
+  [4;36;1mStory Load (2.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 35ms (View: 23, DB: 4) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-23 19:01:05) [GET]
+Rendering template within layouts/users
+Rendering users/new
+
+ActionView::TemplateError (undefined local variable or method `recaptcha_tags' for #<ActionView::Base:0x61d1b6c>) on line #23 of app/views/users/new.html.erb:
+20:     <%= f.password_field :password_confirmation, :size => 40 %>
+21:   </p>
+22:   <p>
+23:     <%= recaptcha_tags %>  
+24:   </p>
+25:   <p>
+26:     <%= f.submit 'Create' %>
+
+    app/views/users/new.html.erb:23
+    app/views/users/new.html.erb:3
+    app/controllers/users_controller.rb:39:in `new'
+
+Rendered rescues/_trace (89.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-23 19:03:36) [GET]
+Rendering template within layouts/users
+Rendering users/new
+
+ActionView::TemplateError (No public key specified.) on line #23 of app/views/users/new.html.erb:
+20:     <%= f.password_field :password_confirmation, :size => 40 %>
+21:   </p>
+22:   <p>
+23:     <%= recaptcha_tags %>  
+24:   </p>
+25:   <p>
+26:     <%= f.submit 'Create' %>
+
+    app/views/users/new.html.erb:23
+    app/views/users/new.html.erb:3
+    app/controllers/users_controller.rb:39:in `new'
+
+Rendered rescues/_trace (61.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-23 19:05:59) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 89ms (View: 52, DB: 0) | 200 OK [http://127.0.0.1/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-23 19:17:26) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 23ms (View: 12, DB: 0) | 200 OK [http://127.0.0.1/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-23 19:17:44) [POST]
+  Parameters: {"user"=>{"name"=>"test", "password_confirmation"=>"asdf", "password"=>"asdf", "email"=>"test@test.com"}, "commit"=>"Create", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "recaptcha_response_field"=>"the soulless", "recaptcha_challenge_field"=>"02oOZgjGXiE5uHbCVm9yZukTgfZVeYPNPlQf944Jw2-PkZ3M14geaanpgUcEF6EruuiJeuDQfK7zgRq1Qqq97pdDVwXFAveIZAV6iFDVPFDJtuIKUXQD4IsoTwOAbWa5VPWWGAO-l0TYcqKytoB78iTclRtQm364XHrhFr30XpXxZRiG7GsAMhof0TYMUSG9Ynn_Z4ENlpXyGWmERdrIeQ99QAC7K17Cq9SLtmiIr_gdA1LA-sdXkkUY0M1xB_VGxJYvm20BkjEkOTwD7mZVmHht0mDKQB"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'test') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'test@test.com') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/new
+Completed in 491ms (View: 16, DB: 1) | 200 OK [http://127.0.0.1/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-23 19:17:53) [POST]
+  Parameters: {"user"=>{"name"=>"testing", "password_confirmation"=>"asdf", "password"=>"asdf", "email"=>"test@test.com"}, "commit"=>"Create", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "recaptcha_response_field"=>"alon asdasd", "recaptcha_challenge_field"=>"02ZjwzS-ep3fRLpQfoMteFHCmQuh7zxYqOOe9WSndxf-0990byTH0qAwsCEQ4bPQohkIbQKzIpygZDTrv1x1264NYedBHXbqiqUJt0g5XnpaDMqM-PLHiqj92U-ZV9p-hNiLrDf4zB-rpt1v1FWcVkzpY5bcnugx4rP_mvTj47Mylc8Z4IbOGG13k3BaoQ2tzetgpVBHnCLrmZUG9VAxLPLau5Ra949FvOHHq2J8wLzaE8fkTiU4SgfN1S0jcdZRGo37p855YeJor4oKOecrcHwGnWSesB"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'testing') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'test@test.com') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/new
+Completed in 325ms (View: 12, DB: 1) | 200 OK [http://127.0.0.1/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-23 19:18:00) [POST]
+  Parameters: {"user"=>{"name"=>"testing", "password_confirmation"=>"asdf", "password"=>"asdf", "email"=>"test@test.com"}, "commit"=>"Create", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "recaptcha_response_field"=>"osgood holy", "recaptcha_challenge_field"=>"02hOfjeL-js9whltbSfqaB9yGbgVSvjn9F68qTy8dyJlAuPIpFVc-TSZ9pekwkBwyqgD1jdB6swavhIBFv2I8c0K6LhxVn2N7fLTYtzcSP7UrU0TTuzVDjyzq8jYmYO2SNaqamc25SN59IML3iXy8gTq78OM0LJPRw8Ofg4N0jpsT2xYwYiZckq5V4zCBfUzuxIUAsu0Nhv4heEQyTCKGDGmEJLGL3es5nmDYU79YNERIa60NEgEZEH4okCZD3tD9h06fMDtNA5LAj_c9uO6EzObVzaPQB"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'testing') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'test@test.com') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "updated_at", "hashed_password", "is_admin", "reset_password_code_until", "activation_code", "reset_password_code", "email", "created_at", "is_activated") VALUES('testing', '509118000.474150620383589', '2009-11-24 02:18:00', '0c730e4d2804cb8d64d8f18b1c2df174ffad55a0', NULL, NULL, NULL, NULL, 'test@test.com', '2009-11-24 02:18:00', NULL)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'testing' AND "users".id <> 18) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'test@test.com' AND "users".id <> 18) LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "activation_code" = 'eeec186d82dd68efc37422d7ec7059c238a3bb10', "is_activated" = 'f', "updated_at" = '2009-11-24 02:18:00' WHERE "id" = 18[0m
+Sent mail to test@test.com
+
+Date: Mon, 23 Nov 2009 19:18:00 -0700
+From: admin@realstories.heroku.com
+To: test@test.com
+Subject: realstories.heroku.com - Activation Code
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+test@test.com,
+
+You can activate your account by using the following link http://realstories.heroku.com/activate/eeec186d82dd68efc37422d7ec7059c238a3bb10
+Redirected to http://127.0.0.1:3000/stories
+Completed in 1530ms (DB: 4) | 302 Found [http://127.0.0.1/users]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 19:18:02) [GET]
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 149ms (View: 115, DB: 3) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 19:50:48) [GET]
+Rendering template within layouts/users
+Rendering access/login
+Completed in 19ms (View: 16, DB: 1) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 19:51:20) [POST]
+  Parameters: {"name"=>"testing", "commit"=>"Login", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "password"=>"asdf"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'testing') LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/stories
+Completed in 18ms (DB: 1) | 302 Found [http://127.0.0.1/access/login]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 19:51:20) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 18) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 18) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 18) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 18) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 18) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 18) LIMIT 1[0m
+Completed in 39ms (View: 26, DB: 5) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-23 19:51:24) [GET]
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 18) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 18) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 18) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 18) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 18) [0m
+Completed in 37ms (View: 24, DB: 3) | 200 OK [http://127.0.0.1/users]
+
+
+Processing UsersController#destroy (for 127.0.0.1 at 2009-11-23 19:51:27) [DELETE]
+  Parameters: {"authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "id"=>"18"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 18) [0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".user_id = 18) [0m
+  [4;35;1mUser Destroy (1.0ms)[0m   [0mDELETE FROM "users" WHERE "id" = 18[0m
+Redirected to http://127.0.0.1:3000/stories
+Completed in 92ms (DB: 3) | 302 Found [http://127.0.0.1/users/18]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 19:51:27) [GET]
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 35ms (View: 21, DB: 5) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 19:51:37) [GET]
+Rendering template within layouts/users
+Rendering access/login
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/access/login]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-23 19:51:41) [POST]
+  Parameters: {"name"=>"jsilver", "commit"=>"Login", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "password"=>"ez"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'jsilver') LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/stories
+Completed in 17ms (DB: 1) | 302 Found [http://127.0.0.1/access/login]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 19:51:41) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 122ms (View: 107, DB: 5) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-11-23 19:51:42) [GET]
+  Parameters: {"id"=>"13"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Rendering template within layouts/users
+Rendering users/edit
+Completed in 32ms (View: 19, DB: 1) | 200 OK [http://127.0.0.1/users/13/edit]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-23 19:51:47) [GET]
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Completed in 45ms (View: 32, DB: 4) | 200 OK [http://127.0.0.1/users]
+
+
+Processing UsersController#destroy (for 127.0.0.1 at 2009-11-23 19:51:49) [DELETE]
+  Parameters: {"authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "id"=>"17"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 17) [0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories".user_id = 17) [0m
+  [4;35;1mUser Destroy (1.0ms)[0m   [0mDELETE FROM "users" WHERE "id" = 17[0m
+Redirected to http://127.0.0.1:3000/stories
+Completed in 95ms (DB: 4) | 302 Found [http://127.0.0.1/users/17]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 19:51:50) [GET]
+  [4;36;1mStory Load (2.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 51ms (View: 38, DB: 6) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-23 19:55:06) [GET]
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+Completed in 38ms (View: 25, DB: 4) | 200 OK [http://127.0.0.1/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-23 19:55:07) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 23ms (View: 10, DB: 1) | 200 OK [http://127.0.0.1/users/new]
+
+
+Processing StoriesController#new (for 127.0.0.1 at 2009-11-23 19:56:02) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Rendering template within layouts/stories
+Rendering stories/new
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 38ms (View: 17, DB: 2) | 200 OK [http://127.0.0.1/stories/new]
+
+
+Processing StoriesController#create (for 127.0.0.1 at 2009-11-23 19:56:13) [POST]
+  Parameters: {"commit"=>"Create", "story"=>{"body"=>"yo test"}, "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "recaptcha_response_field"=>"1971 filet", "recaptcha_challenge_field"=>"025uQclrG3SkSEKYWv_Mw1r-9-Q62_N6w1lylsiK0MfmjhM1c8YRbeprcFLM7eiL_NpB5TTrCBfXfTMsKGRFnMsccdIFFs13lWwtAeXmoeVG-u3opQFObLTjEZgPGDLSzVe1bEFWntRGU_no0QEdHmlP-5CfH0gL6Ohu_Wrh2mvx6UxOYJCAmDrtFpHqGBW7yuTXX08sx0RkKwbRmG1iZYksA6phyT1brMBelM-hsIjXq-J4wFcjTNmi9Myczw4SDuIYuWAnw8q6honyn4ZpZMAPyZ89oB"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mStory Create (1.0ms)[0m   [0mINSERT INTO "stories" ("updated_at", "body", "user_id", "created_at") VALUES('2009-11-24 02:56:13', 'yo test', 13, '2009-11-24 02:56:13')[0m
+Redirected to http://127.0.0.1:3000/stories/5
+Completed in 556ms (DB: 2) | 302 Found [http://127.0.0.1/stories]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-23 19:56:14) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 5) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 37ms (View: 26, DB: 1) | 200 OK [http://127.0.0.1/stories/5]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 19:56:16) [GET]
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 57ms (View: 44, DB: 5) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#new (for 127.0.0.1 at 2009-11-23 19:56:17) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Rendering template within layouts/stories
+Rendering stories/new
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 31ms (View: 10, DB: 2) | 200 OK [http://127.0.0.1/stories/new]
+
+
+Processing StoriesController#create (for 127.0.0.1 at 2009-11-23 19:56:27) [POST]
+  Parameters: {"commit"=>"Create", "story"=>{"body"=>"yo new test"}, "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "recaptcha_response_field"=>"axies devices", "recaptcha_challenge_field"=>"02hmOCY9IPMa9KiTkNF2Y5UEUhEPy06lEWs3Fofw7CkP8YYn_ss7C4XKl8XRHJAI3G8oVGbLQsTGvrw6kq6ksykdCcwhZD3uvHmbZPwyTfJj4oatlJ03ldbozwwUh8-ZJ0joXoPW1213gbntLF9aEUnz5Ku8ZQ2vh2PVxePxA-oQbVkW0Ww6tB8AUL-FhypEX6HFAU4Ar0nfoE7vaiR4QtduNC22_8-VNH89BW3SWZmj1C107yFvKyUVK9APh304lYvNywFmjM0rS1rzI6uYbPt5bsLhUB"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mStory Create (1.0ms)[0m   [0;1mINSERT INTO "stories" ("updated_at", "body", "user_id", "created_at") VALUES('2009-11-24 02:56:27', 'yo new test', 13, '2009-11-24 02:56:27')[0m
+Redirected to http://127.0.0.1:3000/stories/6
+Completed in 447ms (DB: 3) | 302 Found [http://127.0.0.1/stories]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-23 19:56:28) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 6) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 31ms (View: 21, DB: 0) | 200 OK [http://127.0.0.1/stories/6]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 19:56:29) [GET]
+  [4;35;1mStory Load (2.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 64ms (View: 52, DB: 4) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#new (for 127.0.0.1 at 2009-11-23 19:56:31) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Rendering template within layouts/stories
+Rendering stories/new
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 32ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/stories/new]
+
+
+Processing StoriesController#create (for 127.0.0.1 at 2009-11-23 19:56:36) [POST]
+  Parameters: {"commit"=>"Create", "story"=>{"body"=>"another test"}, "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "recaptcha_response_field"=>"fuck", "recaptcha_challenge_field"=>"02pWNM6ZNSXND01asjaiLFGTdplCVrzEA2-pxZBgEywI-EY4ZOILE3J8HnCsF3d3TAFrZzVPNIIOTM3uJYvh_gShoqZ2MsaQKBA35-upVANPWLYQNhIyXB0Ryk4IqIz-67HpT7MaRzKuzCcdZomi_gESXlRIrn2Wjxqo8KRUIHfs0KK02dxhphygwUJQIIYezUqitjtFgV58Nr01HSDcDTbw_OWvAIS42y3f0mTqh9-OK9SfZUcT8_T82MBKsGbkVrOagrk8dTJV41PH9vbRao1WI952AB"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Rendering template within layouts/stories
+Rendering stories/new
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 356ms (View: 10, DB: 1) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#create (for 127.0.0.1 at 2009-11-23 19:56:45) [POST]
+  Parameters: {"commit"=>"Create", "story"=>{"body"=>"another test"}, "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "recaptcha_response_field"=>"fuk fuk fuk", "recaptcha_challenge_field"=>"02hjwZz2j9fsVGNpWQ3J4kHKpGMeL4T4RIuL89ze0SCMtwyFbfPXyS5P9M7QauOMV5Q8L_F80Q717ou--yVe8kgWPyStcmldiWoqtYV0UVpy1JxOV_2kmTqRHCDiMm_hbH4a9ATHK8gVRWUpJF3ErZPhvvOJ_hn4fD22QBzeUAAv_8WHchGCzDdFBZKiKkYvYWAyh8EeZOkt5_NfgGx984kmpz855EqX9cYTmKGfzIDguA8eX1tSKDFnr2UhMfsmPxoT_BaVExKawEKVEr7YTeBvKIzQQB"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Rendering template within layouts/stories
+Rendering stories/new
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 370ms (View: 10, DB: 1) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#create (for 127.0.0.1 at 2009-11-23 20:01:07) [POST]
+  Parameters: {"commit"=>"Create", "story"=>{"body"=>"another test"}, "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "recaptcha_response_field"=>"", "recaptcha_challenge_field"=>"02f9BTQRd35v1l77VsjrrpwIbsnjTPiPbXR6iJBKrEHM9en6XryYGRnAKe_R_-wYdKDtcmhBd5kN2vZ0Ch6gZ1QX6vWIrxgQvEmMkUot7FcfpHnoiXiIwXxle2jsAEtHYH3ljr3WtNEq2RTP54Im246zKBCZUu_g3WkQDeVu5KApSjD2s2afwOLQsKDymhaJNMYMR1dD7K_9YVv3bRx2DMYqBDtcyDRVgOm3rHanOZ5jPuZXvQUBVlVsQGWcCA-hjP1N0l4MNGPFivCM9r5mz78UYdyFsB"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Rendering template within layouts/stories
+Rendering stories/new
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 416ms (View: 9, DB: 2) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#create (for 127.0.0.1 at 2009-11-23 20:01:47) [POST]
+  Parameters: {"commit"=>"Create", "story"=>{"body"=>"another test"}, "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "recaptcha_response_field"=>"", "recaptcha_challenge_field"=>"02SJj5D51uOb-a6TjCkuASjg4Volm_ukAVE5RuvgIv2u3jd-BQZ91QKNhmzAO3VwZZHi9psK2b143qmKaRkqL-1-y13B87-1ohLxRhP23oaxFYouUKzh5OT-IhSVzWPHhUa48rQVxOrE7B1qwTypAV55ZYh3bczTF4biiD1L7MgpXhwkW7zkjH3_iHOceVtfqi-GconBrHS2ujeR6srejrt1STokHG1gkGZxtmYc5DxlhvpOnmn4dFQ7q7TrdTHqdTtqHMt9vB6XBze2svhT9IsVzhdsQB"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Rendering template within layouts/stories
+Rendering stories/new
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 403ms (View: 29, DB: 1) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#create (for 127.0.0.1 at 2009-11-23 20:01:49) [POST]
+  Parameters: {"commit"=>"Create", "story"=>{"body"=>"another test"}, "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "recaptcha_response_field"=>"", "recaptcha_challenge_field"=>"02fhIjiIDm6GqPgKhyXjiymz1UUwBOqxnfhtrfAw8Hp_Cayfo2NsD7QEXvSrIsO5TrOqoWsTC3YvgRXO0mBaYHZKY2ce6KnycS-n_eoa_5jemMUEgTvNtN1FUvWiIy_KLoiAjamcwopC_3qh2aCGl1bN7xCMEVlXn4O64f70Gzrc2Qt_eILFee9iaFxyHWdqKWZdNbRmMjlFsbVyLufc73dg3hiqD3JKDLSikkvcIOAcP3nzYt8YnArrxZm235x0odgI2V7AKat55EkfqTCSezfQ6G__8B"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Rendering template within layouts/stories
+Rendering stories/new
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 3034ms (View: 10, DB: 1) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-23 20:01:57) [GET]
+  [4;36;1mStory Load (2.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 66ms (View: 53, DB: 5) | 200 OK [http://127.0.0.1/]
