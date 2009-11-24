@@ -52,10 +52,11 @@ class UsersController < ApplicationController
   # TODO: Send activation code to email provided.
   def create
     @user = User.new(params[:user])
-    send_activation_code(@user)
+
     
     respond_to do |format|
       if @user.save
+        send_activation_code(@user)
         flash[:notice] = "User #{@user.name} was successfully created."
         format.html { redirect_to(:controller => 'stories', :action=>'index') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
