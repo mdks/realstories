@@ -92,6 +92,25 @@ class StoriesController < ApplicationController
     end
   end
   
+  # add vote action
+  def vote
+    @story = Story.find(params[:id])
+    @user = User.find(session[:user_id])
+    unless @user.id == @story.user.id
+      if params[:vote].to_i == 1 then
+        @user.vote_for(@story)
+      else
+        @user.vote_against(@story)
+      end
+    else
+      flash[:notice] = "Cannot vote on own story!"
+    end
+    redirect_to :controller => 'stories', :action => 'show', :id => params[:id]
+  rescue
+    flash[:notice] = "You may only vote once!"
+    redirect_to :controller => 'stories', :action => 'show', :id => params[:id]
+  end
+  
   private
   
     def check_user

@@ -12,12 +12,12 @@
 <p style="color: green"><%= flash[:notice] %></p>
 
 <% unless User.find_by_id(session[:user_id]) %>
-  <%= link_to 'Log In', :controller => 'access', :action => 'login' %>
-  <%= link_to 'Register', :controller => 'users', :action => 'new' %>
+  <%= link_to 'Log In', login_path %>
+  <%= link_to 'Register', new_user_path %>
 <% else %>
   Welcome, <%= User.find_by_id(session[:user_id]).name %>
-  <%= link_to 'Edit Profile', :controller => 'users', :action => 'edit', :id => session[:user_id] %>
-  <%= link_to 'Log Out', :controller => 'access', :action => 'logout' %>
+  <%= link_to 'Edit Profile', edit_user_path(:id => session[:user_id]) %>
+  <%= link_to 'Log Out', logout_path %>
 <% end %>
 
 <%= yield %>

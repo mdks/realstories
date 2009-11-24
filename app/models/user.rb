@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  
+  acts_as_voter
+
   # no admins can be created when this is active
   attr_protected :is_admin
   
