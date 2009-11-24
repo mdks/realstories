@@ -1,12 +1,9 @@
 class UsersController < ApplicationController
 
-  # up for a rewrite
-  # must be logged in to index, show, edit, update, destroy
-  #before_filter :authorize, :except => [:new, :create, :send_reset_code, :forgot_password, :reset_password]
-  #before_filter :authorize, :only => [:index, :show, :edit, :update, :destroy]
   # must be the correct user to edit, update, destroy
-  # before_filter :check_user, :except => [:index, :show, :new, :create, :send_reset_code, :forgot_password, :reset_password]
+  # or else i shit you back to the index, logged in or not
   before_filter :check_user, :only => [:edit, :update, :destroy]
+  
   # GET /users
   # GET /users.xml
   # Admins only
@@ -52,10 +49,11 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.xml
-  # TODO: Email verification so users can't create tons of accounts.
+  # TODO: Send activation code to email provided.
   def create
     @user = User.new(params[:user])
-
+    send_activation_code(@user)
+    
     respond_to do |format|
       if @user.save
         flash[:notice] = "User #{@user.name} was successfully created."
@@ -130,7 +128,27 @@ class UsersController < ApplicationController
     redirect_to :controller => "users", :action => "edit", :id => user.id
   end
   
+  def activate
+    user = User.find_by_activation_code(params[:activation_code])
+    user.is_activated = true
+    user.save!
+    flash[:notice] = "Thanks for activating your account., #{user.name}"
+    flash[:notice] += " You may now log in."
+    redirect_to :controller => 'access', :action => 'login'
+  end   
+  
   private
+  
+    # called by create
+    def send_activation_code(user)
+      #user = User.find_by_email(email)
+      if (user) 
+        user.is_activated = false
+        user.activation_code = Digest::SHA1.hexdigest( "#{user.email}#{Time.now.to_s.split(//).sort_by {rand}.join}" + "lol" )
+        user.save!
+        UserNotifier.deliver_activation_code(user)
+      end    
+    end
     
     def check_user
       unless session[:user_id].to_i == params[:id].to_i  || User.find(session[:user_id]).is_admin?

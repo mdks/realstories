@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.forgot_password '/forgot_password', :controller => 'users', :action => 'forgot_password'
   map.send_reset_code '/send_reset_code', :controller => 'users', :action => 'send_reset_code'
   map.reset_password '/reset_password/:reset_code', :controller => 'users', :action => 'reset_password'
-  
+  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate'
   map.resources :users
 
   map.connect 'stories/feed', :controller => 'stories', :action => 'index', :format => 'atom'

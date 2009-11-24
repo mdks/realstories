@@ -4,6 +4,12 @@ class UserNotifier < ActionMailer::Base
     @subject    += ' - Reset Password'  
     @body[:url]  = "http://realstories.heroku.com/reset_password/#{user.reset_password_code}"
   end
+  
+  def activation_code(user)
+    setup_email(user)
+    @subject    += ' - Activation Code'  
+    @body[:url]  = "http://realstories.heroku.com/activate/#{user.activation_code}"
+  end
 
   protected
     def setup_email(user)

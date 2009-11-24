@@ -4,7 +4,7 @@
 </p>
 <p>
   <b>Author:</b>
-  <%= @story.user.name %>
+  <%=h @story.user.name %>
 </p>  
 <% if session[:user_id] %>
   <% if session[:user_id].to_i == @story.user.id.to_i  || User.find(session[:user_id]).is_admin? %>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091123004040) do
+ActiveRecord::Schema.define(:version => 20091123234324) do
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20091123004040) do
     t.boolean  "is_admin"
     t.string   "reset_password_code"
     t.datetime "reset_password_code_until"
+    t.string   "activation_code"
+    t.boolean  "is_activated"
   end
 
 end
