@@ -12345,3 +12345,279 @@ Rendering stories/show
   [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
   [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
 Completed in 40ms (View: 25, DB: 2) | 200 OK [http://127.0.0.1/stories/7]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-24 01:50:39) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 7) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 7 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 7 AND voteable_type = 'Story' AND vote = 'f') [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE ("votes".voteable_id = 7 AND "votes".voteable_type = 'Story') [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 40ms (View: 27, DB: 1) | 200 OK [http://127.0.0.1/stories/7]
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-24 01:58:26) [GET]
+  Parameters: {"id"=>"7"}
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 7) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 7 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 7 AND voteable_type = 'Story' AND vote = 'f') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE ("votes".voteable_id = 7 AND "votes".voteable_type = 'Story') [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 40ms (View: 25, DB: 3) | 200 OK [http://127.0.0.1/stories/7]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-24 01:58:27) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) LIMIT 1[0m
+Completed in 45ms (View: 30, DB: 4) | 200 OK [http://127.0.0.1/stories]
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.
+
+
+Processing AccessController#logout (for 127.0.0.1 at 2009-11-24 02:05:10) [GET]
+Redirected to http://127.0.0.1:3000/stories
+Completed in 5ms (DB: 1) | 302 Found [http://127.0.0.1/logout]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-24 02:05:10) [GET]
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 27ms (View: 18, DB: 1) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-24 02:05:11) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 25ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-24 02:05:33) [POST]
+  Parameters: {"user"=>{"name"=>"test", "password_confirmation"=>"az", "password"=>"az", "email"=>"ac@pd.com"}, "commit"=>"Create", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "recaptcha_response_field"=>"Tour roadways", "recaptcha_challenge_field"=>"024nUe_Pz0W8x0ARsInpoorCOfdryb-y-sK7AkQS7dTxAKdfuBhR2oqu2iVeRE441LCCruNrtKFXoCnCb-Z3cTjv4edvWpJEggI-oL-Z6POw3mAktdDg2a4ghrckkSUFsTwQ4GIfPyPBDKcdgAKWgKp-mWp-_6qNvFOZa4c0fZ6QJz3gRb2VFpGL6sbo8USVsiDxaBBUkd5AQD_zsKgd7dbSnB1Yek1cgxZc8Rmc4UcHKbiuK2W1obDYCR5Rog-mTr0IQJLo1XI6Hpxk13-oBKTGdKfCUB"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'test') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'ac@pd.com') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "updated_at", "hashed_password", "is_admin", "reset_password_code_until", "activation_code", "reset_password_code", "email", "created_at", "is_activated") VALUES('test', '503292700.796312308628586', '2009-11-24 09:05:34', '717ae796ee389e9371592ec060eafd2c34167df1', NULL, NULL, NULL, NULL, 'ac@pd.com', '2009-11-24 09:05:34', NULL)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'test' AND "users".id <> 19) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'ac@pd.com' AND "users".id <> 19) LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "activation_code" = 'eea0fbc5b96c4911d8a6c0bbf3a6674c86a37561', "is_activated" = 'f', "updated_at" = '2009-11-24 09:05:34' WHERE "id" = 19[0m
+Sent mail to ac@pd.com
+
+Date: Tue, 24 Nov 2009 02:05:34 -0700
+From: admin@realstories.heroku.com
+To: ac@pd.com
+Subject: realstories.heroku.com - Activation Code
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+test,
+
+You can activate your account by using the following link http://realstories.heroku.com/activate/eea0fbc5b96c4911d8a6c0bbf3a6674c86a37561
+Redirected to http://127.0.0.1:3000/stories
+Completed in 1642ms (DB: 3) | 302 Found [http://127.0.0.1/users]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-24 02:05:35) [GET]
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 27ms (View: 17, DB: 3) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing UsersController#activate (for 127.0.0.1 at 2009-11-24 02:07:18) [GET]
+  Parameters: {"activation_code"=>"eea0fbc5b96c4911d8a6c0bbf3a6674c86a37561"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."activation_code" = 'eea0fbc5b96c4911d8a6c0bbf3a6674c86a37561') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'test' AND "users".id <> 19) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'ac@pd.com' AND "users".id <> 19) LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "is_activated" = 't', "updated_at" = '2009-11-24 09:07:18' WHERE "id" = 19[0m
+Redirected to http://127.0.0.1:3000/login
+Completed in 78ms (DB: 3) | 302 Found [http://127.0.0.1/activate/eea0fbc5b96c4911d8a6c0bbf3a6674c86a37561]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-24 02:07:18) [GET]
+Rendering template within layouts/users
+Rendering access/login
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/login]
+
+
+Processing AccessController#login (for 127.0.0.1 at 2009-11-24 02:07:23) [POST]
+  Parameters: {"name"=>"test", "commit"=>"Login", "authenticity_token"=>"ZQmxH1fgDJ/eLRgkp7AuX2kbnpBi2tz0xMVcfXqoNPQ=", "password"=>"az"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'test') LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/stories
+Completed in 20ms (DB: 1) | 302 Found [http://127.0.0.1/login]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-24 02:07:23) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+Completed in 29ms (View: 20, DB: 2) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-24 02:07:26) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 7) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 7 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 7 AND voteable_type = 'Story' AND vote = 'f') [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE ("votes".voteable_id = 7 AND "votes".voteable_type = 'Story') [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+Completed in 41ms (View: 25, DB: 3) | 200 OK [http://127.0.0.1/stories/7]
+
+
+Processing StoriesController#vote (for 127.0.0.1 at 2009-11-24 02:07:29) [GET]
+  Parameters: {"vote"=>"1", "id"=>"7"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 7) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+Redirected to http://127.0.0.1:3000/stories
+Filter chain halted as [:check_user] rendered_or_redirected.
+Completed in 29ms (DB: 4) | 302 Found [http://127.0.0.1/stories/7/vote/1]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-24 02:07:29) [GET]
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+Completed in 30ms (View: 20, DB: 1) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-24 02:07:37) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 7) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 7 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 7 AND voteable_type = 'Story' AND vote = 'f') [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE ("votes".voteable_id = 7 AND "votes".voteable_type = 'Story') [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+Completed in 101ms (View: 87, DB: 3) | 200 OK [http://127.0.0.1/stories/7]
+
+
+Processing StoriesController#vote (for 127.0.0.1 at 2009-11-24 02:07:38) [GET]
+  Parameters: {"vote"=>"1", "id"=>"7"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 7) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+Redirected to http://127.0.0.1:3000/stories
+Filter chain halted as [:check_user] rendered_or_redirected.
+Completed in 29ms (DB: 5) | 302 Found [http://127.0.0.1/stories/7/vote/1]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-24 02:07:38) [GET]
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+Completed in 31ms (View: 20, DB: 1) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-24 02:08:13) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 7) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 7 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 7 AND voteable_type = 'Story' AND vote = 'f') [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE ("votes".voteable_id = 7 AND "votes".voteable_type = 'Story') [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+Completed in 41ms (View: 26, DB: 3) | 200 OK [http://127.0.0.1/stories/7]
+
+
+Processing StoriesController#vote (for 127.0.0.1 at 2009-11-24 02:08:15) [GET]
+  Parameters: {"vote"=>"1", "id"=>"7"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 7) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mVote Create (2.0ms)[0m   [0mINSERT INTO "votes" ("voteable_id", "voter_id", "updated_at", "vote", "voter_type", "voteable_type", "created_at") VALUES(7, 19, '2009-11-24 09:08:15', 't', 'User', 'Story', '2009-11-24 09:08:15')[0m
+Redirected to http://127.0.0.1:3000/stories/7
+Completed in 116ms (DB: 5) | 302 Found [http://127.0.0.1/stories/7/vote/1]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-24 02:08:15) [GET]
+  Parameters: {"id"=>"7"}
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 7) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 7 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 7 AND voteable_type = 'Story' AND vote = 'f') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE ("votes".voteable_id = 7 AND "votes".voteable_type = 'Story') [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+Completed in 31ms (View: 18, DB: 5) | 200 OK [http://127.0.0.1/stories/7]
+
+
+Processing StoriesController#vote (for 127.0.0.1 at 2009-11-24 02:08:17) [GET]
+  Parameters: {"vote"=>"1", "id"=>"7"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 7) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mVote Create (0.0ms)[0m   [0;1mSQLite3::SQLException: SQL logic error or missing database: INSERT INTO "votes" ("voteable_id", "voter_id", "updated_at", "vote", "voter_type", "voteable_type", "created_at") VALUES(7, 19, '2009-11-24 09:08:17', 't', 'User', 'Story', '2009-11-24 09:08:17')[0m
+Redirected to http://127.0.0.1:3000/stories/7
+Completed in 57ms (DB: 6) | 302 Found [http://127.0.0.1/stories/7/vote/1]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-24 02:08:17) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 7) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 7 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 7 AND voteable_type = 'Story' AND vote = 'f') [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE ("votes".voteable_id = 7 AND "votes".voteable_type = 'Story') [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+Completed in 90ms (View: 77, DB: 5) | 200 OK [http://127.0.0.1/stories/7]
