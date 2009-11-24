@@ -10,7 +10,9 @@
 <p>
   Votes for: <%= @story.votes_for %><br />
   Votes against: <%= @story.votes_against %><br />
-  Total votes: <%= @story.votes_count %>
+  <% if @story.score %>
+  Score: <%= (@story.score * 100).to_i.to_s + "%" %>
+  <% end %>
 </p>
 
 <% if session[:user_id] %>

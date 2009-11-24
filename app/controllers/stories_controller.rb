@@ -1,3 +1,5 @@
+require 'statistics2'
+
 class StoriesController < ApplicationController
 
   # logged in
@@ -9,6 +11,8 @@ class StoriesController < ApplicationController
   # GET /stories.xml
   def index
     @stories = Story.all
+    
+    # Get scores from database and sort by    
     
     respond_to do |format|
       format.html # index.html.erb
@@ -84,6 +88,7 @@ class StoriesController < ApplicationController
   # DELETE /stories/1.xml
   def destroy
     @story = Story.find(params[:id])
+    @story.votes.destroy_all
     @story.destroy
     
     respond_to do |format|
@@ -102,6 +107,9 @@ class StoriesController < ApplicationController
       else
         @user.vote_against(@story)
       end
+      # update ci score here
+      @story.score = ci_lower_bound(@story.votes_for, @story.votes_count, 0.10)
+      @story.save!
     else
       flash[:notice] = "Cannot vote on own story!"
     end
@@ -118,5 +126,15 @@ class StoriesController < ApplicationController
         redirect_to :controller => 'stories', :action => 'index'
       end
     end
+    
+    def ci_lower_bound(pos, n, power)
+      if n == 0
+        return 0
+      end
+      z = Statistics2.pnormaldist(1-power/2)
+      phat = 1.0*pos/n
+      (phat + z*z/(2*n) - z * Math.sqrt((phat*(1-phat)+z*z/(4*n))/n))/(1+z*z/n)
+    end
+
   
 end
