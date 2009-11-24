@@ -1,4 +1,4 @@
-require 'statistics2'
+require "#{RAILS_ROOT}/lib/statistics2"
 
 class StoriesController < ApplicationController
 

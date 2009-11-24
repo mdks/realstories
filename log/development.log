@@ -14001,3 +14001,68 @@ Rendering stories/show
   [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
   [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
 Completed in 40ms (View: 22, DB: 5) | 200 OK [http://127.0.0.1/stories/9]
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2009-11-24 16:20:18) [GET]
+  Parameters: {"id"=>"9"}
+
+MissingSourceFile (no such file to load -- #{RAILS_ROOT}/lib/statistics2):
+  app/controllers/stories_controller.rb:1
+
+Rendered rescues/_trace (49.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-24 16:20:43) [GET]
+  Parameters: {"id"=>"9"}
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 9) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 9 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 9 AND voteable_type = 'Story' AND vote = 'f') [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+Completed in 41ms (View: 25, DB: 4) | 200 OK [http://127.0.0.1/stories/9]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-11-24 16:20:49) [GET]
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+Completed in 46ms (View: 32, DB: 4) | 200 OK [http://127.0.0.1/stories]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-24 16:20:50) [GET]
+  Parameters: {"id"=>"9"}
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 9) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 13) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 9 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 9 AND voteable_type = 'Story' AND vote = 'f') [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+Completed in 114ms (View: 23, DB: 5) | 200 OK [http://127.0.0.1/stories/9]
+
+
+Processing StoriesController#show (for 127.0.0.1 at 2009-11-24 16:20:52) [GET]
+  Parameters: {"id"=>"8"}
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 8) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 8 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 8 AND voteable_type = 'Story' AND vote = 'f') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 19) LIMIT 1[0m
+Completed in 40ms (View: 26, DB: 2) | 200 OK [http://127.0.0.1/stories/8]
