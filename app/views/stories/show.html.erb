@@ -13,11 +13,12 @@
   Total votes: <%= @story.votes_count %>
 </p>
 
+<% if session[:user_id] %>
 <p>
 <%= link_to 'Cool story, bro (+1)', vote_path(:id => @story.id, :vote => 1) %>
 <%= link_to 'This story sucks (-1)', vote_path(:id => @story.id, :vote => 0) %>
 </p>
-
+<% end %>
 
 <% if session[:user_id] %>
   <% if session[:user_id].to_i == @story.user.id.to_i  || User.find(session[:user_id]).is_admin? %>
