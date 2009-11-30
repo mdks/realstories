@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091124221710) do
+ActiveRecord::Schema.define(:version => 20091130045108) do
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20091124221710) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.float    "score"
+    t.string   "title"
   end
 
   create_table "users", :force => true do |t|

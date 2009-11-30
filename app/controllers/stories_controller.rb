@@ -10,9 +10,53 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.xml
   def index
-    @stories = Story.all
     
-    # Get scores from database and sort by    
+    # sorting
+    if params[:order]
+      # get time
+      if params[:time] == "today"
+        time = (Time.now - 1.day).utc
+      elsif params[:time] == "week"
+        time = (Time.now - 7.days).utc
+      elsif params[:time] == "month"
+        time = (Time.now - 1.month).utc
+      else
+        # all time
+        time = 0
+      end
+      # ci score sorting
+      if params[:order] == "best"
+        # Order by Score
+        # Descending
+        if params[:sort] == "desc"
+          @stories = Story.all(:order => 'score DESC', :conditions => ["created_at >= ?", time])
+        else
+          @stories = Story.all(:order => 'score ASC', :conditions => ["created_at >= ?", time])
+        end  
+      # date sorting  
+      elsif params[:order] == "latest"
+        # Order by Newest
+         if params[:sort] == "desc"
+          @stories = Story.all(:order => 'created_at DESC', :conditions => ["created_at >= ?", time])
+        else
+          @stories = Story.all(:order => 'created_at ASC', :conditions => ["created_at >= ?", time])
+        end
+      elsif params[:order] == "lastupdated"
+        # Order by Last Updated
+         if params[:sort] == "desc"
+          @stories = Story.all(:order => 'updated_at DESC', :conditions => ["updated_at >= ?", time])
+        else
+          @stories = Story.all(:order => 'updated_at ASC', :conditions => ["updated_at >= ?", time])
+        end
+      # TODO: hits sorting
+      #elsif params[:order] == "hot"
+        # Order by Hits    
+      end  
+    else
+      # no sorting
+      @stories = Story.all
+    end
+      
     
     respond_to do |format|
       format.html # index.html.erb
@@ -54,6 +98,7 @@ class StoriesController < ApplicationController
   def create
     @story = Story.new(params[:story])
     @story.user_id = session[:user_id]
+    @story.score = 0
     
     respond_to do |format|
       if verify_recaptcha(@story) && @story.save

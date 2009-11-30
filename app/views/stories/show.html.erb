@@ -1,4 +1,8 @@
 <p>
+  <b>Title:</b>
+  <%=h @story.title %>
+</p>
+<p>
   <b>Body:</b>
   <%=h @story.body %>
 </p>
@@ -6,13 +10,19 @@
   <b>Author:</b>
   <%=h @story.user.name %>
 </p>  
+<p>
+  <b>Created at:</b>
+  <%=h @story.created_at %>
+</p>
+<p>
+  <b>Last updated:</b>
+  <%=h @story.updated_at %>
+</p>
 
 <p>
   Votes for: <%= @story.votes_for %><br />
   Votes against: <%= @story.votes_against %><br />
-  <% if @story.score %>
-  Score: <%= (@story.score * 100).to_i.to_s + "%" %>
-  <% end %>
+  Score: <%= @story.score %>
 </p>
 
 <% if session[:user_id] %>
@@ -24,7 +34,8 @@
 
 <% if session[:user_id] %>
   <% if session[:user_id].to_i == @story.user.id.to_i  || User.find(session[:user_id]).is_admin? %>
-    <%= link_to 'Edit', edit_story_path(@story) %>
+    <%= link_to 'Edit', edit_story_path(@story) %> | 
+    <%= link_to 'Destroy', @story, :confirm => 'Are you sure?', :method => :delete %> |
   <% end %>
 <% end %>
 

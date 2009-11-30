@@ -7,9 +7,12 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
 
   # feed routes
-  map.connect 'stories/feed', :controller => 'stories', :action => 'index', :format => 'atom'
+  #map.connect '/stories/feed', :controller => 'stories', :action => 'index', :format => 'atom'
   # voting routes
   map.vote '/stories/:id/vote/:vote', :controller => 'stories', :action => 'vote'
+  # sorting, with time
+  map.sort '/stories/sort/:order/:sort/:time', :controller => 'stories', :action => 'index'
+  map.connect '/stories/sort/:order/:sort/:time.:format', :controller => 'stories', :action => 'index'
   map.resources :stories
 
 
