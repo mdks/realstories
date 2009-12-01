@@ -4,11 +4,33 @@
   <tr>
     <th>Title</th>
     <th>Author</th>
-    <% if params[:sort] == 'desc' then sort = 'asc' else sort = 'desc' end %>
-    <th><%= link_to 'Score', sort_path(:order => 'best', :time => 'today', :sort => sort) %></th>
-    <th><%= link_to 'Created At', sort_path(:order => 'latest', :time => 'today', :sort => sort) %></th>
-    <th><%= link_to 'Last Updated', sort_path(:order => 'lastupdated', :time => 'today', :sort => sort) %></th>
+    <% # if params[:sort] == 'desc' then sort = 'asc' else sort = 'desc' end %>
+    <th>
+      Score
+      <%= link_to '^', sort_path(:order => 'best', :time => 'all', :sort => 'asc') %> 
+      <%= link_to '\/', sort_path(:order => 'best', :time => 'all', :sort => 'desc') %>
+      
+    </th>
+    <th>
+      Created At
+      <%= link_to '^', sort_path(:order => 'latest', :time => 'all', :sort => 'asc') %> 
+      <%= link_to '\/', sort_path(:order => 'latest', :time => 'all', :sort => 'desc') %>
+    </th>
+    <th>
+      Last Updated
+      <%= link_to '^', sort_path(:order => 'lastupdated', :time => 'all', :sort => 'asc') %> 
+      <%= link_to '\/', sort_path(:order => 'lastupdated', :time => 'all', :sort => 'desc') %>
+    </th>
   </tr>
+
+<% if params[:order] %>
+  <tr>
+    <th><%= link_to 'Today', sort_path(:order => params[:order], :time => 'today', :sort => params[:sort]) %></th>
+    <th><%= link_to 'This Week', sort_path(:order => params[:order], :time => 'week', :sort => params[:sort]) %></th>
+    <th><%= link_to 'This Month', sort_path(:order => params[:order], :time => 'month', :sort => params[:sort]) %></th>
+    <th><%= link_to 'All Time', sort_path(:order => params[:order], :time => 'all', :sort => params[:sort]) %></th>
+  </tr>
+<% end %>
 
 <% @stories.each do |story| %>
   <tr>
