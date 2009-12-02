@@ -21,8 +21,8 @@ class StoriesController < ApplicationController
       elsif params[:time] == "month"
         time = (Time.now - 1.month).utc
       else
-        # all time
-        time = 0
+        # TODO: Generate a date from 01-01-2009
+        time = Time.utc(2009, 01, 01)
       end
       # ci score sorting
       if params[:order] == "best"
