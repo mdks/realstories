@@ -19,11 +19,14 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
+  config.gem 'authlogic', :version => '>= 2.1.3'
+  config.gem 'rpx_now', :version => '>= 0.6.11', :source => 'http://gemcutter.org'
+  config.gem 'authlogic_rpx', :version => '>= 1.0.4', :source => 'http://gemcutter.org'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
-  config.action_controller.session_store = :active_record_store 
+  # config.action_controller.session_store = :active_record_store 
   # Skip frameworks you're not going to use. To use Rails without a database,
   # you must remove the Active Record framework.
   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
@@ -38,7 +41,11 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+  # remove these if source is posted
   ENV['RECAPTCHA_PUBLIC_KEY']  = '6Ld5lwkAAAAAAFWUJsL2Ph_PC1bhShyNN74QacNx'
   ENV['RECAPTCHA_PRIVATE_KEY'] = '6Ld5lwkAAAAAADC02Pe02avlt4dyN7muiapF-lU_'
 
+  ENV['RPX_API_KEY'] = '76959c3e485a41b7c16b041fe216aef19572f5ed'
+  RPX_API_KEY = ENV['RPX_API_KEY']
+  RPX_APP_NAME = 'realstories'
 end

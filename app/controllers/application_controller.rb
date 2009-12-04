@@ -7,19 +7,50 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  filter_parameter_logging :password, :password_confirmation
   
-  protected
-    # if there is no user id in the session, user isnt logged in
-    def logged_in?
-      User.find_by_id(session[:user_id])
+  helper_method :current_user, :current_user_session
+  
+  private
+  
+	def current_user_session
+		return @current_user_session if defined?(@current_user_session)
+		@current_user_session = UserSession.find
+	end
+
+	def current_user
+		return @current_user if defined?(@current_user)
+		@current_user = current_user_session && current_user_session.record
+	end
+	
+  def require_user
+    unless current_user
+      store_location
+      flash[:notice] = "Please log in"
+      redirect_to root_url
+      return false
     end
-    
-    def authorize
-      unless logged_in?
-        session[:original_uri] = request.request_uri
-        #flash[:notice] = "Please log in"
-        redirect_to :controller => 'access', :action => 'login'
-      end
+  end
+  
+  def store_location
+    session[:return_to] = request.request_uri
+  end
+
+  def clear_location
+    session[:return_to] = nil
+  end
+
+  def redirect_back_or_default(default)
+    redirect_to(session[:return_to] || default)
+    session[:return_to] = nil
+  end
+  
+  # Authorization
+  def check_user
+    unless current_user.id == Story.find(params[:id]).user.id
+      flash[:notice] = "Not allowed."
+      redirect_to root_url
     end
+  end
+  
 end

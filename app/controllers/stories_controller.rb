@@ -1,11 +1,7 @@
 require "#{RAILS_ROOT}/lib/statistics2"
-
 class StoriesController < ApplicationController
-
-  # logged in
-  before_filter :authorize, :except => [:index, :show]
-  # authorized 
-  before_filter :check_user, :except => [:index, :show, :new, :create, :vote]
+  before_filter :require_user, :except => [:index, :show]
+  before_filter :check_user, :only => [:edit, :update, :destroy]
   
   # GET /stories
   # GET /stories.xml
@@ -97,7 +93,7 @@ class StoriesController < ApplicationController
   # POST /stories.xml
   def create
     @story = Story.new(params[:story])
-    @story.user_id = session[:user_id]
+    @story.user_id = current_user.id
     @story.score = 0
     
     respond_to do |format|
@@ -145,7 +141,7 @@ class StoriesController < ApplicationController
   # add vote action
   def vote
     @story = Story.find(params[:id])
-    @user = User.find(session[:user_id])
+    @user = current_user
     unless @user.id == @story.user.id
       if params[:vote].to_i == 1 then
         @user.vote_for(@story)
@@ -166,12 +162,6 @@ class StoriesController < ApplicationController
   
   private
   
-    def check_user
-      unless session[:user_id].to_i == Story.find(params[:id]).user.id.to_i  || User.find(session[:user_id]).is_admin?
-        redirect_to :controller => 'stories', :action => 'index'
-      end
-    end
-    
     def ci_lower_bound(pos, n, power)
       if n == 0
         return 0

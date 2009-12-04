@@ -11,14 +11,14 @@
 
 <p style="color: green"><%= flash[:notice] %></p>
 
-<% unless User.find_by_id(session[:user_id]) %>
-  <%= link_to 'Log In', login_path %>
-  <%= link_to 'Register', new_user_path %>
-<% else %>
-  Welcome, <%= User.find_by_id(session[:user_id]).name %>
-  <%= link_to 'Edit Profile', edit_user_path(:id => session[:user_id]) %>
-  <%= link_to 'Log Out', logout_path %>
-<% end %>
+<div id="user_nav">
+  <% if current_user %>
+    <%= link_to 'Edit Profile', edit_user_path(:current) %>
+    <%= link_to 'Logout', logout_path %>
+  <% else %>
+    <%= rpx_popup( :link_text => "Login/Register", :app_name => RPX_APP_NAME, :return_url => user_sessions_url, :unobtrusive => false ) %>
+  <% end%>
+</div>
 
 <%= yield %>
 

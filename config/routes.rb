@@ -1,9 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  # reset code and activate code routes
-  map.forgot_password '/forgot_password', :controller => 'users', :action => 'forgot_password'
-  map.send_reset_code '/send_reset_code', :controller => 'users', :action => 'send_reset_code'
-  map.reset_password '/reset_password/:reset_code', :controller => 'users', :action => 'reset_password'
-  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate'
+  # login/logout routes
+  map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
+  map.resources :user_sessions
+  
   map.resources :users
 
   # feed routes
@@ -15,9 +14,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/stories/sort/:order/:sort/:time.:format', :controller => 'stories', :action => 'index'
   map.resources :stories
 
-
-  map.login '/login', :controller => 'access', :action => 'login'
-  map.logout '/logout', :controller => 'access', :action => 'logout'
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

@@ -4,7 +4,6 @@
   <tr>
     <th>Title</th>
     <th>Author</th>
-    <% # if params[:sort] == 'desc' then sort = 'asc' else sort = 'desc' end %>
     <th>
       Score
       <%= link_to '^', sort_path(:order => 'best', :time => 'all', :sort => 'asc') %> 
@@ -35,7 +34,7 @@
 <% @stories.each do |story| %>
   <tr>
     <td><%= link_to h(story.title), story %></td>
-    <td><%=h story.user.name %></td>
+    <td><%=h story.user.username %></td>
     <td><%= (story.score * 100).to_i.to_s + "%" %></td>
     <td><%= story.created_at %></td>
     <td><%= story.updated_at %></td>
@@ -45,6 +44,4 @@
 </table>
 
 <br />
-<% if User.find_by_id(session[:user_id]) %>
 <%= link_to 'New story', new_story_path %>
-<% end %>
