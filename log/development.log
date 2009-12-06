@@ -22104,3 +22104,77 @@ Rendering stories/index
   [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
   [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '3') LIMIT 1[0m
 Completed in 52ms (View: 38, DB: 2) | 200 OK [http://72.174.126.254/]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-12-04 16:22:36) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.length) on line #12 of app/views/layouts/stories.html.erb:
+9: </head>
+10: <body>
+11: 
+12: <p style="color: green"><%= flash[:notice] %></p>
+13: 
+14: <div id="user_nav">
+15:   <% if current_user %>
+
+    c:1:in `__send__'
+    c:1:in `flash'
+    app/views/layouts/stories.html.erb:12
+    app/controllers/stories_controller.rb:57:in `index'
+
+Rendered rescues/_trace (67.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-12-04 16:22:38) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.length) on line #12 of app/views/layouts/stories.html.erb:
+9: </head>
+10: <body>
+11: 
+12: <p style="color: green"><%= flash[:notice] %></p>
+13: 
+14: <div id="user_nav">
+15:   <% if current_user %>
+
+    c:1:in `__send__'
+    c:1:in `flash'
+    app/views/layouts/stories.html.erb:12
+    app/controllers/stories_controller.rb:57:in `index'
+
+Rendered rescues/_trace (132.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-04 16:22:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '3') LIMIT 1[0m
+Completed in 352ms (View: 312, DB: 2) | 200 OK [http://72.174.126.254/]
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.

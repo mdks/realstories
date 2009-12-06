@@ -1,7 +1,6 @@
 require "#{RAILS_ROOT}/lib/statistics2"
 class StoriesController < ApplicationController
   before_filter :require_user, :except => [:index, :show]
-  before_filter :check_user, :only => [:edit, :update, :destroy]
   
   # GET /stories
   # GET /stories.xml

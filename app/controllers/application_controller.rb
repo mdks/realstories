@@ -45,12 +45,4 @@ class ApplicationController < ActionController::Base
     session[:return_to] = nil
   end
   
-  # Authorization
-  def check_user
-    unless current_user.id == Story.find(params[:id]).user.id
-      flash[:notice] = "Not allowed."
-      redirect_to root_url
-    end
-  end
-  
 end
