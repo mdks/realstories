@@ -23,6 +23,7 @@ Rails::Initializer.run do |config|
   config.gem 'rpx_now', :version => '>= 0.6.11', :source => 'http://gemcutter.org'
   config.gem 'authlogic_rpx', :version => '>= 1.0.4', :source => 'http://gemcutter.org'
   config.gem "declarative_authorization", :source => 'http://gemcutter.org'
+  config.gem "RedCloth", :version => '>= 4.0.0', :source => 'http://gemcutter.org'
   
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

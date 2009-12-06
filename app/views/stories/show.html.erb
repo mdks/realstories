@@ -4,7 +4,7 @@
 </p>
 <p>
   <b>Body:</b>
-  <%=h @story.body %>
+  <%= white_list(RedCloth.new(@story.body, [:filter_styles]).to_html) %>
 </p>
 <p>
   <b>Author:</b>
