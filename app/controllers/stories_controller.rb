@@ -92,7 +92,9 @@ class StoriesController < ApplicationController
     @story.score = 0
     
     respond_to do |format|
-      if verify_recaptcha(@story) && @story.save
+      # easily enable recaptcha
+      #if verify_recaptcha(@story) && @story.save
+      if @story.save
         flash[:notice] = 'Story was successfully created.'
         format.html { redirect_to(@story) }
         format.xml  { render :xml => @story, :status => :created, :location => @story }
