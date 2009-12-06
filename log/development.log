@@ -24168,3 +24168,572 @@ Rendering template within layouts/stories
 Rendering stories/index
   [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
 Completed in 82ms (View: 13, DB: 4) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing StoriesController#show (for 192.168.1.1 at 2009-12-06 13:26:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"20", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 20) [0m
+  [4;35;1mRole Load (1.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 20 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 20 AND voteable_type = 'Story' AND vote = 'f') [0m
+Completed in 98ms (View: 18, DB: 5) | 200 OK [http://72.174.126.254/stories/20]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 13:48:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 158ms (View: 10, DB: 2) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 13:48:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 71ms (View: 10, DB: 1) | 200 OK [http://72.174.126.254/stories]
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.
+
+
+Processing ApplicationController#index (for 192.168.1.1 at 2009-12-06 14:22:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+
+SyntaxError (c:/Users/Jonathan/realstories/app/controllers/stories_controller.rb:54: syntax error, unexpected '\n', expecting tASSOC
+c:/Users/Jonathan/realstories/app/controllers/stories_controller.rb:169: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (45.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 192.168.1.1 at 2009-12-06 14:23:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+
+SyntaxError (c:/Users/Jonathan/realstories/app/controllers/stories_controller.rb:54: syntax error, unexpected ')', expecting tASSOC
+c:/Users/Jonathan/realstories/app/controllers/stories_controller.rb:169: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (39.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 14:24:28) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `paginate' for #<Class:0x703fbcc>):
+  app/controllers/stories_controller.rb:54:in `index'
+
+Rendered rescues/_trace (42.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 14:24:43) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (1.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" LIMIT 30 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 403ms (View: 251, DB: 3) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing StoriesController#new (for 192.168.1.1 at 2009-12-06 14:25:03) [GET]
+  Parameters: {"action"=>"new", "controller"=>"stories"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (1.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+Rendering template within layouts/stories
+Rendering stories/new
+Completed in 69ms (View: 11, DB: 1) | 200 OK [http://72.174.126.254/stories/new]
+
+
+Processing StoriesController#create (for 192.168.1.1 at 2009-12-06 14:25:05) [POST]
+  Parameters: {"commit"=>"Create", "story"=>{"body"=>"2", "title"=>"1"}, "action"=>"create", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "controller"=>"stories"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Create (2.0ms)[0m   [0;1mINSERT INTO "stories" ("score", "updated_at", "body", "title", "user_id", "created_at") VALUES(0.0, '2009-12-06 21:25:05', '2', '1', 1, '2009-12-06 21:25:05')[0m
+Redirected to http://72.174.126.254:3000/stories/22
+Completed in 213ms (DB: 3) | 302 Found [http://72.174.126.254/stories]
+
+
+Processing StoriesController#show (for 192.168.1.1 at 2009-12-06 14:25:05) [GET]
+  Parameters: {"action"=>"show", "id"=>"22", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 22) [0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 22 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 22 AND voteable_type = 'Story' AND vote = 'f') [0m
+Completed in 139ms (View: 85, DB: 0) | 200 OK [http://72.174.126.254/stories/22]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 14:25:07) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" LIMIT 30 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 70ms (View: 11, DB: 2) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 14:25:21) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" LIMIT 1 OFFSET 0[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 144ms (View: 10, DB: 2) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 14:25:22) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories", "page"=>"2"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" LIMIT 1 OFFSET 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 69ms (View: 9, DB: 4) | 200 OK [http://72.174.126.254/stories?page=2]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 14:25:24) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories", "page"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (1.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" LIMIT 1 OFFSET 0[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 78ms (View: 10, DB: 4) | 200 OK [http://72.174.126.254/stories?page=1]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:31:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" LIMIT 1 OFFSET 0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 144ms (View: 9, DB: 2) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:31:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories", "page"=>"2"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" LIMIT 1 OFFSET 1[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 79ms (View: 10, DB: 2) | 200 OK [http://72.174.126.254/stories?page=2]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:31:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories", "page"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (2.0ms)[0m   [0mSELECT * FROM "stories" LIMIT 1 OFFSET 0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 89ms (View: 13, DB: 5) | 200 OK [http://72.174.126.254/stories?page=1]
+
+
+Processing StoriesController#show (for 192.168.1.1 at 2009-12-06 15:31:56) [GET]
+  Parameters: {"action"=>"show", "id"=>"20", "controller"=>"stories"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 20) [0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 20 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 20 AND voteable_type = 'Story' AND vote = 'f') [0m
+Completed in 143ms (View: 14, DB: 2) | 200 OK [http://72.174.126.254/stories/20]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:32:01) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" LIMIT 1 OFFSET 0[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 89ms (View: 12, DB: 1) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:39:01) [GET]
+  Parameters: {"time"=>"all", "order"=>"best", "action"=>"index", "controller"=>"stories", "sort"=>"asc"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') ORDER BY score ASC[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+
+ActionView::TemplateError (undefined method `total_pages' for #<Array:0x6ef11e4>) on line #51 of app/views/stories/index.html.erb:
+48:   <%= link_to 'New story', new_story_path %>
+49: <% end %>
+50: 
+51: <%= will_paginate @stories %>
+
+    c:/Ruby/lib/ruby/gems/1.8/gems/will_paginate-2.3.11/lib/will_paginate/view_helpers.rb:197:in `total_pages_for_collection'
+    c:/Ruby/lib/ruby/gems/1.8/gems/will_paginate-2.3.11/lib/will_paginate/view_helpers.rb:98:in `will_paginate'
+    app/views/stories/index.html.erb:51
+    app/controllers/stories_controller.rb:58:in `index'
+
+Rendered rescues/_trace (59.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:40:21) [GET]
+  Parameters: {"time"=>"all", "order"=>"best", "action"=>"index", "controller"=>"stories", "sort"=>"asc"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (1.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') ORDER BY score ASC LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 85ms (View: 14, DB: 4) | 200 OK [http://72.174.126.254/stories/sort/best/asc/all]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:40:22) [GET]
+  Parameters: {"time"=>"month", "order"=>"best", "action"=>"index", "controller"=>"stories", "sort"=>"asc"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE (created_at >= '2009-11-06 22:40:22') ORDER BY score ASC LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 145ms (View: 13, DB: 1) | 200 OK [http://72.174.126.254/stories/sort/best/asc/month]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:40:24) [GET]
+  Parameters: {"time"=>"all", "order"=>"best", "action"=>"index", "controller"=>"stories", "sort"=>"asc"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (1.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') ORDER BY score ASC LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 83ms (View: 14, DB: 3) | 200 OK [http://72.174.126.254/stories/sort/best/asc/all]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:40:24) [GET]
+  Parameters: {"time"=>"all", "order"=>"latest", "action"=>"index", "controller"=>"stories", "sort"=>"desc"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') ORDER BY created_at DESC LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 78ms (View: 12, DB: 3) | 200 OK [http://72.174.126.254/stories/sort/latest/desc/all]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:40:25) [GET]
+  Parameters: {"time"=>"all", "order"=>"latest", "action"=>"index", "controller"=>"stories", "sort"=>"asc"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') ORDER BY created_at ASC LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 141ms (View: 13, DB: 2) | 200 OK [http://72.174.126.254/stories/sort/latest/asc/all]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:40:27) [GET]
+  Parameters: {"time"=>"all", "order"=>"latest", "action"=>"index", "controller"=>"stories", "sort"=>"asc"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') ORDER BY created_at ASC LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 74ms (View: 14, DB: 1) | 200 OK [http://72.174.126.254/stories/sort/latest/asc/all]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:40:27) [GET]
+  Parameters: {"time"=>"all", "order"=>"latest", "action"=>"index", "controller"=>"stories", "sort"=>"desc"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') ORDER BY created_at DESC LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 82ms (View: 14, DB: 2) | 200 OK [http://72.174.126.254/stories/sort/latest/desc/all]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:40:28) [GET]
+  Parameters: {"time"=>"all", "order"=>"latest", "action"=>"index", "controller"=>"stories", "sort"=>"asc"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (2.0ms)[0m   [0mSELECT * FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') ORDER BY created_at ASC LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 152ms (View: 13, DB: 4) | 200 OK [http://72.174.126.254/stories/sort/latest/asc/all]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:40:29) [GET]
+  Parameters: {"time"=>"all", "order"=>"best", "action"=>"index", "controller"=>"stories", "sort"=>"desc"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (1.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') ORDER BY score DESC LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 79ms (View: 14, DB: 3) | 200 OK [http://72.174.126.254/stories/sort/best/desc/all]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:40:29) [GET]
+  Parameters: {"time"=>"all", "order"=>"best", "action"=>"index", "controller"=>"stories", "sort"=>"asc"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') ORDER BY score ASC LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 88ms (View: 16, DB: 3) | 200 OK [http://72.174.126.254/stories/sort/best/asc/all]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:43:43) [GET]
+  Parameters: {"time"=>"all", "order"=>"best", "action"=>"index", "controller"=>"stories", "sort"=>"desc"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') ORDER BY score DESC LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 145ms (View: 14, DB: 2) | 200 OK [http://72.174.126.254/stories/sort/best/desc/all]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:43:44) [GET]
+  Parameters: {"time"=>"all", "order"=>"best", "action"=>"index", "controller"=>"stories", "sort"=>"asc"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') ORDER BY score ASC LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 82ms (View: 14, DB: 1) | 200 OK [http://72.174.126.254/stories/sort/best/asc/all]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:43:45) [GET]
+  Parameters: {"time"=>"month", "order"=>"best", "action"=>"index", "controller"=>"stories", "sort"=>"asc"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE (created_at >= '2009-11-06 22:43:45') ORDER BY score ASC LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 75ms (View: 15, DB: 2) | 200 OK [http://72.174.126.254/stories/sort/best/asc/month]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:43:45) [GET]
+  Parameters: {"time"=>"all", "order"=>"best", "action"=>"index", "controller"=>"stories", "sort"=>"asc"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') ORDER BY score ASC LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 144ms (View: 15, DB: 1) | 200 OK [http://72.174.126.254/stories/sort/best/asc/all]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:43:54) [GET]
+  Parameters: {"time"=>"all", "order"=>"best", "action"=>"index", "controller"=>"stories", "sort"=>"asc"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') ORDER BY score ASC LIMIT 1 OFFSET 0[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 76ms (View: 13, DB: 2) | 200 OK [http://72.174.126.254/stories/sort/best/asc/all]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:43:56) [GET]
+  Parameters: {"time"=>"all", "order"=>"best", "action"=>"index", "controller"=>"stories", "sort"=>"desc"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') ORDER BY score DESC LIMIT 1 OFFSET 0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 75ms (View: 12, DB: 2) | 200 OK [http://72.174.126.254/stories/sort/best/desc/all]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:43:57) [GET]
+  Parameters: {"time"=>"all", "order"=>"latest", "action"=>"index", "controller"=>"stories", "sort"=>"desc"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') ORDER BY created_at DESC LIMIT 1 OFFSET 0[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "stories" WHERE (created_at >= '2009-01-01 00:00:00') [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 74ms (View: 12, DB: 2) | 200 OK [http://72.174.126.254/stories/sort/latest/desc/all]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:43:58) [GET]
+  Parameters: {"time"=>"all", "order"=>"lastupdated", "action"=>"index", "controller"=>"stories", "sort"=>"asc"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" WHERE (updated_at >= '2009-01-01 00:00:00') ORDER BY updated_at ASC LIMIT 1 OFFSET 0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "stories" WHERE (updated_at >= '2009-01-01 00:00:00') [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 81ms (View: 13, DB: 3) | 200 OK [http://72.174.126.254/stories/sort/lastupdated/asc/all]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:43:59) [GET]
+  Parameters: {"time"=>"all", "order"=>"lastupdated", "action"=>"index", "controller"=>"stories", "sort"=>"asc", "page"=>"2"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE (updated_at >= '2009-01-01 00:00:00') ORDER BY updated_at ASC LIMIT 1 OFFSET 1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "stories" WHERE (updated_at >= '2009-01-01 00:00:00') [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 81ms (View: 13, DB: 1) | 200 OK [http://72.174.126.254/stories/sort/lastupdated/asc/all?page=2]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:44:00) [GET]
+  Parameters: {"time"=>"all", "order"=>"lastupdated", "action"=>"index", "controller"=>"stories", "sort"=>"asc", "page"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE (updated_at >= '2009-01-01 00:00:00') ORDER BY updated_at ASC LIMIT 1 OFFSET 0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "stories" WHERE (updated_at >= '2009-01-01 00:00:00') [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 74ms (View: 13, DB: 4) | 200 OK [http://72.174.126.254/stories/sort/lastupdated/asc/all?page=1]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:44:06) [GET]
+  Parameters: {"time"=>"all", "order"=>"lastupdated", "action"=>"index", "controller"=>"stories", "sort"=>"asc", "page"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE (updated_at >= '2009-01-01 00:00:00') ORDER BY updated_at ASC LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 76ms (View: 14, DB: 1) | 200 OK [http://72.174.126.254/stories/sort/lastupdated/asc/all?page=1]
+
+
+Processing StoriesController#show (for 192.168.1.1 at 2009-12-06 15:44:08) [GET]
+  Parameters: {"action"=>"show", "id"=>"22", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 22) [0m
+  [4;35;1mRole Load (1.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 22 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 22 AND voteable_type = 'Story' AND vote = 'f') [0m
+Completed in 136ms (View: 13, DB: 1) | 200 OK [http://72.174.126.254/stories/22]
+
+
+Processing StoriesController#destroy (for 192.168.1.1 at 2009-12-06 15:44:10) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "id"=>"22", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 22) [0m
+  [4;35;1mRole Load (1.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mVote Load (1.0ms)[0m   [0;1mSELECT * FROM "votes" WHERE ("votes".voteable_id = 22 AND "votes".voteable_type = 'Story') [0m
+  [4;35;1mVote Update (1.0ms)[0m   [0mUPDATE "votes" SET voteable_id = NULL WHERE ((voteable_id = 22) AND (voteable_type = 'Story')) [0m
+  [4;36;1mStory Destroy (1.0ms)[0m   [0;1mDELETE FROM "stories" WHERE "id" = 22[0m
+Redirected to http://72.174.126.254:3000/stories
+Completed in 155ms (DB: 6) | 302 Found [http://72.174.126.254/stories/22]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:44:11) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 68ms (View: 12, DB: 2) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing StoriesController#show (for 192.168.1.1 at 2009-12-06 15:44:12) [GET]
+  Parameters: {"action"=>"show", "id"=>"20", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 20) [0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 20 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 20 AND voteable_type = 'Story' AND vote = 'f') [0m
+Completed in 145ms (View: 14, DB: 3) | 200 OK [http://72.174.126.254/stories/20]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 15:44:14) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 75ms (View: 11, DB: 3) | 200 OK [http://72.174.126.254/stories]

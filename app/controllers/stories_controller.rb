@@ -26,24 +26,30 @@ class StoriesController < ApplicationController
         # Order by Score
         # Descending
         if params[:sort] == "desc"
-          @stories = Story.all(:order => 'score DESC', :conditions => ["created_at >= ?", time])
+          @stories = Story.paginate(:page => params[:page], 
+          :order => 'score DESC', :conditions => ["created_at >= ?", time])
         else
-          @stories = Story.all(:order => 'score ASC', :conditions => ["created_at >= ?", time])
+          @stories = Story.paginate(:page => params[:page], 
+          :order => 'score ASC', :conditions => ["created_at >= ?", time])
         end  
       # date sorting  
       elsif params[:order] == "latest"
         # Order by Newest
          if params[:sort] == "desc"
-          @stories = Story.all(:order => 'created_at DESC', :conditions => ["created_at >= ?", time])
+          @stories = Story.paginate(:page => params[:page], 
+          :order => 'created_at DESC', :conditions => ["created_at >= ?", time])
         else
-          @stories = Story.all(:order => 'created_at ASC', :conditions => ["created_at >= ?", time])
+          @stories = Story.paginate(:page => params[:page], 
+          :order => 'created_at ASC', :conditions => ["created_at >= ?", time])
         end
       elsif params[:order] == "lastupdated"
         # Order by Last Updated
          if params[:sort] == "desc"
-          @stories = Story.all(:order => 'updated_at DESC', :conditions => ["updated_at >= ?", time])
+          @stories = Story.paginate(:page => params[:page], 
+          :order => 'updated_at DESC', :conditions => ["updated_at >= ?", time])
         else
-          @stories = Story.all(:order => 'updated_at ASC', :conditions => ["updated_at >= ?", time])
+          @stories = Story.paginate(:page => params[:page], 
+          :order => 'updated_at ASC', :conditions => ["updated_at >= ?", time])
         end
       # TODO: hits sorting
       #elsif params[:order] == "hot"
@@ -51,7 +57,7 @@ class StoriesController < ApplicationController
       end  
     else
       # no sorting
-      @stories = Story.all
+      @stories = Story.paginate(:page => params[:page])
     end
       
     
