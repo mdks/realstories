@@ -15,11 +15,13 @@ class UsersController < ApplicationController
   def update
           @user = current_user
           @user.attributes = params[:user]
+          
           if @user.save
-                  flash[:notice] = "Successfully edited profile."
-                  redirect_to root_url
+            @user.assignments.create(:user_id => @user.id, :role_id => Role.find_by_name("normal").id)
+            flash[:notice] = "Successfully edited profile."
+            redirect_to root_url
           else
-                  render :action => 'edit'
+            render :action => 'edit'
           end
   end
 

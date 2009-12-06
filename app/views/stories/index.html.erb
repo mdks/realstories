@@ -44,4 +44,6 @@
 </table>
 
 <br />
-<%= link_to 'New story', new_story_path %>
+<% if permitted_to? :create, :stories %>
+  <%= link_to 'New story', new_story_path %>
+<% end %>

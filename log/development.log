@@ -22178,3 +22178,1115 @@ Completed in 352ms (View: 312, DB: 2) | 200 OK [http://72.174.126.254/]
 ** vote_fu: initialized properly.
 ** vote_fu: setting up load paths
 ** vote_fu: initialized properly.
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateStories (20091112195623)
+Migrating to CreateUsers (20091117223901)
+Migrating to CreateSessions (20091119063734)
+Migrating to AddUserIdToStories (20091119070842)
+Migrating to AddIsAdminToUsers (20091119082158)
+Migrating to ForgotPassword (20091123004040)
+Migrating to AddIsActivatedAndActivationCodeToUsers (20091123234324)
+Migrating to VoteFuMigration (20091124045007)
+Migrating to AddScoreToStories (20091124221710)
+Migrating to AddTitlesToStories (20091130045108)
+Migrating to AddIdentifierToUsers (20091202234445)
+Migrating to ChangeUserIdentifier (20091203032201)
+Migrating to RemovePasswordAndSalt (20091204051459)
+Migrating to CreateRoles (20091206084328)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091206084328')[0m
+  [4;35;1mSQL (4.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("roles")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mPRAGMA index_list("sessions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("stories")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("votes")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mPRAGMA index_info('uniq_one_vote_only')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_info('fk_voteables')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_info('fk_voters')[0m
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateStories (20091112195623)
+Migrating to CreateUsers (20091117223901)
+Migrating to CreateSessions (20091119063734)
+Migrating to AddUserIdToStories (20091119070842)
+Migrating to AddIsAdminToUsers (20091119082158)
+Migrating to ForgotPassword (20091123004040)
+Migrating to AddIsActivatedAndActivationCodeToUsers (20091123234324)
+Migrating to VoteFuMigration (20091124045007)
+Migrating to AddScoreToStories (20091124221710)
+Migrating to AddTitlesToStories (20091130045108)
+Migrating to AddIdentifierToUsers (20091202234445)
+Migrating to ChangeUserIdentifier (20091203032201)
+Migrating to RemovePasswordAndSalt (20091204051459)
+Migrating to CreateRoles (20091206084328)
+Migrating to CreateAssignments (20091206084540)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (9.0ms)[0m   [0mCREATE TABLE "assignments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "role_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091206084540')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("assignments")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("roles")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("sessions")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("stories")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("votes")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_info('uniq_one_vote_only')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_info('fk_voteables')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_info('fk_voters')[0m
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:07:16) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+
+NoMethodError (private method `current_user' called for #<StoriesController:0x6ff79a8>):
+  app/controllers/application_controller.rb:14
+
+Rendered rescues/_trace (45.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ActionController::Base#index (for 192.168.1.1 at 2009-12-06 02:08:20) [GET]
+
+NameError (uninitialized constant ApplicationController::Authentication):
+  app/controllers/application_controller.rb:5
+  app/controllers/stories_controller.rb:2
+
+Rendered rescues/_trace (120.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:12:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '3') LIMIT 1[0m
+
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :assignments in model User):
+  app/models/user.rb:17:in `role_symbols'
+  c:/Ruby/lib/ruby/gems/1.8/gems/declarative_authorization-0.4/lib/declarative_authorization/authorization.rb:242:in `roles_for'
+  c:/Ruby/lib/ruby/gems/1.8/gems/declarative_authorization-0.4/lib/declarative_authorization/authorization.rb:296:in `user_roles_privleges_from_options'
+  c:/Ruby/lib/ruby/gems/1.8/gems/declarative_authorization-0.4/lib/declarative_authorization/authorization.rb:161:in `permit!'
+  c:/Ruby/lib/ruby/gems/1.8/gems/declarative_authorization-0.4/lib/declarative_authorization/in_controller.rb:580:in `permit!'
+  c:/Ruby/lib/ruby/gems/1.8/gems/declarative_authorization-0.4/lib/declarative_authorization/in_controller.rb:109:in `filter_access_filter'
+  c:/Ruby/lib/ruby/gems/1.8/gems/declarative_authorization-0.4/lib/declarative_authorization/in_controller.rb:109:in `each'
+  c:/Ruby/lib/ruby/gems/1.8/gems/declarative_authorization-0.4/lib/declarative_authorization/in_controller.rb:109:in `all?'
+  c:/Ruby/lib/ruby/gems/1.8/gems/declarative_authorization-0.4/lib/declarative_authorization/in_controller.rb:109:in `filter_access_filter'
+
+Rendered rescues/_trace (73.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:13:50) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '3') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 3)) [0m
+Permission denied: No matching rules found for index for #<User id: 3, username: "JonathanSilverman", email: "jsilverman@gmail.com", persistence_token: "9d97126a8f7909a1e8f8e1c17ef9de09fb9c47f2ff411a1e857...", rpx_identifier: "http://www.facebook.com/profile.php?id=1572030007", created_at: "2009-12-04 06:08:22", updated_at: "2009-12-04 06:08:33"> (roles [:guest], privileges [:index], context :stories).
+Filter chain halted as [:filter_access_filter] rendered_or_redirected.
+Completed in 212ms (View: 3, DB: 0) | 403 Forbidden [http://72.174.126.254/]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:14:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '3') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 3)) [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 353ms (View: 301, DB: 2) | 200 OK [http://72.174.126.254/]
+
+
+Processing UserSessionsController#destroy (for 192.168.1.1 at 2009-12-06 02:14:59) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '3') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '3') LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 30ms (DB: 1) | 302 Found [http://72.174.126.254/logout]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:14:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 41ms (View: 11, DB: 1) | 200 OK [http://72.174.126.254/]
+
+
+Processing UserSessionsController#create (for 192.168.1.1 at 2009-12-06 02:15:05) [POST]
+  Parameters: {"action"=>"create", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "controller"=>"user_sessions"}
+Redirected to http://72.174.126.254:3000/
+Completed in 94ms (DB: 0) | 302 Found [http://72.174.126.254/user_sessions?authenticity_token=4e0QLsH1MA%2B1qsL%2BsUnv8dfgQmUrfgS8hgMjSFw8xlE%3D]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:15:05) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 41ms (View: 11, DB: 2) | 200 OK [http://72.174.126.254/]
+
+
+Processing UserSessionsController#create (for 192.168.1.1 at 2009-12-06 02:15:09) [POST]
+  Parameters: {"token"=>"c3ce885588764b623c5f907721d2ce93aaeb2991", "action"=>"create", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."rpx_identifier" = 'https://www.google.com/accounts/o8/id?id=AItOawljZGYCMuzO1dwVIEmeQdA5KVMtRbIF4qY') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'https://www.google.com/accounts/o8/id?id=AItOawljZGYCMuzO1dwVIEmeQdA5KVMtRbIF4qY' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'jsilverman2@gmail.com' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jsilverman2' AND "users".id <> 1) LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 1191ms (DB: 1) | 302 Found [http://72.174.126.254/user_sessions?authenticity_token=4e0QLsH1MA%2B1qsL%2BsUnv8dfgQmUrfgS8hgMjSFw8xlE%3D]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:15:10) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 56ms (View: 8, DB: 2) | 200 OK [http://72.174.126.254/]
+
+
+Processing StoriesController#show (for 192.168.1.1 at 2009-12-06 02:15:25) [GET]
+  Parameters: {"action"=>"show", "id"=>"16", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 16) [0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 16 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 16 AND voteable_type = 'Story' AND vote = 'f') [0m
+Completed in 97ms (View: 32, DB: 2) | 200 OK [http://72.174.126.254/stories/16]
+
+
+Processing StoriesController#edit (for 192.168.1.1 at 2009-12-06 02:15:26) [GET]
+  Parameters: {"action"=>"edit", "id"=>"16", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 16) [0m
+  [4;35;1mRole Load (1.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+Permission denied: No matching rules found for edit for #<User id: 1, username: "jsilverman2", email: "jsilverman2@gmail.com", persistence_token: "d2d0570141231d4a896ab3eb7ca18c37bbb28c79c217dd54edd...", rpx_identifier: "https://www.google.com/accounts/o8/id?id=AItOawljZG...", created_at: "2009-12-04 05:17:06", updated_at: "2009-12-04 05:17:06"> (roles [:guest], privileges [:edit], context :stories).
+Filter chain halted as [:filter_access_filter] rendered_or_redirected.
+Completed in 131ms (View: 1, DB: 3) | 403 Forbidden [http://72.174.126.254/stories/16/edit]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:15:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (1.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 80ms (View: 15, DB: 3) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing StoriesController#new (for 192.168.1.1 at 2009-12-06 02:15:46) [GET]
+  Parameters: {"action"=>"new", "controller"=>"stories"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+Permission denied: No matching rules found for new for #<User id: 1, username: "jsilverman2", email: "jsilverman2@gmail.com", persistence_token: "d2d0570141231d4a896ab3eb7ca18c37bbb28c79c217dd54edd...", rpx_identifier: "https://www.google.com/accounts/o8/id?id=AItOawljZG...", created_at: "2009-12-04 05:17:06", updated_at: "2009-12-04 05:17:06"> (roles [:guest], privileges [:new], context :stories).
+Filter chain halted as [:filter_access_filter] rendered_or_redirected.
+Completed in 64ms (View: 2, DB: 1) | 403 Forbidden [http://72.174.126.254/stories/new]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:16:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (1.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 67ms (View: 9, DB: 4) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing StoriesController#show (for 192.168.1.1 at 2009-12-06 02:16:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"16", "controller"=>"stories"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 16) [0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 16 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 16 AND voteable_type = 'Story' AND vote = 'f') [0m
+Completed in 65ms (View: 9, DB: 3) | 200 OK [http://72.174.126.254/stories/16]
+
+
+Processing StoriesController#edit (for 192.168.1.1 at 2009-12-06 02:16:23) [GET]
+  Parameters: {"action"=>"edit", "id"=>"16", "controller"=>"stories"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 16) [0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+Rendering template within layouts/stories
+Rendering stories/edit
+Completed in 79ms (View: 11, DB: 3) | 200 OK [http://72.174.126.254/stories/16/edit]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:16:28) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 77ms (View: 11, DB: 1) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:21:10) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 62ms (View: 9, DB: 1) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing UserSessionsController#destroy (for 192.168.1.1 at 2009-12-06 02:22:14) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 36ms (DB: 0) | 302 Found [http://72.174.126.254/logout]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:22:14) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 45ms (View: 13, DB: 1) | 200 OK [http://72.174.126.254/]
+
+
+Processing StoriesController#show (for 192.168.1.1 at 2009-12-06 02:22:16) [GET]
+  Parameters: {"action"=>"show", "id"=>"16", "controller"=>"stories"}
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 16) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 16 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 16 AND voteable_type = 'Story' AND vote = 'f') [0m
+Completed in 45ms (View: 10, DB: 2) | 200 OK [http://72.174.126.254/stories/16]
+
+
+Processing StoriesController#new (for 192.168.1.1 at 2009-12-06 02:22:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"stories"}
+Permission denied: No matching rules found for new for #<Authorization::GuestUser:0x7115bdc @role_symbols=[:guest]> (roles [:guest], privileges [:new], context :stories).
+Redirected to http://72.174.126.254:3000/
+Filter chain halted as [:filter_access_filter] rendered_or_redirected.
+Completed in 30ms (DB: 0) | 302 Found [http://72.174.126.254/stories/new]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:22:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 45ms (View: 11, DB: 1) | 200 OK [http://72.174.126.254/]
+
+
+Processing StoriesController#new (for 192.168.1.1 at 2009-12-06 02:22:22) [GET]
+  Parameters: {"action"=>"new", "controller"=>"stories"}
+Permission denied: No matching rules found for new for #<Authorization::GuestUser:0x6f02674 @role_symbols=[:guest]> (roles [:guest], privileges [:new], context :stories).
+Redirected to http://72.174.126.254:3000/
+Filter chain halted as [:filter_access_filter] rendered_or_redirected.
+Completed in 41ms (DB: 0) | 302 Found [http://72.174.126.254/stories/new]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:22:22) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mStory Load (2.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 46ms (View: 10, DB: 3) | 200 OK [http://72.174.126.254/]
+
+
+Processing StoriesController#new (for 192.168.1.1 at 2009-12-06 02:22:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"stories"}
+Permission denied: No matching rules found for new for #<Authorization::GuestUser:0x715bf74 @role_symbols=[:guest]> (roles [:guest], privileges [:new], context :stories).
+Redirected to http://72.174.126.254:3000/
+Filter chain halted as [:filter_access_filter] rendered_or_redirected.
+Completed in 124ms (DB: 0) | 302 Found [http://72.174.126.254/stories/new]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:22:23) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 44ms (View: 12, DB: 1) | 200 OK [http://72.174.126.254/]
+
+
+Processing StoriesController#show (for 192.168.1.1 at 2009-12-06 02:25:54) [GET]
+  Parameters: {"action"=>"show", "id"=>"16", "controller"=>"stories"}
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 16) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 16 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 16 AND voteable_type = 'Story' AND vote = 'f') [0m
+Completed in 60ms (View: 19, DB: 3) | 200 OK [http://72.174.126.254/stories/16]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:25:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 56ms (View: 13, DB: 1) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:27:18) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 150ms (View: 19, DB: 2) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing UserSessionsController#create (for 192.168.1.1 at 2009-12-06 02:27:23) [POST]
+  Parameters: {"token"=>"213926c54c2b9805446dbef632eb14a0698570f8", "action"=>"create", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."rpx_identifier" = 'https://www.google.com/accounts/o8/id?id=AItOawljZGYCMuzO1dwVIEmeQdA5KVMtRbIF4qY') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'https://www.google.com/accounts/o8/id?id=AItOawljZGYCMuzO1dwVIEmeQdA5KVMtRbIF4qY' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'jsilverman2@gmail.com' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jsilverman2' AND "users".id <> 1) LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 551ms (DB: 1) | 302 Found [http://72.174.126.254/user_sessions?authenticity_token=4e0QLsH1MA%2B1qsL%2BsUnv8dfgQmUrfgS8hgMjSFw8xlE%3D]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:27:24) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 78ms (View: 10, DB: 3) | 200 OK [http://72.174.126.254/]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:27:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 76ms (View: 17, DB: 1) | 200 OK [http://72.174.126.254/]
+
+
+Processing UserSessionsController#destroy (for 192.168.1.1 at 2009-12-06 02:27:53) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 29ms (DB: 0) | 302 Found [http://72.174.126.254/logout]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:27:53) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 45ms (View: 12, DB: 1) | 200 OK [http://72.174.126.254/]
+
+
+Processing UserSessionsController#create (for 192.168.1.1 at 2009-12-06 02:28:00) [POST]
+  Parameters: {"token"=>"6249e1a4308d148bac03ef2c84cb4c52c0bdbc50", "action"=>"create", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."rpx_identifier" = 'https://www.google.com/accounts/o8/id?id=AItOawljZGYCMuzO1dwVIEmeQdA5KVMtRbIF4qY') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'https://www.google.com/accounts/o8/id?id=AItOawljZGYCMuzO1dwVIEmeQdA5KVMtRbIF4qY' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'jsilverman2@gmail.com' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jsilverman2' AND "users".id <> 1) LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 541ms (DB: 1) | 302 Found [http://72.174.126.254/user_sessions?authenticity_token=4e0QLsH1MA%2B1qsL%2BsUnv8dfgQmUrfgS8hgMjSFw8xlE%3D]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:28:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 65ms (View: 11, DB: 3) | 200 OK [http://72.174.126.254/]
+
+
+Processing UserSessionsController#destroy (for 192.168.1.1 at 2009-12-06 02:35:37) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 115ms (DB: 0) | 302 Found [http://72.174.126.254/logout]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:35:37) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 44ms (View: 11, DB: 0) | 200 OK [http://72.174.126.254/]
+
+
+Processing UserSessionsController#create (for 192.168.1.1 at 2009-12-06 02:35:43) [POST]
+  Parameters: {"token"=>"d1fb7b5b15ceaa036585c862ab56521697171330", "action"=>"create", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007' AND "users".id <> 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'jsilverman@gmail.com' AND "users".id <> 3) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jonathansilverman' AND "users".id <> 3) LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 788ms (DB: 0) | 302 Found [http://72.174.126.254/user_sessions?authenticity_token=4e0QLsH1MA%2B1qsL%2BsUnv8dfgQmUrfgS8hgMjSFw8xlE%3D]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:35:43) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '3') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 3)) [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 67ms (View: 10, DB: 3) | 200 OK [http://72.174.126.254/]
+
+
+Processing UserSessionsController#destroy (for 192.168.1.1 at 2009-12-06 02:35:46) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '3') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '3') LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 111ms (DB: 0) | 302 Found [http://72.174.126.254/logout]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:35:46) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 44ms (View: 11, DB: 1) | 200 OK [http://72.174.126.254/]
+
+
+Processing UserSessionsController#create (for 192.168.1.1 at 2009-12-06 02:36:25) [POST]
+  Parameters: {"token"=>"90dee440840cfd6b5b3acb35c30cb74fbf87ce82", "action"=>"create", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007' AND "users".id <> 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'jsilverman@gmail.com' AND "users".id <> 3) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jonathansilverman' AND "users".id <> 3) LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 796ms (DB: 0) | 302 Found [http://72.174.126.254/user_sessions?authenticity_token=4e0QLsH1MA%2B1qsL%2BsUnv8dfgQmUrfgS8hgMjSFw8xlE%3D]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:36:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '3') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 3)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 73ms (View: 10, DB: 0) | 200 OK [http://72.174.126.254/]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:37:44) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '3') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 137ms (View: 93, DB: 1) | 200 OK [http://72.174.126.254/]
+
+
+Processing UserSessionsController#create (for 192.168.1.1 at 2009-12-06 02:37:51) [POST]
+  Parameters: {"token"=>"3c211c28bb98b209fab4527077c01bee7dbca0df", "action"=>"create", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '3') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jonathansilverman') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '9df509e2e77f267f59684b78f17e46f5b97e7f18cf7d87a8d7fd6b6308c98de540a0a54e80eb4709672527af778aed4603a5a0b6fe10df6a6924086d4fd5c469') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jonathansilverman') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("updated_at", "username", "persistence_token", "rpx_identifier", "email", "created_at") VALUES('2009-12-06 09:37:52', 'JonathanSilverman', '9df509e2e77f267f59684b78f17e46f5b97e7f18cf7d87a8d7fd6b6308c98de540a0a54e80eb4709672527af778aed4603a5a0b6fe10df6a6924086d4fd5c469', 'http://www.facebook.com/profile.php?id=1572030007', NULL, '2009-12-06 09:37:52')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007' AND "users".id <> 4) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" IS NULL AND "users".id <> 4) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jonathansilverman' AND "users".id <> 4) LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/users/current/edit
+Completed in 1641ms (DB: 4) | 302 Found [http://72.174.126.254/user_sessions?authenticity_token=4e0QLsH1MA%2B1qsL%2BsUnv8dfgQmUrfgS8hgMjSFw8xlE%3D]
+
+
+Processing UsersController#edit (for 192.168.1.1 at 2009-12-06 02:37:53) [GET]
+  Parameters: {"action"=>"edit", "id"=>"current", "controller"=>"users"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '4') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007' AND "users".id <> 4) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" IS NULL AND "users".id <> 4) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jonathansilverman' AND "users".id <> 4) LIMIT 1[0m
+Rendering users/edit
+Completed in 59ms (View: 23, DB: 2) | 200 OK [http://72.174.126.254/users/current/edit]
+
+
+Processing UsersController#update (for 192.168.1.1 at 2009-12-06 02:38:14) [PUT]
+  Parameters: {"user"=>{"username"=>"JonathanSilverman", "email"=>"jsilverman@gmail.com"}, "commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "id"=>"4", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '4') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007' AND "users".id <> 4) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'jsilverman@gmail.com' AND "users".id <> 4) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'jsilverman@gmail.com' AND "users".id <> 4) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jonathansilverman' AND "users".id <> 4) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "email" = 'jsilverman@gmail.com', "updated_at" = '2009-12-06 09:38:14' WHERE "id" = 4[0m
+
+NoMethodError (undefined method `title=' for #<Role id: nil, name: nil, created_at: nil, updated_at: nil>):
+  app/controllers/users_controller.rb:20:in `update'
+
+Rendered rescues/_trace (123.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#update (for 192.168.1.1 at 2009-12-06 02:38:46) [PUT]
+  Parameters: {"user"=>{"username"=>"JonathanSilverman", "email"=>"jsilverman@gmail.com"}, "commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "id"=>"4", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '4') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007' AND "users".id <> 4) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'jsilverman@gmail.com' AND "users".id <> 4) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jonathansilverman' AND "users".id <> 4) LIMIT 1[0m
+  [4;35;1mRole Create (1.0ms)[0m   [0mINSERT INTO "roles" ("name", "updated_at", "created_at") VALUES('normal', '2009-12-06 09:38:46', '2009-12-06 09:38:46')[0m
+  [4;36;1mAssignment Create (0.0ms)[0m   [0;1mINSERT INTO "assignments" ("updated_at", "role_id", "user_id", "created_at") VALUES('2009-12-06 09:38:46', 3, 4, '2009-12-06 09:38:46')[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 146ms (DB: 1) | 302 Found [http://72.174.126.254/users/4]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:38:46) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '4') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 4)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 62ms (View: 10, DB: 0) | 200 OK [http://72.174.126.254/]
+
+
+Processing UserSessionsController#destroy (for 192.168.1.1 at 2009-12-06 02:39:16) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '4') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '4') LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 33ms (DB: 0) | 302 Found [http://72.174.126.254/logout]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:39:16) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 116ms (View: 12, DB: 1) | 200 OK [http://72.174.126.254/]
+
+
+Processing UserSessionsController#create (for 192.168.1.1 at 2009-12-06 02:39:43) [POST]
+  Parameters: {"token"=>"f71b68328be6d47861dd716dd01e4f43fb0fceff", "action"=>"create", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."rpx_identifier" = 'http://openid.aol.com/johnnysilv') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://openid.aol.com/johnnysilv') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'johnnysilv') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'b0d6841a68d7be3ebe4f1d56df5e31b802ad2ffd419fdef1af5c58b4c5b9505ee47ae2d8382e8eefdbeb5a904e9914add70cfd8a9180c4bff4c6d11a7cb51e93') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" IS NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'johnnysilv') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mSQLite3::BusyException: database is locked: INSERT INTO "users" ("updated_at", "username", "persistence_token", "rpx_identifier", "email", "created_at") VALUES('2009-12-06 09:39:43', 'johnnysilv', 'b0d6841a68d7be3ebe4f1d56df5e31b802ad2ffd419fdef1af5c58b4c5b9505ee47ae2d8382e8eefdbeb5a904e9914add70cfd8a9180c4bff4c6d11a7cb51e93', 'http://openid.aol.com/johnnysilv', NULL, '2009-12-06 09:39:43')[0m
+
+ActiveRecord::StatementInvalid (SQLite3::BusyException: database is locked: INSERT INTO "users" ("updated_at", "username", "persistence_token", "rpx_identifier", "email", "created_at") VALUES('2009-12-06 09:39:43', 'johnnysilv', 'b0d6841a68d7be3ebe4f1d56df5e31b802ad2ffd419fdef1af5c58b4c5b9505ee47ae2d8382e8eefdbeb5a904e9914add70cfd8a9180c4bff4c6d11a7cb51e93', 'http://openid.aol.com/johnnysilv', NULL, '2009-12-06 09:39:43')):
+  c:/Ruby/lib/ruby/gems/1.8/gems/authlogic_rpx-1.0.4/lib/authlogic_rpx/acts_as_authentic.rb:46:in `save'
+  authlogic (2.1.3) lib/authlogic/acts_as_authentic/session_maintenance.rb:73:in `save_without_session_maintenance'
+  authlogic (2.1.3) lib/authlogic/session/callbacks.rb:84:in `save_record'
+  authlogic (2.1.3) lib/authlogic/session/priority_record.rb:30:in `save_record'
+  authlogic (2.1.3) lib/authlogic/session/validation.rb:72:in `valid?'
+  authlogic (2.1.3) lib/authlogic/session/existence.rb:65:in `save'
+  app/controllers/user_sessions_controller.rb:16:in `create'
+
+Rendered rescues/_trace (81.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserSessionsController#create (for 192.168.1.1 at 2009-12-06 02:40:00) [POST]
+  Parameters: {"token"=>"f71b68328be6d47861dd716dd01e4f43fb0fceff", "action"=>"create", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."rpx_identifier" = 'http://openid.aol.com/johnnysilv') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://openid.aol.com/johnnysilv') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'johnnysilv') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'feb2cf90bca00e27cea1b41453dede00471f2b1fe7e87ef9bdef05f166d77e4290866b43193d6c292c8e24ec132537df714eaad0d5ce3eb33238b627ee298b67') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'johnnysilv') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("updated_at", "username", "persistence_token", "rpx_identifier", "email", "created_at") VALUES('2009-12-06 09:40:01', 'johnnysilv', 'feb2cf90bca00e27cea1b41453dede00471f2b1fe7e87ef9bdef05f166d77e4290866b43193d6c292c8e24ec132537df714eaad0d5ce3eb33238b627ee298b67', 'http://openid.aol.com/johnnysilv', NULL, '2009-12-06 09:40:01')[0m
+Redirected to http://72.174.126.254:3000/users/current/edit
+Completed in 612ms (DB: 1) | 302 Found [http://72.174.126.254/user_sessions?authenticity_token=4e0QLsH1MA%2B1qsL%2BsUnv8dfgQmUrfgS8hgMjSFw8xlE%3D]
+
+
+Processing UsersController#edit (for 192.168.1.1 at 2009-12-06 02:40:01) [GET]
+  Parameters: {"action"=>"edit", "id"=>"current", "controller"=>"users"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '5') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://openid.aol.com/johnnysilv' AND "users".id <> 5) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" IS NULL AND "users".id <> 5) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'johnnysilv' AND "users".id <> 5) LIMIT 1[0m
+Rendering users/edit
+Completed in 127ms (View: 13, DB: 2) | 200 OK [http://72.174.126.254/users/current/edit]
+
+
+Processing UsersController#update (for 192.168.1.1 at 2009-12-06 02:40:07) [PUT]
+  Parameters: {"user"=>{"username"=>"johnnysilv", "email"=>"js@js.com"}, "commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "id"=>"5", "controller"=>"users"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '5') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://openid.aol.com/johnnysilv' AND "users".id <> 5) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'js@js.com' AND "users".id <> 5) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'js@js.com' AND "users".id <> 5) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'johnnysilv' AND "users".id <> 5) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "email" = 'js@js.com', "updated_at" = '2009-12-06 09:40:07' WHERE "id" = 5[0m
+  [4;35;1mRole Create (1.0ms)[0m   [0mINSERT INTO "roles" ("name", "updated_at", "created_at") VALUES('normal', '2009-12-06 09:40:07', '2009-12-06 09:40:07')[0m
+  [4;36;1mAssignment Create (0.0ms)[0m   [0;1mINSERT INTO "assignments" ("updated_at", "role_id", "user_id", "created_at") VALUES('2009-12-06 09:40:07', 4, 5, '2009-12-06 09:40:07')[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 215ms (DB: 3) | 302 Found [http://72.174.126.254/users/5]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:40:07) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '5') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 5)) [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 76ms (View: 10, DB: 3) | 200 OK [http://72.174.126.254/]
+
+
+Processing UserSessionsController#destroy (for 192.168.1.1 at 2009-12-06 02:44:06) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '5') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '5') LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 36ms (DB: 1) | 302 Found [http://72.174.126.254/logout]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:44:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 43ms (View: 11, DB: 2) | 200 OK [http://72.174.126.254/]
+
+
+Processing UserSessionsController#create (for 192.168.1.1 at 2009-12-06 02:44:19) [POST]
+  Parameters: {"token"=>"016993713401f80b7d1a55f3d6e4ecd21fdd6613", "action"=>"create", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."rpx_identifier" = 'http://openid.aol.com/johnnysilv') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://openid.aol.com/johnnysilv' AND "users".id <> 5) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'js@js.com' AND "users".id <> 5) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'johnnysilv' AND "users".id <> 5) LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 639ms (DB: 0) | 302 Found [http://72.174.126.254/user_sessions?authenticity_token=4e0QLsH1MA%2B1qsL%2BsUnv8dfgQmUrfgS8hgMjSFw8xlE%3D]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:44:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '5') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 5)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 72ms (View: 10, DB: 1) | 200 OK [http://72.174.126.254/]
+
+
+Processing UsersController#edit (for 192.168.1.1 at 2009-12-06 02:44:22) [GET]
+  Parameters: {"action"=>"edit", "id"=>"current", "controller"=>"users"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '5') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://openid.aol.com/johnnysilv' AND "users".id <> 5) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'js@js.com' AND "users".id <> 5) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'johnnysilv' AND "users".id <> 5) LIMIT 1[0m
+Rendering users/edit
+Completed in 42ms (View: 6, DB: 2) | 200 OK [http://72.174.126.254/users/current/edit]
+
+
+Processing UserSessionsController#destroy (for 192.168.1.1 at 2009-12-06 02:44:45) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '5') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 5) LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 104ms (DB: 1) | 302 Found [http://72.174.126.254/logout]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:44:46) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '5') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 5) LIMIT 1[0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 48ms (View: 11, DB: 1) | 200 OK [http://72.174.126.254/]
+
+
+Processing UserSessionsController#create (for 192.168.1.1 at 2009-12-06 02:44:51) [POST]
+  Parameters: {"token"=>"734af284de4c75afd08edbe64560e2c5dfcd7e5d", "action"=>"create", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '5') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jonathansilverman') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '97647ba7d4185248f137aefad4de1940abab7f51103be990039d704d491be582334ee84e32bd8ebddc98f0c2065ca8ccecbcdf312722a1d78b3533e834568ec4') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jonathansilverman') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("updated_at", "username", "persistence_token", "rpx_identifier", "email", "created_at") VALUES('2009-12-06 09:44:52', 'JonathanSilverman', '97647ba7d4185248f137aefad4de1940abab7f51103be990039d704d491be582334ee84e32bd8ebddc98f0c2065ca8ccecbcdf312722a1d78b3533e834568ec4', 'http://www.facebook.com/profile.php?id=1572030007', NULL, '2009-12-06 09:44:52')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007' AND "users".id <> 6) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" IS NULL AND "users".id <> 6) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jonathansilverman' AND "users".id <> 6) LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/users/current/edit
+Completed in 1845ms (DB: 5) | 302 Found [http://72.174.126.254/user_sessions?authenticity_token=4e0QLsH1MA%2B1qsL%2BsUnv8dfgQmUrfgS8hgMjSFw8xlE%3D]
+
+
+Processing UsersController#edit (for 192.168.1.1 at 2009-12-06 02:44:53) [GET]
+  Parameters: {"action"=>"edit", "id"=>"current", "controller"=>"users"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007' AND "users".id <> 6) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" IS NULL AND "users".id <> 6) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jonathansilverman' AND "users".id <> 6) LIMIT 1[0m
+Rendering users/edit
+Completed in 52ms (View: 16, DB: 1) | 200 OK [http://72.174.126.254/users/current/edit]
+
+
+Processing UsersController#update (for 192.168.1.1 at 2009-12-06 02:44:58) [PUT]
+  Parameters: {"user"=>{"username"=>"JonathanSilverman", "email"=>"ac@pd.com"}, "commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "id"=>"6", "controller"=>"users"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007' AND "users".id <> 6) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ac@pd.com' AND "users".id <> 6) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'ac@pd.com' AND "users".id <> 6) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jonathansilverman' AND "users".id <> 6) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "email" = 'ac@pd.com', "updated_at" = '2009-12-06 09:44:58' WHERE "id" = 6[0m
+
+NameError (uninitialized constant UsersController::Roles):
+  app/controllers/users_controller.rb:20:in `update'
+
+Rendered rescues/_trace (129.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#update (for 192.168.1.1 at 2009-12-06 02:45:28) [PUT]
+  Parameters: {"user"=>{"username"=>"JonathanSilverman", "email"=>"ac@pd.com"}, "commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "id"=>"6", "controller"=>"users"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007' AND "users".id <> 6) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'ac@pd.com' AND "users".id <> 6) LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jonathansilverman' AND "users".id <> 6) LIMIT 1[0m
+
+ArgumentError (Unknown key(s): name):
+  app/controllers/users_controller.rb:20:in `update'
+
+Rendered rescues/_trace (43.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#update (for 192.168.1.1 at 2009-12-06 02:45:57) [PUT]
+  Parameters: {"user"=>{"username"=>"JonathanSilverman", "email"=>"ac@pd.com"}, "commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "id"=>"6", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'http://www.facebook.com/profile.php?id=1572030007' AND "users".id <> 6) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'ac@pd.com' AND "users".id <> 6) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jonathansilverman' AND "users".id <> 6) LIMIT 1[0m
+  [4;35;1mRole Load (1.0ms)[0m   [0mSELECT * FROM "roles" WHERE ("roles"."name" = 'normal') LIMIT 1[0m
+  [4;36;1mAssignment Create (2.0ms)[0m   [0;1mINSERT INTO "assignments" ("updated_at", "role_id", "user_id", "created_at") VALUES('2009-12-06 09:45:57', 3, 6, '2009-12-06 09:45:57')[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 136ms (DB: 3) | 302 Found [http://72.174.126.254/users/6]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:45:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 6)) [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 63ms (View: 10, DB: 2) | 200 OK [http://72.174.126.254/]
+
+
+Processing StoriesController#new (for 192.168.1.1 at 2009-12-06 02:46:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 6)) [0m
+Rendering template within layouts/stories
+Rendering stories/new
+Completed in 74ms (View: 10, DB: 1) | 200 OK [http://72.174.126.254/stories/new]
+
+
+Processing StoriesController#create (for 192.168.1.1 at 2009-12-06 02:46:34) [POST]
+  Parameters: {"commit"=>"Create", "story"=>{"body"=>"it", "title"=>"fuuuck"}, "action"=>"create", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "controller"=>"stories", "recaptcha_response_field"=>"doty jets", "recaptcha_challenge_field"=>"02xM9jCFDMzWuSPaGQlpmOSvCZbIDu0uVKaZbH_1iIQYQdi3QATuGI0G-G41n0N0rLzi1ripMjPQGG3iEXk8Mmq2DbUeKjxh_cuwFUpBgyuoDmlopPN4xi7_Tq35ROgFSfjjQAvZhulWdr6ifMfozSTMkyLPTH5aj6oku0Y_aC82dbEG4bUu9L107lagL5WVCYfUs5q9W8BluJ7cCBCjHZp4bPMzXC2pozkZ9B6oEsLlZTP-auy5x4G2UYPJGKQnrIw_M-kBg6f8DL-pqTlYQeF0nsYuQB"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 6)) [0m
+  [4;35;1mStory Create (1.0ms)[0m   [0mINSERT INTO "stories" ("score", "updated_at", "body", "title", "user_id", "created_at") VALUES(0.0, '2009-12-06 09:46:35', 'it', 'fuuuck', 6, '2009-12-06 09:46:35')[0m
+Redirected to http://72.174.126.254:3000/stories/18
+Completed in 464ms (DB: 3) | 302 Found [http://72.174.126.254/stories]
+
+
+Processing StoriesController#show (for 192.168.1.1 at 2009-12-06 02:46:35) [GET]
+  Parameters: {"action"=>"show", "id"=>"18", "controller"=>"stories"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 18) [0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 6)) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 18 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 18 AND voteable_type = 'Story' AND vote = 'f') [0m
+Completed in 61ms (View: 6, DB: 3) | 200 OK [http://72.174.126.254/stories/18]
+
+
+Processing StoriesController#edit (for 192.168.1.1 at 2009-12-06 02:46:37) [GET]
+  Parameters: {"action"=>"edit", "id"=>"18", "controller"=>"stories"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 18) [0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 6)) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Rendering template within layouts/stories
+Rendering stories/edit
+Completed in 79ms (View: 8, DB: 2) | 200 OK [http://72.174.126.254/stories/18/edit]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:46:38) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 6)) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 67ms (View: 11, DB: 2) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing StoriesController#show (for 192.168.1.1 at 2009-12-06 02:46:40) [GET]
+  Parameters: {"action"=>"show", "id"=>"16", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 16) [0m
+  [4;35;1mRole Load (1.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 6)) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 16 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 16 AND voteable_type = 'Story' AND vote = 'f') [0m
+Completed in 62ms (View: 8, DB: 1) | 200 OK [http://72.174.126.254/stories/16]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:46:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 6)) [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 86ms (View: 14, DB: 4) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing StoriesController#show (for 192.168.1.1 at 2009-12-06 02:46:43) [GET]
+  Parameters: {"action"=>"show", "id"=>"18", "controller"=>"stories"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 18) [0m
+  [4;36;1mRole Load (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 6)) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 18 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 18 AND voteable_type = 'Story' AND vote = 'f') [0m
+Completed in 80ms (View: 9, DB: 3) | 200 OK [http://72.174.126.254/stories/18]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:47:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mRole Load (1.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 6)) [0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 65ms (View: 11, DB: 3) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing UserSessionsController#destroy (for 192.168.1.1 at 2009-12-06 02:49:13) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 36ms (DB: 0) | 302 Found [http://72.174.126.254/logout]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:49:13) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 59ms (View: 16, DB: 2) | 200 OK [http://72.174.126.254/]
+
+
+Processing UserSessionsController#create (for 192.168.1.1 at 2009-12-06 02:49:20) [POST]
+  Parameters: {"token"=>"403e59f9bad8675de43feeb8c312bd7f702de291", "action"=>"create", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."rpx_identifier" = 'https://www.google.com/accounts/o8/id?id=AItOawljZGYCMuzO1dwVIEmeQdA5KVMtRbIF4qY') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."rpx_identifier" = 'https://www.google.com/accounts/o8/id?id=AItOawljZGYCMuzO1dwVIEmeQdA5KVMtRbIF4qY' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'jsilverman2@gmail.com' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jsilverman2' AND "users".id <> 1) LIMIT 1[0m
+Redirected to http://72.174.126.254:3000/
+Completed in 557ms (DB: 0) | 302 Found [http://72.174.126.254/user_sessions?authenticity_token=4e0QLsH1MA%2B1qsL%2BsUnv8dfgQmUrfgS8hgMjSFw8xlE%3D]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:49:21) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Completed in 153ms (View: 11, DB: 3) | 200 OK [http://72.174.126.254/]
+
+
+Processing StoriesController#show (for 192.168.1.1 at 2009-12-06 02:49:22) [GET]
+  Parameters: {"action"=>"show", "id"=>"16", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 16) [0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 16 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 16 AND voteable_type = 'Story' AND vote = 'f') [0m
+Completed in 65ms (View: 9, DB: 2) | 200 OK [http://72.174.126.254/stories/16]
+
+
+Processing StoriesController#show (for 192.168.1.1 at 2009-12-06 02:49:24) [GET]
+  Parameters: {"action"=>"show", "id"=>"18", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 18) [0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 18 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 18 AND voteable_type = 'Story' AND vote = 'f') [0m
+Completed in 84ms (View: 12, DB: 1) | 200 OK [http://72.174.126.254/stories/18]
+
+
+Processing StoriesController#destroy (for 192.168.1.1 at 2009-12-06 02:49:26) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "id"=>"18", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 18) [0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mVote Load (0.0ms)[0m   [0;1mSELECT * FROM "votes" WHERE ("votes".voteable_id = 18 AND "votes".voteable_type = 'Story') [0m
+  [4;35;1mVote Update (2.0ms)[0m   [0mUPDATE "votes" SET voteable_id = NULL WHERE ((voteable_id = 18) AND (voteable_type = 'Story')) [0m
+  [4;36;1mStory Destroy (0.0ms)[0m   [0;1mDELETE FROM "stories" WHERE "id" = 18[0m
+Redirected to http://72.174.126.254:3000/stories
+Completed in 205ms (DB: 2) | 302 Found [http://72.174.126.254/stories/18]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:49:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 63ms (View: 10, DB: 2) | 200 OK [http://72.174.126.254/stories]
+
+
+Processing StoriesController#show (for 192.168.1.1 at 2009-12-06 02:49:27) [GET]
+  Parameters: {"action"=>"show", "id"=>"16", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 16) [0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+Rendering template within layouts/stories
+Rendering stories/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 16 AND voteable_type = 'Story' AND vote = 't') [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" WHERE (voteable_id = 16 AND voteable_type = 'Story' AND vote = 'f') [0m
+Completed in 81ms (View: 11, DB: 1) | 200 OK [http://72.174.126.254/stories/16]
+
+
+Processing StoriesController#destroy (for 192.168.1.1 at 2009-12-06 02:49:30) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"4e0QLsH1MA+1qsL+sUnv8dfgQmUrfgS8hgMjSFw8xlE=", "id"=>"16", "controller"=>"stories"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 16) [0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mVote Load (0.0ms)[0m   [0;1mSELECT * FROM "votes" WHERE ("votes".voteable_id = 16 AND "votes".voteable_type = 'Story') [0m
+  [4;35;1mVote Destroy (9.0ms)[0m   [0mDELETE FROM "votes" WHERE "id" = 7[0m
+  [4;36;1mVote Update (1.0ms)[0m   [0;1mUPDATE "votes" SET voteable_id = NULL WHERE ((voteable_id = 16) AND (voteable_type = 'Story')) [0m
+  [4;35;1mStory Destroy (0.0ms)[0m   [0mDELETE FROM "stories" WHERE "id" = 16[0m
+Redirected to http://72.174.126.254:3000/stories
+Completed in 279ms (DB: 10) | 302 Found [http://72.174.126.254/stories/16]
+
+
+Processing StoriesController#index (for 192.168.1.1 at 2009-12-06 02:49:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"stories"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mRole Load (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "assignments" ON "roles".id = "assignments".role_id WHERE (("assignments".user_id = 1)) [0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+Rendering template within layouts/stories
+Rendering stories/index
+Completed in 58ms (View: 5, DB: 1) | 200 OK [http://72.174.126.254/stories]

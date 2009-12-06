@@ -1,5 +1,7 @@
 require "#{RAILS_ROOT}/lib/statistics2"
 class StoriesController < ApplicationController
+  filter_resource_access
+  
   before_filter :require_user, :except => [:index, :show]
   
   # GET /stories
@@ -63,8 +65,6 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.xml
   def show
-    @story = Story.find(params[:id])
-    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @story }
@@ -75,8 +75,6 @@ class StoriesController < ApplicationController
   # GET /stories/new
   # GET /stories/new.xml
   def new
-    @story = Story.new
-    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @story }
@@ -85,13 +83,11 @@ class StoriesController < ApplicationController
   
   # GET /stories/1/edit
   def edit
-    @story = Story.find(params[:id])
   end
   
   # POST /stories
   # POST /stories.xml
   def create
-    @story = Story.new(params[:story])
     @story.user_id = current_user.id
     @story.score = 0
     
@@ -110,8 +106,6 @@ class StoriesController < ApplicationController
   # PUT /stories/1
   # PUT /stories/1.xml
   def update
-    @story = Story.find(params[:id])
-    
     respond_to do |format|
       if @story.update_attributes(params[:story])
         flash[:notice] = 'Story was successfully updated.'
@@ -127,7 +121,6 @@ class StoriesController < ApplicationController
   # DELETE /stories/1
   # DELETE /stories/1.xml
   def destroy
-    @story = Story.find(params[:id])
     @story.votes.destroy_all
     @story.destroy
     
