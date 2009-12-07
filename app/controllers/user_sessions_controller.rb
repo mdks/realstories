@@ -6,11 +6,6 @@ class UserSessionsController < ApplicationController
 		redirect_to root_url #current_user ? root_url : new_user_session_url
 	end
   
-	# legacy login
-  # def new
-  #   @user_session = UserSession.new
-  # end
-  
 	def create
 		@user_session = UserSession.new(params[:user_session])
 		if @user_session.save

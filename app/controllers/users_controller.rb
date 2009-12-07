@@ -17,7 +17,8 @@ class UsersController < ApplicationController
           @user.attributes = params[:user]
           
           if @user.save
-            @user.assignments.create(:user_id => @user.id, :role_id => Role.find_by_name("normal").id)
+            #@user.assignments.create(:user_id => @user.id, :role_id => Role.find_by_name("normal").id)
+            @user.roles.create(:name => "normal")
             flash[:notice] = "Successfully edited profile."
             redirect_to root_url
           else

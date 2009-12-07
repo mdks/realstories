@@ -1,12 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
   # login/logout routes
-  map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
+  map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
   map.resources :user_sessions
   
   map.resources :users
 
-  # feed routes
-  #map.connect '/stories/feed', :controller => 'stories', :action => 'index', :format => 'atom'
   # voting routes
   map.vote '/stories/:id/vote/:vote', :controller => 'stories', :action => 'vote'
   # sorting, with time

@@ -18,7 +18,7 @@ module Authentication
     unless current_user
       store_location
       flash[:notice] = "Please log in"
-      redirect_to root_url
+      redirect_back_or_default root_url
       return false
     end
   end
@@ -32,7 +32,7 @@ module Authentication
   def clear_location
     session[:return_to] = nil
   end
-
+  
   def redirect_back_or_default(default)
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
