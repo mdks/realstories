@@ -68,6 +68,11 @@
 <% end %>
 </table>
 
+<% if permitted_to? :remove_all_spam, :stories %>
+  <%= link_to 'Remove all unapproved', remove_all_spam_path(@story) %>
+<% end %>
+  
+
 <% if permitted_to? :create, :comments %>
   <h3>New comment</h3>
   

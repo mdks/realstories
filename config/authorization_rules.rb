@@ -1,6 +1,6 @@
 authorization do
   role :admin do
-    has_permission_on :stories, :to => [:index, :show, :new, :create, :edit, :update, :destroy, :vote]
+    has_permission_on :stories, :to => [:index, :show, :new, :create, :edit, :update, :destroy, :vote, :remove_all_spam]
     has_permission_on :comments, :to => [:edit, :update, :create, :destroy, :spam, :ham]
   end
   

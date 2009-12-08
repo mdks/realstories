@@ -21,6 +21,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   map.spam 'spam/:id', :controller => 'comments', :action => 'spam'
   map.ham 'ham/:id', :controller => 'comments', :action => 'ham'
+  map.remove_all_spam 'remove_all_spam/:id', :controller => 'stories', :action => 'remove_all_spam'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

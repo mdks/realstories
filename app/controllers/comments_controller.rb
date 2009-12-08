@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     @comment.score = 0
     
     # Akismet hook
-    if !@comment.spam? : @comment.is_approved = 1 end
+    if !@comment.spam? : @comment.is_approved = true else @comment.is_approved = false end
     
     @comment.save
 
@@ -61,9 +61,5 @@ class CommentsController < ApplicationController
     @comment.save
     flash[:notice] = "Marked as ham."
     redirect_to(@comment.story)
-  end
-  
-  def remove_all_spam
-    
   end
 end
