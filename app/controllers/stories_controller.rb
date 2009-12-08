@@ -162,7 +162,7 @@ class StoriesController < ApplicationController
   
   # TODO: FIXME
   def remove_all_spam
-    Comment.delete_all(["not is_approved AND story_id = ?", @story.id])
+    Comment.delete_all(["is_approved = ? AND story_id = ?", false, @story.id])
     flash[:notice] = "Deleted all unapproved comments."
     redirect_to(@story)
   end
