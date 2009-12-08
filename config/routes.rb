@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  
+  # comments routes
+  #map.edit_comment :controller => 'comments', :action => 'edit'
+  
+  #map.resources :comments
+
   # login/logout routes
   map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
   map.resources :user_sessions
@@ -10,7 +16,9 @@ ActionController::Routing::Routes.draw do |map|
   # sorting, with time
   map.sort '/stories/sort/:order/:sort/:time', :controller => 'stories', :action => 'index'
   map.connect '/stories/sort/:order/:sort/:time.:format', :controller => 'stories', :action => 'index'
-  map.resources :stories
+  map.resources :stories do |story|
+    story.resources :comments, :only => [:edit, :update, :create, :destroy]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
 

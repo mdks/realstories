@@ -9,11 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091206084540) do
+ActiveRecord::Schema.define(:version => 20091207224415) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "story_id"
+    t.float    "score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

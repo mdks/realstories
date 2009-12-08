@@ -69,6 +69,8 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.xml
   def show
+    @comment = Comment.new
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @story }

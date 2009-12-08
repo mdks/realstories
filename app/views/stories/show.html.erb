@@ -1,15 +1,13 @@
 <p>
-  <b>Title:</b>
-  <%=h @story.title %>
+  <h1><%=h @story.title %></h1>
 </p>
 <p>
-  <b>Body:</b>
-  <%= white_list(RedCloth.new(@story.body, [:filter_styles]).to_html) %>
-</p>
-<p>
-  <b>Author:</b>
+  <b>by:</b>
   <%=h @story.user.username %>
 </p>  
+<p>
+  <%= white_list(RedCloth.new(@story.body, [:filter_styles]).to_html) %>
+</p>
 <p>
   <b>Created at:</b>
   <%=h @story.created_at %>
@@ -18,24 +16,60 @@
   <b>Last updated:</b>
   <%=h @story.updated_at %>
 </p>
-
 <p>
   Votes for: <%= @story.votes_for %><br />
   Votes against: <%= @story.votes_against %><br />
   Score: <%= @story.score %>
 </p>
-
 <p>
-<%= link_to 'Cool story, bro (+1)', vote_path(:id => @story.id, :vote => 1) %>
-<%= link_to 'This story sucks (-1)', vote_path(:id => @story.id, :vote => 0) %>
+<%= link_to 'I like it (+1)', vote_path(:id => @story.id, :vote => 1) %>
+<%= link_to "I don't like it (-1)", vote_path(:id => @story.id, :vote => 0) %>
 </p>
 
 <% if permitted_to? :edit, @story %>
-  <%= link_to 'Edit', edit_story_path(@story) %> |
+  <%= link_to 'Edit', edit_story_path(@story) %>
 <% end %>
 
 <% if permitted_to? :destroy, @story %>
-  <%= link_to 'Destroy', @story, :confirm => 'Are you sure?', :method => :delete %> |
+|  <%= link_to 'Destroy', @story, :confirm => 'Are you sure?', :method => :delete %>
 <% end %>
 
+<h2>Comments for <%=h @story.title %></h2>
+
+<table>
+  <tr>
+    <th>Body</th>
+    <th>User</th>
+    <th>Score</th>
+  </tr>
+
+<% @story.comments.each do |comment| %>
+  <tr>
+    <td><%=h comment.body %></td>
+    <td><%=h comment.user.username %></td>
+    <td><%=h comment.score %></td>
+    <% if permitted_to? :edit, comment %>
+      <td><%= link_to 'Edit', edit_story_comment_path(comment.story, comment) %></td>
+    <% end %>
+    <% if permitted_to? :destroy, comment %>
+      <td><%= link_to 'Destroy', story_comment_path(comment.story, comment), :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<% if permitted_to? :create, :comments %>
+  <h3>New comment</h3>
+  
+  <% form_for([@story, @comment]) do |f| %>
+    <%= f.error_messages %>
+    <p>
+      <%= f.label :body %><br />
+      <%= f.text_area :body %>
+    </p>
+    <p>
+      <%= f.submit 'Post' %>
+    </p>
+  <% end %>
+<% end %>
 <%= link_to 'Back', stories_path %>
