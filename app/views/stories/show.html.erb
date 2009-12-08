@@ -22,8 +22,10 @@
   Score: <%= @story.score %>
 </p>
 <p>
-<%= link_to 'I like it (+1)', vote_path(:id => @story.id, :vote => 1) %>
-<%= link_to "I don't like it (-1)", vote_path(:id => @story.id, :vote => 0) %>
+<% if permitted_to? :vote, @story %>
+  <%= link_to 'I like it (+1)', vote_path(:id => @story.id, :vote => 1) %>
+  <%= link_to "I don't like it (-1)", vote_path(:id => @story.id, :vote => 0) %>
+<% end %>
 </p>
 
 <% if permitted_to? :edit, @story %>

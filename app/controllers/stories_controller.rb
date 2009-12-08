@@ -152,7 +152,7 @@ class StoriesController < ApplicationController
       @story.score = ci_lower_bound(@story.votes_for, @story.votes_count, 0.10)
       @story.save!
     else
-      flash[:notice] = "Cannot vote on own story!"
+      flash[:error] = "Cannot vote on own story!"
     end
     redirect_to :controller => 'stories', :action => 'show', :id => params[:id]
   rescue
