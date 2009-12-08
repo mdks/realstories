@@ -19,6 +19,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :stories do |story|
     story.resources :comments, :only => [:edit, :update, :create, :destroy]
   end
+  map.spam 'spam/:id', :controller => 'comments', :action => 'spam'
+  map.ham 'ham/:id', :controller => 'comments', :action => 'ham'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

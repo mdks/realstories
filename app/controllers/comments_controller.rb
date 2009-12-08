@@ -1,25 +1,27 @@
 class CommentsController < ApplicationController
+  has_rakismet :only => :create
   filter_resource_access
 
   # GET /comments/1/edit
-  def edit
-    @comment = Comment.find(params[:id])
-  end
+  # def edit
+  # end
 
   # POST /comments
   # POST /comments.xml
   def create
-    @comment = Comment.new(params[:comment])
-    
     @comment.user_id = current_user.id
     @comment.story_id = params[:story_id]
     @comment.score = 0
     
+    # Akismet hook
+    if !@comment.spam? : @comment.is_approved = 1 end
+    
+    @comment.save
 
-    if @comment.save
+    if @comment.is_approved
       flash[:notice] = 'Comment posted.'
     else
-      flash[:error] = 'Comment failed to post.'
+      flash[:error] = 'Comment marked as spam please contact an administrator.'
     end
     
     redirect_to(@comment.story)
@@ -28,8 +30,6 @@ class CommentsController < ApplicationController
   # PUT /comments/1
   # PUT /comments/1.xml
   def update
-    @comment = Comment.find(params[:id])
-
       if @comment.update_attributes(params[:comment])
         flash[:notice] = 'Comment edited.'
       else
@@ -42,9 +42,28 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.xml
   def destroy
-    @comment = Comment.find(params[:id])
     @comment.destroy
 
     redirect_to(@comment.story)
+  end
+  
+  def spam
+    @comment.spam!
+    @comment.is_approved = 0
+    @comment.save
+    flash[:notice] = "Marked as spam."
+    redirect_to(@comment.story)
+  end
+  
+  def ham
+    @comment.ham!
+    @comment.is_approved = 1
+    @comment.save
+    flash[:notice] = "Marked as ham."
+    redirect_to(@comment.story)
+  end
+  
+  def remove_all_spam
+    
   end
 end

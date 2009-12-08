@@ -19,12 +19,13 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
-  config.gem 'authlogic', :version => '>= 2.1.3', :source => 'http://gemcutter.org'
-  config.gem 'rpx_now', :version => '>= 0.6.11', :source => 'http://gemcutter.org'
-  config.gem 'authlogic_rpx', :version => '>= 1.0.4', :source => 'http://gemcutter.org'
-  config.gem "declarative_authorization", :source => 'http://gemcutter.org'
-  config.gem "RedCloth", :version => '>= 4.0.0', :source => 'http://gemcutter.org'
-  config.gem 'will_paginate', :version => '~> 2.3.11', :source => 'http://gemcutter.org'
+  config.gem 'authlogic'
+  config.gem 'rpx_now'
+  config.gem 'authlogic_rpx'
+  config.gem 'declarative_authorization'
+  config.gem 'RedCloth'
+  config.gem 'will_paginate'
+  config.gem 'rakismet'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

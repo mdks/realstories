@@ -47,14 +47,22 @@
 
 <% @story.comments.each do |comment| %>
   <tr>
-    <td><%=h comment.body %></td>
-    <td><%=h comment.user.username %></td>
-    <td><%=h comment.score %></td>
-    <% if permitted_to? :edit, comment %>
-      <td><%= link_to 'Edit', edit_story_comment_path(comment.story, comment) %></td>
-    <% end %>
-    <% if permitted_to? :destroy, comment %>
-      <td><%= link_to 'Destroy', story_comment_path(comment.story, comment), :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if comment.is_approved || permitted_to?( :spam, comment ) %>
+      <td><%=h comment.body %></td>
+      <td><%=h comment.user.username %></td>
+      <td><%=h comment.score %></td>
+      <% if permitted_to? :edit, comment %>
+        <td><%= link_to 'Edit', edit_story_comment_path(comment.story, comment) %></td>
+      <% end %>
+      <% if permitted_to? :destroy, comment %>
+        <td><%= link_to 'Destroy', story_comment_path(comment.story, comment), :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
+      <% if permitted_to? :spam, comment %>
+        <td><%= link_to 'Spam', spam_path(comment) %></td>
+      <% end %>
+      <% if permitted_to? :ham, comment %>
+        <td><%= link_to 'Ham', ham_path(comment) %></td>
+      <% end %>
     <% end %>
   </tr>
 <% end %>
