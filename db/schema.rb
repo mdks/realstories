@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091207224415) do
+ActiveRecord::Schema.define(:version => 20091208055313) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -56,6 +56,12 @@ ActiveRecord::Schema.define(:version => 20091207224415) do
     t.string   "rpx_identifier"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "login_count",       :default => 0, :null => false
+    t.datetime "last_request_at"
+    t.datetime "last_login_at"
+    t.datetime "current_login_at"
+    t.string   "last_login_ip"
+    t.string   "current_login_ip"
   end
 
   create_table "votes", :force => true do |t|
