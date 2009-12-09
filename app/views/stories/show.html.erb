@@ -20,7 +20,7 @@
 <p>
   Liked it: <%= @story.votes_for %><br />
   Did not like it: <%= @story.votes_against %><br />
-  Score: <%= @story.score %>
+  Score: <%= (@story.score * 100).to_i.to_s + "%" %>
 </p>
 <p>
 <% if permitted_to? :vote, @story %>
@@ -41,22 +41,27 @@
   <h2>Comments for <%=h @story.title %></h2>
   
 <div id="comments">
-  <% @story.comments.each do |comment| %>
+  <% @comments.each do |comment| %>
       <% if comment.is_approved || permitted_to?( :spam, comment ) %>
         <div class="comment">      
         <p><%=h comment.body %><p>
+        <p><%= (comment.score * 100).to_i.to_s + "%" %></p>
         <b><%= image_tag(comment.user.gravatar_url(:size=>25)) %> <%=h comment.user.username %></b></p>
         <% if permitted_to? :edit, comment %>
-          <%= link_to 'Edit', edit_story_comment_path(comment.story, comment) %> |
+          <%= link_to 'Edit', edit_story_comment_path(comment.story, comment) %> 
         <% end %>
         <% if permitted_to? :destroy, comment %>
-          <%= link_to 'Destroy', story_comment_path(comment.story, comment), :confirm => 'Are you sure?', :method => :delete %> |
+          <%= link_to 'Destroy', story_comment_path(comment.story, comment), :confirm => 'Are you sure?', :method => :delete %> 
         <% end %>
         <% if permitted_to? :spam, comment %>
-          <%= link_to 'Spam', spam_path(comment) %> |
+          <%= link_to 'Spam', spam_path(comment) %> 
         <% end %>
         <% if permitted_to? :ham, comment %>
           <%= link_to 'Ham', ham_path(comment) %>
+        <% end %>
+        <% if permitted_to? :vote, comment %>
+          <%= link_to '+1', vote_comment_path(:id => comment.id, :vote => 1) %>
+          <%= link_to '-1', vote_comment_path(:id => comment.id, :vote => 0) %>
         <% end %>
         </div>        
       <% end %>

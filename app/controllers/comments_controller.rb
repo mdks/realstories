@@ -1,4 +1,6 @@
+require "#{RAILS_ROOT}/lib/statistics2"
 class CommentsController < ApplicationController
+
   has_rakismet :only => :create
   filter_resource_access
 
@@ -47,6 +49,25 @@ class CommentsController < ApplicationController
     redirect_to(@comment.story)
   end
   
+  def vote
+    unless current_user.id == @comment.user.id
+      if params[:vote].to_i == 1 then
+        current_user.vote_for(@comment)
+      else
+        current_user.vote_against(@comment)
+      end
+      @comment.score = ci_lower_bound(@comment.votes_for, @comment.votes_count, 0.10)
+      @comment.save!
+      flash[:notice] = "Thanks for voting."
+    else
+      flash[:error] = "Cannot vote on own comment!"
+    end
+    redirect_to(@comment.story)
+  rescue
+    flash[:error] = "Can only vote once!"
+    redirect_to(@comment.story)
+  end
+  
   def spam
     @comment.spam!
     @comment.is_approved = 0
@@ -61,5 +82,16 @@ class CommentsController < ApplicationController
     @comment.save
     flash[:notice] = "Marked as ham."
     redirect_to(@comment.story)
+  end
+  
+  private
+
+  def ci_lower_bound(pos, n, power)
+    if n == 0
+      return 0
+    end
+    z = Statistics2.pnormaldist(1-power/2)
+    phat = 1.0*pos/n
+    (phat + z*z/(2*n) - z * Math.sqrt((phat*(1-phat)+z*z/(4*n))/n))/(1+z*z/n)
   end
 end

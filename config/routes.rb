@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # voting routes
   map.vote '/stories/:id/vote/:vote', :controller => 'stories', :action => 'vote'
+  map.vote_comment '/comments/:id/vote/:vote', :controller => 'comments', :action => 'vote'
   # sorting, with time
   map.sort '/stories/sort/:order/:sort/:time', :controller => 'stories', :action => 'index'
   map.connect '/stories/sort/:order/:sort/:time.:format', :controller => 'stories', :action => 'index'

@@ -1,7 +1,7 @@
 authorization do
   role :admin do
     has_permission_on :stories, :to => [:index, :show, :new, :create, :edit, :update, :destroy, :vote, :remove_all_spam]
-    has_permission_on :comments, :to => [:edit, :update, :create, :destroy, :spam, :ham]
+    has_permission_on :comments, :to => [:edit, :update, :create, :destroy, :spam, :ham, :vote]
   end
   
   role :guest do
@@ -14,7 +14,7 @@ authorization do
     has_permission_on :stories, :to => [:edit, :update] do
       if_attribute :user => is { user }
     end
-    has_permission_on :comments, :to => :create
+    has_permission_on :comments, :to => [:create, :vote]
     has_permission_on :comments, :to => [:edit, :update, :destroy] do
       if_attribute :user => is { user }
     end

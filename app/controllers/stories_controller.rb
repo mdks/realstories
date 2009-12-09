@@ -70,7 +70,7 @@ class StoriesController < ApplicationController
   # GET /stories/1.xml
   def show
     @comment = Comment.new
-    
+    @comments = @story.comments.find(:all, :order => "score desc")
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @story }
@@ -140,24 +140,23 @@ class StoriesController < ApplicationController
   
   # add vote action
   def vote
-    @story = Story.find(params[:id])
-    @user = current_user
-    unless @user.id == @story.user.id
+    unless current_user.id == @story.user.id
       if params[:vote].to_i == 1 then
-        @user.vote_for(@story)
+        current_user.vote_for(@story)
       else
-        @user.vote_against(@story)
+        current_user.vote_against(@story)
       end
       # update ci score here
       @story.score = ci_lower_bound(@story.votes_for, @story.votes_count, 0.10)
       @story.save!
+      flash[:notice] = "Thank you for voting."
     else
       flash[:error] = "Cannot vote on own story!"
     end
-    redirect_to :controller => 'stories', :action => 'show', :id => params[:id]
+    redirect_to(@story) #:controller => 'stories', :action => 'show', :id => params[:id]
   rescue
-    flash[:notice] = "You may only vote once!"
-    redirect_to :controller => 'stories', :action => 'show', :id => params[:id]
+    flash[:error] = "You may only vote once!"
+    redirect_to(@story) #:controller => 'stories', :action => 'show', :id => params[:id]
   end
   
   def remove_all_spam
