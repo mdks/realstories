@@ -15,7 +15,8 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.xml
   def create
-    unless Story.find(params[:story_id]).disable_commenting
+    story = Story.find(params[:story_id])
+    unless story.disable_commenting
       @comment.user_id = current_user.id
       @comment.story_id = params[:story_id]
       @comment.score = 0
@@ -33,13 +34,14 @@ class CommentsController < ApplicationController
     else
       flash[:error] = "Commenting has been disabled for this story."
     end
-      redirect_to(Story.find(params[:story_id]))
+      redirect_to(story)
   end
 
   # PUT /comments/1
   # PUT /comments/1.xml
   def update
-    unless Story.find(params[:story_id]).disable_commenting
+    story = Story.find(params[:story_id])
+    unless story.disable_commenting
       if @comment.update_attributes(params[:comment])
         flash[:notice] = 'Comment edited.'
       else
@@ -49,7 +51,7 @@ class CommentsController < ApplicationController
       flash[:error] = "Commenting has been disabled for this story."
     end
 
-    redirect_to(Story.find(params[:story_id]))
+    redirect_to(story)
   end
 
   # DELETE /comments/1
