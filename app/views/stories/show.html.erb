@@ -3,6 +3,7 @@
 </p>
 <p>
   <b>by:</b>
+  <%= image_tag(@story.user.gravatar_url(:size=>25)) %> 
   <%=h @story.user.username %>
 </p>  
 <p>
@@ -44,8 +45,7 @@
       <% if comment.is_approved || permitted_to?( :spam, comment ) %>
         <div class="comment">      
         <p><%=h comment.body %><p>
-        <p>by: <%= image_tag(comment.user.gravatar_url(:size=>25)) %>
-        <b><%=h comment.user.username %></b></p>
+        <b><%= image_tag(comment.user.gravatar_url(:size=>25)) %> <%=h comment.user.username %></b></p>
         <% if permitted_to? :edit, comment %>
           <%= link_to 'Edit', edit_story_comment_path(comment.story, comment) %> |
         <% end %>
