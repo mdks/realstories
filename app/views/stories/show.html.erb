@@ -39,35 +39,29 @@
 <% if @story.comments.size > 0 %>
   <h2>Comments for <%=h @story.title %></h2>
   
-  <table>
-    <tr>
-      <th>Body</th>
-      <th>User</th>
-      <th>Score</th>
-    </tr>
-  
+<div id="comments">
   <% @story.comments.each do |comment| %>
-    <tr>
       <% if comment.is_approved || permitted_to?( :spam, comment ) %>
-        <td><%=h comment.body %></td>
-        <td><%=h comment.user.username %></td>
-        <td><%=h comment.score %></td>
+        <div class="comment">      
+        <p><%=h comment.body %><p>
+        <p>by: <%= image_tag(comment.user.gravatar_url(:size=>25)) %>
+        <b><%=h comment.user.username %></b></p>
         <% if permitted_to? :edit, comment %>
-          <td><%= link_to 'Edit', edit_story_comment_path(comment.story, comment) %></td>
+          <%= link_to 'Edit', edit_story_comment_path(comment.story, comment) %> |
         <% end %>
         <% if permitted_to? :destroy, comment %>
-          <td><%= link_to 'Destroy', story_comment_path(comment.story, comment), :confirm => 'Are you sure?', :method => :delete %></td>
+          <%= link_to 'Destroy', story_comment_path(comment.story, comment), :confirm => 'Are you sure?', :method => :delete %> |
         <% end %>
         <% if permitted_to? :spam, comment %>
-          <td><%= link_to 'Spam', spam_path(comment) %></td>
+          <%= link_to 'Spam', spam_path(comment) %> |
         <% end %>
         <% if permitted_to? :ham, comment %>
-          <td><%= link_to 'Ham', ham_path(comment) %></td>
+          <%= link_to 'Ham', ham_path(comment) %>
         <% end %>
+        </div>        
       <% end %>
-    </tr>
   <% end %>
-  </table>
+</div>
   
   <% if permitted_to? :remove_all_spam, :stories %>
     <%= link_to 'Remove all unapproved', remove_all_spam_path(@story) %>

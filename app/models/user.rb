@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   acts_as_voter
   # authlogic
   acts_as_authentic
+  # gravatar/gravtastic
+  is_gravtastic!
   
   has_many :stories
   has_many :assignments

@@ -160,7 +160,6 @@ class StoriesController < ApplicationController
     redirect_to :controller => 'stories', :action => 'show', :id => params[:id]
   end
   
-  # TODO: FIXME
   def remove_all_spam
     Comment.delete_all(["is_approved = ? AND story_id = ?", false, @story.id])
     flash[:notice] = "Deleted all unapproved comments."

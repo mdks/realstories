@@ -6,7 +6,6 @@ class Comment < ActiveRecord::Base
     :author_email => proc { user.email },
     :content_type => proc { 'comment' },
     :content => :body
-  
 
   attr_accessible :body
   validates_presence_of :body
