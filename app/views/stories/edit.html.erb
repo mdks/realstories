@@ -11,6 +11,14 @@
     <%= f.text_area :body %>
   </p>
   <p>
+    <%= f.label :disable_commenting %>
+    <%= f.check_box :disable_commenting %>
+  </p>
+  <p>
+    <%= f.label :disable_voting %>
+    <%= f.check_box :disable_voting %>
+  </p>
+  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>

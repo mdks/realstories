@@ -5,40 +5,51 @@ class CommentsController < ApplicationController
   filter_resource_access
 
   # GET /comments/1/edit
-  # def edit
-  # end
+  def edit
+    if Story.find(params[:story_id]).disable_commenting
+      flash[:error] = "Commenting has been disabled for this story."
+      redirect_to(Story.find(params[:story_id]))
+    end
+  end
 
   # POST /comments
   # POST /comments.xml
   def create
-    @comment.user_id = current_user.id
-    @comment.story_id = params[:story_id]
-    @comment.score = 0
-    
-    # Akismet hook
-    if !@comment.spam? : @comment.is_approved = true else @comment.is_approved = false end
-    
-    @comment.save
-
-    if @comment.is_approved
-      flash[:notice] = 'Comment posted.'
+    unless Story.find(params[:story_id]).disable_commenting
+      @comment.user_id = current_user.id
+      @comment.story_id = params[:story_id]
+      @comment.score = 0
+      
+      # Akismet hook
+      if !@comment.spam? : @comment.is_approved = true else @comment.is_approved = false end
+      
+      @comment.save
+  
+      if @comment.is_approved
+        flash[:notice] = 'Comment posted.'
+      else
+        flash[:error] = 'Comment marked as spam please contact an administrator.'
+      end   
     else
-      flash[:error] = 'Comment marked as spam please contact an administrator.'
+      flash[:error] = "Commenting has been disabled for this story."
     end
-    
-    redirect_to(@comment.story)
+      redirect_to(Story.find(params[:story_id]))
   end
 
   # PUT /comments/1
   # PUT /comments/1.xml
   def update
+    unless Story.find(params[:story_id]).disable_commenting
       if @comment.update_attributes(params[:comment])
         flash[:notice] = 'Comment edited.'
       else
         flash[:error] = "Edit failed."
       end
+    else
+      flash[:error] = "Commenting has been disabled for this story."
+    end
 
-    redirect_to(@comment.story)
+    redirect_to(Story.find(params[:story_id]))
   end
 
   # DELETE /comments/1

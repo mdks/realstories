@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091208101101) do
+ActiveRecord::Schema.define(:version => 20091209093910) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(:version => 20091208101101) do
     t.integer  "user_id"
     t.float    "score"
     t.string   "title"
+    t.boolean  "disable_commenting"
+    t.boolean  "disable_voting"
   end
 
   create_table "users", :force => true do |t|

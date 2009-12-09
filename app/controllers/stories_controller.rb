@@ -140,23 +140,27 @@ class StoriesController < ApplicationController
   
   # add vote action
   def vote
-    unless current_user.id == @story.user.id
-      if params[:vote].to_i == 1 then
-        current_user.vote_for(@story)
+    unless @story.disable_voting
+      unless current_user.id == @story.user.id
+        if params[:vote].to_i == 1 then
+          current_user.vote_for(@story)
+        else
+          current_user.vote_against(@story)
+        end
+        # update ci score here
+        @story.score = ci_lower_bound(@story.votes_for, @story.votes_count, 0.10)
+        @story.save!
+        flash[:notice] = "Thank you for voting."
       else
-        current_user.vote_against(@story)
+        flash[:error] = "Cannot vote on own story!"
       end
-      # update ci score here
-      @story.score = ci_lower_bound(@story.votes_for, @story.votes_count, 0.10)
-      @story.save!
-      flash[:notice] = "Thank you for voting."
     else
-      flash[:error] = "Cannot vote on own story!"
+      flash[:error] = "Sorry, voting has been disabled!"
     end
-    redirect_to(@story) #:controller => 'stories', :action => 'show', :id => params[:id]
+    redirect_to(@story)
   rescue
     flash[:error] = "You may only vote once!"
-    redirect_to(@story) #:controller => 'stories', :action => 'show', :id => params[:id]
+    redirect_to(@story)
   end
   
   def remove_all_spam
