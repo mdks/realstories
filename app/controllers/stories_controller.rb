@@ -143,8 +143,8 @@ class StoriesController < ApplicationController
   # DELETE /stories/1.xml
   def destroy
     @story.votes.destroy_all
-    @story.chapter.pages.destroy_all
-    @story.chapter.destroy.all    
+    @story.chapters.pages.destroy_all
+    @story.chapters.destroy.all    
     @story.destroy
     respond_to do |format|
       format.html { redirect_to(stories_url) }

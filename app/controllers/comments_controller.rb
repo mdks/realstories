@@ -57,8 +57,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.xml
   def destroy
-    @votes = Vote.for_voteable(@comment)
-    @votes.destroy_all
+    @comment.votes.destroy_all
     @comment.destroy
     redirect_to(@comment.story)
   end
