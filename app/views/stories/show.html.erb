@@ -40,6 +40,12 @@
 <div id="page">
   <% if @page %>
     <%= white_list(RedCloth.new(@page.body, [:filter_styles]).to_html) %>
+    <% if permitted_to? :edit, :pages %>
+      <%= link_to 'Edit this page', edit_chapter_page_path(@chapter, @page) %>
+    <% end %>
+    <% if permitted_to? :destroy, :pages %>
+      <%= link_to 'Remove this page', chapter_page_path(@chapter, @page), :confirm => 'Are you sure?', :method => :delete %>
+    <% end %>
     <% if @previous_page %>
       <%= link_to '<--', page_url(@story, @previous_page) %>
     <% end %>
@@ -53,12 +59,6 @@
 <% if @chapter %>
   <% if permitted_to? :create, :pages %>
     <%= link_to 'Add a page to this chapter', new_chapter_page_path(@chapter) %>
-  <% end %>
-  <% if permitted_to? :edit, :pages %>
-    <%= link_to 'Edit this page', edit_chapter_page_path(@chapter, @page) %>
-  <% end %>
-  <% if permitted_to? :destroy, :pages %>
-    <%= link_to 'Remove this page', destroy_chapter_page_path(@chapter, @page) %>
   <% end %>
 <% end %>
 

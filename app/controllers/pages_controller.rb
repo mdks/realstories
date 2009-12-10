@@ -77,9 +77,6 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     @page.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(pages_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to @page.chapter.story
   end
 end
