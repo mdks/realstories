@@ -78,7 +78,7 @@ class StoriesController < ApplicationController
       @page = Page.find(params[:page_id])
     else
       @chapter = Chapter.first(:order => 'chapter_number ASC')
-      @page = @chapter.pages.first(:order => 'page_number ASC')
+      @page = @chapter.pages.first(:order => 'page_number ASC') if @chapter
     end
     @previous_page = @chapter.pages.find_by_page_number(@page.page_number - 1) if @page
     @next_page = @chapter.pages.find_by_page_number(@page.page_number + 1) if @page
