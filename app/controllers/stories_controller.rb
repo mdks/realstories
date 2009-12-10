@@ -69,6 +69,19 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.xml
   def show
+    # get chapter
+    if params[:chapter_id]
+      @chapter = Chapter.find(params[:chapter_id])
+      @page = @chapter.pages.first(:order => 'page_number ASC')
+    elsif params[:page_id]
+      @chapter = Page.find(params[:page_id]).chapter
+      @page = Page.find(params[:page_id])
+    else
+      @chapter = Chapter.first(:order => 'chapter_number ASC')
+      @page = @chapter.pages.first(:order => 'page_number ASC')
+    end
+    @previous_page = @chapter.pages.find_by_page_number(@page.page_number - 1)
+    @next_page = @chapter.pages.find_by_page_number(@page.page_number + 1)
     @comment = Comment.new
     @comments = @story.comments.find(:all, :order => "score desc")
     respond_to do |format|
@@ -130,8 +143,9 @@ class StoriesController < ApplicationController
   # DELETE /stories/1.xml
   def destroy
     @story.votes.destroy_all
+    @story.chapter.pages.destroy_all
+    @story.chapter.destroy.all    
     @story.destroy
-    
     respond_to do |format|
       format.html { redirect_to(stories_url) }
       format.xml  { head :ok }

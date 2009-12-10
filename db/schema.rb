@@ -9,11 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091209110049) do
+ActiveRecord::Schema.define(:version => 20091210063633) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "chapters", :force => true do |t|
+    t.string   "chapter_name"
+    t.integer  "chapter_number"
+    t.integer  "story_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -26,6 +34,14 @@ ActiveRecord::Schema.define(:version => 20091209110049) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_approved"
+  end
+
+  create_table "pages", :force => true do |t|
+    t.integer  "page_number"
+    t.integer  "chapter_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "roles", :force => true do |t|

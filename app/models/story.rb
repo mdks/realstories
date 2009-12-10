@@ -3,6 +3,7 @@ class Story < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments
+  has_many :chapters
   validates_presence_of :body, :title
   attr_accessible :body, :title, :disable_commenting, :disable_voting
   cattr_reader :per_page
