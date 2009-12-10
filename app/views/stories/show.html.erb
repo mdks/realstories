@@ -40,21 +40,25 @@
 <div id="page">
   <% if @page %>
     <%= white_list(RedCloth.new(@page.body, [:filter_styles]).to_html) %>
-  <% if @previous_page %>
-    <%= link_to '<--', page_url(@story, @previous_page) %>
-  <% end %>
-    <%= @page.page_number %>
-  <% if @next_page %>
-    <%= link_to '-->', page_url(@story, @next_page) %>
-  <% end %>
-  <% else %>
-    This chapter has no pages! How sad.
+    <% if @previous_page %>
+      <%= link_to '<--', page_url(@story, @previous_page) %>
+    <% end %>
+      <%= @page.page_number %>
+    <% if @next_page %>
+      <%= link_to '-->', page_url(@story, @next_page) %>
+    <% end %>
   <% end %>
 </div>
 
 <% if @chapter %>
   <% if permitted_to? :create, :pages %>
     <%= link_to 'Add a page to this chapter', new_chapter_page_path(@chapter) %>
+  <% end %>
+  <% if permitted_to? :edit, :pages %>
+    <%= link_to 'Edit this page', edit_chapter_page_path(@chapter, @page) %>
+  <% end %>
+  <% if permitted_to? :destroy, :pages %>
+    <%= link_to 'Remove this page', destroy_chapter_page_path(@chapter, @page) %>
   <% end %>
 <% end %>
 
