@@ -80,8 +80,8 @@ class StoriesController < ApplicationController
       @chapter = Chapter.first(:order => 'chapter_number ASC')
       @page = @chapter.pages.first(:order => 'page_number ASC')
     end
-    @previous_page = @chapter.pages.find_by_page_number(@page.page_number - 1)
-    @next_page = @chapter.pages.find_by_page_number(@page.page_number + 1)
+    @previous_page = @chapter.pages.find_by_page_number(@page.page_number - 1) if @page
+    @next_page = @chapter.pages.find_by_page_number(@page.page_number + 1) if @page
     @comment = Comment.new
     @comments = @story.comments.find(:all, :order => "score desc")
     respond_to do |format|
