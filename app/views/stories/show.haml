@@ -1,29 +1,29 @@
 #story-info
   %h1#story-title
     = h @story.title
-  %p#author-credit
+  %div#author-credit
     %b
       by:
     = image_tag(@story.user.gravatar_url(:size=>25))
     = h @story.user.username
-  %p#story-description
+  %div#story-description
     = h @story.description
-  %p#created-at
+  %div#created-at
     %b
       Created at:
-    = h @story.created_at
-  %p#last-updated
+    = h distance_of_time_in_words(@story.created_at, Time.now)
+  %div#last-updated
     %b
       Last updated:
-    = h @story.updated_at
+    = h distance_of_time_in_words(@story.updated_at, Time.now)
   #story-links
     - if permitted_to? :edit, @story
       = link_to 'Edit story info', edit_story_path(@story)
     - if permitted_to? :destroy, @story
       = link_to 'Destroy story', @story, :confirm => 'Are you sure?', :method => :delete
-#table-of-contents
+%ul#table-of-contents
   - @story.chapters.each do |chapter|
-    %p.chapter-name
+    %li
       = h chapter.chapter_number
       \.
       = link_to chapter.chapter_name, chapter_path(@story, chapter.chapter_number)

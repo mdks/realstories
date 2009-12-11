@@ -36,9 +36,9 @@
       = (story.score * 100).to_i.to_s + "%"
     %p
       Created:
-      = story.created_at
+      = distance_of_time_in_words(story.created_at, Time.now)
       Updated:
-      = story.updated_at
+      = distance_of_time_in_words(story.updated_at, Time.now)
 #new-story
   - if permitted_to? :create, :stories
     = link_to 'New story', new_story_path

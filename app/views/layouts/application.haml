@@ -3,7 +3,7 @@
   %head
     %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
     %title
-      RealStories
+      realstories
     = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
     = stylesheet_link_tag 'compiled/print.css', :media => 'print'
     /[if lt IE 8]
@@ -11,20 +11,20 @@
   %body.bp.three-col
     #container.showgrid
       #header
-        %h1 RealStories
-        #user-nav
-          - if current_user
-            Welcome,
-            = current_user.username
-            = link_to 'Edit Profile', edit_user_path(:current)
-            = link_to 'Logout', logout_path
-          - else
-            = rpx_popup( :link_text => "Login/Register", :app_name => RPX_APP_NAME, :return_url => user_sessions_url, :unobtrusive => false )      
+        %h1 realstories
+      #user-nav
+        - if current_user
+          Welcome,
+          = current_user.username
+          = link_to 'Edit Profile', edit_user_path(:current)
+          = link_to 'Logout', logout_path
+        - else
+          = rpx_popup( :link_text => "Login/Register", :app_name => RPX_APP_NAME, :return_url => user_sessions_url, :unobtrusive => false )      
       #content
-        %p{ :style => "color: green" }
+        %div{ :style => "color: green" }
           = flash[:notice]
-        %p{ :style => "color: red" }
+        %div{ :style => "color: red" }
           = flash[:error]
         = yield
       #footer
-        Not a legal notice!
+        this is realstories

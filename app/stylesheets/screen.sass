@@ -1,41 +1,84 @@
-// This import applies a global reset to any page that imports this stylesheet.
-@import blueprint/reset.sass
-// To configure blueprint, edit the partials/base.sass file.
 @import partials/base.sass
-// Import all the default blueprint modules so that we can access their mixins.
 @import blueprint
-// Import the non-default scaffolding module.
 @import blueprint/modules/scaffolding.sass
+@import compass/utilities.sass
+@import blueprint/reset.sass
 
-// To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
-+blueprint
-
-//Recommended Blueprint configuration with scoping and semantic layout:
+//+blueprint
 +blueprint-typography("body.bp")
 +blueprint-scaffolding("body.bp")
 body.bp
   +blueprint-utilities
-  +blueprint-debug
   +blueprint-interaction
-  // Remove the scaffolding when you're ready to start doing visual design.
-  // Or leave it in if you're happy with how blueprint looks out-of-the-box
 form.bp
   +blueprint-form
 
-// Page layout can be done using mixins applied to your semantic classes and IDs:
 body.three-col
   #container
     +container
+    a
+      +hover-link
   #header, #footer
     +column(!blueprint_grid_columns)
-    +prepend(8)
+  #header
+    :margin-top 15px
+    +prepend(10)
+  #user-nav
+    +column(12)
+    +push(2)
+    :margin-left 5px
+  #footer
+    +prepend(10)
+    :margin-left 5px
+    :padding-top 5px
+    :border-top 1px solid black
   #sidebar
-    // One third of the grid columns, rounding down. With 24 cols, this is 8.
     !sidebar_columns = floor(!blueprint_grid_columns / 3)
     +column(!sidebar_columns)
   #content
-    // Two thirds of the grid columns, rounding up.
-    // With 24 cols, this is 16.
+    +push(4)
     !content_columns = ceil(2 * !blueprint_grid_columns / 3)
-    // true means it's the last column in the row
     +column(!content_columns, true)
+    ul#sorting-list, #order-list
+      +no-bullets
+      +horizontal-list
+      +prepend(4)
+    div.story-listing
+      :margin-top 5px
+      :margin-left 5px
+      :margin-right 5px
+      :border-top 2px black dashed
+      h2
+        :margin-bottom 0px
+        :margin-top 5px
+    #new-story
+      :margin-left 5px
+    #story-info
+      h1#story-title
+        :font-weight bold
+      #author-credit
+        :margin-bottom 5px
+        :margin-left 5px
+        +prepend(4)
+    ul#table-of-contents
+      :margin 0
+      :margin-top 10px
+      :margin-bottom 10px
+      +no-bullets
+      +prepend(1)
+      li
+        :font-size 1.5em
+    #page-content
+      #page-pagination
+        +prepend(6)
+        :font-size 2em
+      #page-links
+        :margin-bottom 10px
+    #story-score
+      +prepend(2)
+      #voting-links
+        :margin-bottom 10px
+    #comments
+      +prepend(4)
+    #new-comment-form
+      +prepend(4)
