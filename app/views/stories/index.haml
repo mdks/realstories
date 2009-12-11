@@ -1,0 +1,46 @@
+%ul#sorting-list
+  %li
+    Highest rated:
+    = link_to 'Asc', sort_path(:order => 'best', :time => 'all', :sort => 'asc')
+    = link_to 'Desc', sort_path(:order => 'best', :time => 'all', :sort => 'desc')
+  %li
+    Latest:
+    = link_to 'Asc', sort_path(:order => 'latest', :time => 'all', :sort => 'asc')
+    = link_to 'Desc', sort_path(:order => 'latest', :time => 'all', :sort => 'desc')
+  %li
+    Last updated:
+    = link_to 'Asc', sort_path(:order => 'lastupdated', :time => 'all', :sort => 'asc')
+    = link_to 'Desc', sort_path(:order => 'lastupdated', :time => 'all', :sort => 'desc')
+- if params[:order]
+  %ul#order-list
+    %li
+      = link_to 'Today', sort_path(:order => params[:order], :time => 'today', :sort => params[:sort])
+    %li
+      = link_to 'This Week', sort_path(:order => params[:order], :time => 'week', :sort => params[:sort])
+    %li
+      = link_to 'This Month', sort_path(:order => params[:order], :time => 'month', :sort => params[:sort])
+    %li
+      = link_to 'All Time', sort_path(:order => params[:order], :time => 'all', :sort => params[:sort])
+- @stories.each do |story|
+  .story-listing
+    %h2
+      = link_to h(story.title), story
+    %p
+      by:
+      = image_tag(story.user.gravatar_url(:size=>25))
+      = h story.user.username
+    %p
+      = h story.description
+    %p
+      Score:
+      = (story.score * 100).to_i.to_s + "%"
+    %p
+      Created:
+      = story.created_at
+      Updated:
+      = story.updated_at
+#new-story
+  - if permitted_to? :create, :stories
+    = link_to 'New story', new_story_path
+#pagination
+  = will_paginate @stories

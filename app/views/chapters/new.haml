@@ -1,0 +1,12 @@
+%h1
+  New chapter
+- form_for([@story, @chapter]) do |f|
+  = f.error_messages
+  %p
+    = f.label :chapter_name
+    %br
+    = f.text_field :chapter_name
+  %p
+    = f.submit 'Create'
+
+= link_to 'Back', @story

@@ -1,0 +1,24 @@
+%h1
+  Editing story
+- form_for(@story) do |f|
+  = f.error_messages
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title
+  %p
+    = f.label :description
+    %br
+    = f.text_field :description
+  %p
+    = f.label :disable_commenting
+    = f.check_box :disable_commenting
+  %p
+    = f.label :disable_voting
+    = f.check_box :disable_voting
+  %p
+    - #= recaptcha_tags
+  %p
+    = f.submit 'Update'
+
+= link_to 'Back', stories_path
