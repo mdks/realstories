@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091210063633) do
+ActiveRecord::Schema.define(:version => 20091211055255) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20091210063633) do
   end
 
   create_table "stories", :force => true do |t|
-    t.text     "body"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -86,8 +86,8 @@ ActiveRecord::Schema.define(:version => 20091210063633) do
     t.datetime "updated_at"
   end
 
+  add_index "votes", ["voteable_id", "voteable_type", "voter_id", "voter_type"], :name => "uniq_one_vote_only", :unique => true
   add_index "votes", ["voteable_id", "voteable_type"], :name => "fk_voteables"
-  add_index "votes", ["voter_id", "voter_type", "voteable_id", "voteable_type"], :name => "uniq_one_vote_only", :unique => true
   add_index "votes", ["voter_id", "voter_type"], :name => "fk_voters"
 
 end
