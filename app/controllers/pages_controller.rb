@@ -39,7 +39,8 @@ class PagesController < ApplicationController
   # POST /pages.xml
   def create
     @chapter = Chapter.find(params[:chapter_id])
-    @previous_page = @chapter.pages.first(:order => 'page_number DESC')
+    @story = @chapter.story
+    @previous_page = @story.pages.first(:order => 'page_number DESC')
     page_number = @previous_page.page_number if @previous_page
     @page = Page.new(params[:page])
     @page.chapter_id = @chapter.id

@@ -25,9 +25,9 @@ ActionController::Routing::Routes.draw do |map|
   map.remove_all_spam 'remove_all_spam/:id', :controller => 'stories', :action => 'remove_all_spam'
 
   # chapter route
-  map.chapter '/stories/:id/chapters/:chapter_id', :controller => 'stories', :action => 'show'
+  map.chapter '/stories/:id/chapters/:chapter_number', :controller => 'stories', :action => 'show'
   # page route
-  map.page '/stories/:id/pages/:page_id', :controller => 'stories', :action => 'show'
+  map.page '/stories/:id/pages/:page_number', :controller => 'stories', :action => 'show'
   
   # root route
   map.root :controller => "stories"

@@ -70,18 +70,19 @@ class StoriesController < ApplicationController
   # GET /stories/1.xml
   def show
     # get chapter
-    if params[:chapter_id]
-      @chapter = Chapter.find(params[:chapter_id])
+    if params[:chapter_number]
+      @chapter = @story.chapters.find_by_chapter_number(params[:chapter_number])
       @page = @chapter.pages.first(:order => 'page_number ASC')
-    elsif params[:page_id]
-      @chapter = Page.find(params[:page_id]).chapter
-      @page = Page.find(params[:page_id])
+    elsif params[:page_number]
+      @page = @story.pages.find_by_page_number(params[:page_number])
+      @chapter = @page.chapter
+      #@page = Page.find(params[:page_id])
     else
       @chapter = Chapter.first(:order => 'chapter_number ASC')
       @page = @chapter.pages.first(:order => 'page_number ASC') if @chapter
     end
-    @previous_page = @chapter.pages.find_by_page_number(@page.page_number - 1) if @page
-    @next_page = @chapter.pages.find_by_page_number(@page.page_number + 1) if @page
+    @previous_page = @story.pages.find_by_page_number(@page.page_number - 1) if @page
+    @next_page = @story.pages.find_by_page_number(@page.page_number + 1) if @page
     @comment = Comment.new
     @comments = @story.comments.find(:all, :order => "score desc")
     respond_to do |format|
