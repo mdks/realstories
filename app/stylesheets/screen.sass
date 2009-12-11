@@ -8,7 +8,7 @@
 @import blueprint/modules/scaffolding.sass
 
 // To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
-// +blueprint
++blueprint
 
 //Recommended Blueprint configuration with scoping and semantic layout:
 +blueprint-typography("body.bp")
@@ -28,6 +28,7 @@ body.three-col
     +container
   #header, #footer
     +column(!blueprint_grid_columns)
+    +prepend(8)
   #sidebar
     // One third of the grid columns, rounding down. With 24 cols, this is 8.
     !sidebar_columns = floor(!blueprint_grid_columns / 3)
