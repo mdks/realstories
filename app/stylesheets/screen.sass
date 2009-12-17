@@ -3,10 +3,12 @@
 @import blueprint/modules/scaffolding.sass
 @import compass/utilities.sass
 @import blueprint/reset.sass
+@import compass/layout.sass
 
 !page_color = #C9C89F
 
 +blueprint-typography("body.main")
++sticky-footer( 20px, "#container", "#root_footer", "#footer" )
 
 form.main
   +blueprint-form
@@ -24,7 +26,7 @@ body.main
   #error, #notice
     +prepend(4)
     :background= !page_color
-  #header, #footer
+  #header
     +column(!blueprint_grid_columns)
     :background= !page_color
     #error
@@ -43,6 +45,7 @@ body.main
     :padding-bottom 0.5em
   #footer
     +prepend(1)
+    :background= !page_color
   #sidebar
     !sidebar_columns = floor(!blueprint_grid_columns / 3)
     +column(!sidebar_columns)
