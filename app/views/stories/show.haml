@@ -1,58 +1,54 @@
-#story-info
-  %h1#story-title
-    = h @story.title
-  %div#author-credit
-    %b
-      by:
-    = image_tag(@story.user.gravatar_url(:size=>25))
-    = h @story.user.username
-  %div#story-description
-    = h @story.description
-  %div#created-at
-    %b
-      Created at:
-    = h distance_of_time_in_words(@story.created_at, Time.now)
-  %div#last-updated
-    %b
-      Last updated:
-    = h distance_of_time_in_words(@story.updated_at, Time.now)
-  #story-links
-    - if permitted_to? :edit, @story
-      = link_to 'Edit story info', edit_story_path(@story)
-    - if permitted_to? :destroy, @story
-      = link_to 'Destroy story', @story, :confirm => 'Are you sure?', :method => :delete
-%ul#table-of-contents
-  - @story.chapters.each do |chapter|
-    %li
-      = h chapter.chapter_number
-      \.
-      = link_to chapter.chapter_name, chapter_path(@story, chapter.chapter_number)
+#sidebar
+  %ul#table-of-contents
+    - @story.chapters.each do |chapter|
+      %li
+        = h chapter.chapter_number
+        \.
+        = link_to chapter.chapter_name, chapter_path(@story, chapter.chapter_number)
       - if permitted_to? :edit, chapter
         = link_to 'Edit chapter name', edit_story_chapter_path(@story, chapter)
       - if permitted_to? :destroy, chapter
         = link_to 'Destroy chapter', story_chapter_path(@story, chapter), :confirm => 'Are you sure?', :method => :delete
-  - if permitted_to? :create, :chapters
-    = link_to 'Add a chapter', new_story_chapter_path(@story)
-  - if @chapter
-    - if permitted_to? :create, :pages
-      = link_to 'Add a page to this chapter', new_chapter_page_path(@chapter)
-- if @page
-  #page-content
-    = white_list(RedCloth.new(@page.body, [:filter_styles]).to_html)
-    #page-pagination
-      - if @previous_page
-        = link_to '<--', page_url(@story, @previous_page.page_number)
-      = @page.page_number
-      - if @next_page
-        = link_to '-->', page_url(@story, @next_page.page_number)
-    #page-links
-      - if permitted_to? :edit, :pages
-        = link_to 'Edit this page', edit_chapter_page_path(@chapter, @page)
-      - if permitted_to? :destroy, :pages
-        = link_to 'Remove this page', chapter_page_path(@chapter, @page), :confirm => 'Are you sure?', :method => :delete
-- unless @story.disable_voting
-  #story-score
-    %p
+    #chapter-links
+      - if permitted_to? :create, :chapters
+        = link_to 'Add a chapter', new_story_chapter_path(@story)
+      - if @chapter
+        - if permitted_to? :create, :pages
+          = link_to 'Add a page to this chapter', new_chapter_page_path(@chapter)
+#content
+  #story-info
+    %h1#story-title
+      = h @story.title
+    #author-credit
+      by:
+      = image_tag(@story.user.gravatar_url(:size=>25))
+      = h @story.user.username
+    #story-links
+      - if permitted_to? :edit, @story
+        = link_to 'Edit story info', edit_story_path(@story)
+      - if permitted_to? :destroy, @story
+        = link_to 'Destroy story', @story, :confirm => 'Are you sure?', :method => :delete
+    #story-timestamps
+      Created at:
+      = h distance_of_time_in_words(@story.created_at, Time.now)
+      Last updated:
+      = h distance_of_time_in_words(@story.updated_at, Time.now)
+  - if @page
+    #page-content
+      = white_list(RedCloth.new(@page.body, [:filter_styles]).to_html)
+      #page-pagination
+        - if @previous_page
+          = link_to '<--', page_url(@story, @previous_page.page_number)
+        = @page.page_number
+        - if @next_page
+          = link_to '-->', page_url(@story, @next_page.page_number)
+      #page-links
+        - if permitted_to? :edit, :pages
+          = link_to 'Edit this page', edit_chapter_page_path(@chapter, @page)
+        - if permitted_to? :destroy, :pages
+          = link_to 'Remove this page', chapter_page_path(@chapter, @page), :confirm => 'Are you sure?', :method => :delete
+  - unless @story.disable_voting
+    #story-score
       Liked it:
       = @story.votes_for
       %br
@@ -61,62 +57,60 @@
       %br
       Score:
       = (@story.score * 100).to_i.to_s + "%"
-    #voting-links
       - if permitted_to? :vote, @story
-        = link_to 'I like it (+1)', vote_path(:id => @story.id, :vote => 1)
-        = link_to "I don't like it (-1)", vote_path(:id => @story.id, :vote => 0)
-- else
-  %p
-    %b
-      Voting has been disabled on this story.
-- if !@story.disable_commenting || permitted_to? (:remove_all_spam, :stories)
-  - if @story.comments.size > 0
-    %h2
-      Comments for
-      = h @story.title
-    #comments
-      - @comments.each do |comment|
-        - if comment.is_approved || permitted_to?( :spam, comment )
-          .comment
-            %p
-              = h comment.body
-              %p
-                %p
+        #voting-links
+          = link_to 'I like it (+1)', vote_path(:id => @story.id, :vote => 1)
+          = link_to "I don't like it (-1)", vote_path(:id => @story.id, :vote => 0)
+  - else
+    %p
+      %b
+        Voting has been disabled on this story.
+  - if !@story.disable_commenting || permitted_to?(:remove_all_spam, :stories)
+    - if @story.comments.size > 0
+      #comments
+        %h2
+          Comments
+        - @comments.each do |comment|
+          - if comment.is_approved || permitted_to?( :spam, comment )
+            .comment
+              .comment-body
+                = h comment.body
+                .comment-info
+                  .comment-author
+                    = image_tag(comment.user.gravatar_url(:size=>25))
+                    = h comment.user.username
+                .comment-score
                   = (comment.score * 100).to_i.to_s + "%"
-                %b
-                  = image_tag(comment.user.gravatar_url(:size=>25))
-                  = h comment.user.username
-              #comment-voting-links
-                - if permitted_to? :vote, comment
-                  = link_to '+1', vote_comment_path(:id => comment.id, :vote => 1)
-                  = link_to '-1', vote_comment_path(:id => comment.id, :vote => 0)
-              #comment-links
-                - if permitted_to? :edit, comment
-                  = link_to 'Edit comment', edit_story_comment_path(comment.story, comment)
-                - if permitted_to? :destroy, comment
-                  = link_to 'Remove comment', story_comment_path(comment.story, comment), :confirm => 'Are you sure?', :method => :delete
-                - if permitted_to? :spam, comment
-                  = link_to 'Mark as spam', spam_path(comment)
-                - if permitted_to? :ham, comment
-                  = link_to 'Approve comment', ham_path(comment)
-      #comments-remove-spam-link
-        - if permitted_to? :remove_all_spam, :stories
-          = link_to 'Remove all unapproved', remove_all_spam_path(@story)
-  - if permitted_to? :create, :comments
-    #new-comment-form
-      %h3
-        New comment
-      - form_for([@story, @comment]) do |f|
-        = f.error_messages
-        %p
-          = f.label :body
-          %br
-          = f.text_area :body
-        %p
-          = f.submit 'Post'
-- else
-  %p
-    %b
-      Commenting has been disabled on this story.
-    %b
-= link_to 'Back', stories_path
+                .comment-voting-links
+                  - if permitted_to? :vote, comment
+                    = link_to '+1', vote_comment_path(:id => comment.id, :vote => 1)
+                    = link_to '-1', vote_comment_path(:id => comment.id, :vote => 0)
+                .comment-links
+                  - if permitted_to? :edit, comment
+                    = link_to 'Edit comment', edit_story_comment_path(comment.story, comment)
+                  - if permitted_to? :destroy, comment
+                    = link_to 'Remove comment', story_comment_path(comment.story, comment), :confirm => 'Are you sure?', :method => :delete
+                  - if permitted_to? :spam, comment
+                    = link_to 'Mark as spam', spam_path(comment)
+                  - if permitted_to? :ham, comment
+                    = link_to 'Approve comment', ham_path(comment)
+        #remove-spam-link
+          - if permitted_to? :remove_all_spam, :stories
+            = link_to 'Remove all unapproved', remove_all_spam_path(@story)
+    - if permitted_to? :create, :comments
+      #new-comment-form
+        %h3
+          New comment
+        - form_for([@story, @comment]) do |f|
+          = f.error_messages
+          %p
+            = f.text_area :body
+          %p
+            = f.submit 'Post'
+  - else
+    %p
+      %b
+        Commenting has been disabled on this story.
+      %b
+  #back-link
+    = link_to 'Back', stories_path

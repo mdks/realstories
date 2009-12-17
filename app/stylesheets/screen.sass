@@ -1,84 +1,152 @@
 @import partials/base.sass
-@import blueprint
+@import blueprint.sass
 @import blueprint/modules/scaffolding.sass
 @import compass/utilities.sass
 @import blueprint/reset.sass
 
-//+blueprint
-+blueprint-typography("body.bp")
-+blueprint-scaffolding("body.bp")
-body.bp
+!page_color = #C9C89F
+
++blueprint-typography("body.main")
+
+form.main
+  +blueprint-form
+  
+body.main
   +blueprint-utilities
   +blueprint-interaction
-form.bp
-  +blueprint-form
-
-body.three-col
+  :background #372D23
   #container
     +container
+    :background #383D43 
     a
       +hover-link
+      +link-colors(#051E21,#00302D)
+  #error, #notice
+    +prepend(4)
+    :background= !page_color
   #header, #footer
     +column(!blueprint_grid_columns)
+    :background= !page_color
+    #error
+      color: red
+    #notice
+      color: green
   #header
-    :margin-top 15px
-    +prepend(10)
+    +prepend(5)
+    :padding-top 1em
+    h1
+      :margin-bottom 0
+      :color #362E25
   #user-nav
-    +column(12)
-    +push(2)
-    :margin-left 5px
-  #footer
     +prepend(10)
-    :margin-left 5px
-    :padding-top 5px
-    :border-top 1px solid black
+    :background= !page_color
+    :padding-bottom 0.5em
+  #footer
+    +prepend(1)
   #sidebar
     !sidebar_columns = floor(!blueprint_grid_columns / 3)
     +column(!sidebar_columns)
-  #content
-    +push(4)
-    !content_columns = ceil(2 * !blueprint_grid_columns / 3)
-    +column(!content_columns, true)
-    ul#sorting-list, #order-list
+    :background #A08C55
+    #table-of-contents
+      :padding 1em
       +no-bullets
-      +horizontal-list
-      +prepend(4)
-    div.story-listing
-      :margin-top 5px
-      :margin-left 5px
-      :margin-right 5px
-      :border-top 2px black dashed
-      h2
-        :margin-bottom 0px
-        :margin-top 5px
-    #new-story
-      :margin-left 5px
-    #story-info
-      h1#story-title
-        :font-weight bold
-      #author-credit
-        :margin-bottom 5px
-        :margin-left 5px
-        +prepend(4)
-    ul#table-of-contents
       :margin 0
       :margin-top 10px
       :margin-bottom 10px
-      +no-bullets
-      +prepend(1)
       li
-        :font-size 1.5em
+        :font-size 1.75em
+      #chapter-links
+        :font-size 1.25em
+  .index
+    +push(4)
+    :padding-bottom 1.5em
+    :padding-top 1.5em
+  #form
+    +prepend(1)
+    :padding-top 1em
+    :padding-bottom 1em
+    :background= !page_color
+  #back-link
+    :background-color= !page_color
+    :text-align right
+    :padding-right 1em
+    :font-size 1.5em
+  #content
+    !content_columns = ceil(2 * !blueprint_grid_columns / 3)
+    +column(!content_columns, true)  
+    :background #4F6173
+    :margin-bottom 0
+    #story-info
+      :background= !page_color
+    ul#sorting-list, #order-list
+      +no-bullets
+      +horizontal-list
+      +prepend(2)
+      :background= !page_color
+      li a
+        :font-size 1.25em
+    .story-listing
+      :background= !page_color
+      :margin-top 1.5em
+      .listing-author
+        :text-align center
+      .listing-description, .listing-score, .listing-timestamps
+        :padding-left 2em
+        :padding-right 2em
+      h2
+        :margin-bottom 0.25em
+        :text-align center
+    #new-story
+      :background= !page_color
+      :margin-top 1.5em
+      :font-size 1.5em
+      +prepend(2)
+    #story-info
+      :background= !page_color
+      :padding 0.5em
+      #story-timestamps, #story-links
+        :padding-left 2em
+        :padding-right 2em
+      #story-timestamps
+        :text-align right
+      h1#story-title
+        :font-weight bold
+        :text-align center
+        :margin-bottom 0.25em
+      #author-credit
+        +prepend(4)
     #page-content
+      :background #C2B572
+      :padding 2em
       #page-pagination
-        +prepend(6)
+        :text-align center
         :font-size 2em
       #page-links
-        :margin-bottom 10px
+        :font-size 1.25em
     #story-score
-      +prepend(2)
+      :background= !page_color
+      :padding 2em
       #voting-links
-        :margin-bottom 10px
+        :font-size 1.25em
     #comments
-      +prepend(4)
+      :background= !page_color
+      h2
+        :text-align center
+        :font-size 14pt
+        :margin-bottom 0
+      .comment-body
+        :border-top solid 1em #4F6173
+        :padding 2em
+        :background= !page_color
+      .comment-info
+        :margin-top 1em
+      .comment-links, #remove-spam-link, .comment-voting-links
+        :font-size 1.25em
+      #remove-spam-link
+        :padding-left 2em
     #new-comment-form
       +prepend(4)
+      :background-color= !page_color
+      :padding-top 2em
+      p
+        :margin-bottom 0

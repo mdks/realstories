@@ -1,12 +1,2 @@
-%h1
-  New page
-- form_for([@chapter, @page]) do |f|
-  = f.error_messages
-  %p
-    = f.label :body
-    %br
-    = f.text_area :body
-  %p
-    = f.submit 'Create'
-
-= link_to 'Back', @chapter.story
+#form
+  = render :partial => "form", :locals => { :heading => "New page", :action => "Create"}

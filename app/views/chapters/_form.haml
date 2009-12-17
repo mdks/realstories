@@ -1,0 +1,13 @@
+%h1
+  = heading
+- form_for([@story, @chapter]) do |f|
+  = f.error_messages
+  %p
+    = f.label :chapter_name
+    %br
+    = f.text_field :chapter_name
+  %p
+    = f.submit action
+
+#back-link
+  = link_to 'Back', @story
