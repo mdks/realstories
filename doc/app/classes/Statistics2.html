@@ -1,0 +1,1221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Statistics2</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Statistics2</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/statistics2_rb.html">
+                lib/statistics2.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+statistics2.rb
+</p>
+<p>
+distributions of statistics
+</p>
+<pre>
+  by Shin-ichiro HARA
+</pre>
+<p>
+2003.09.25
+</p>
+<p>
+Ref:
+</p>
+<pre>
+  [1] http://www.matsusaka-u.ac.jp/~okumura/algo/
+  [2] http://www5.airnet.ne.jp/tomy/cpro/sslib11.htm
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000079">binX_</a>&nbsp;&nbsp;
+      <a href="#M000080">bin_x</a>&nbsp;&nbsp;
+      <a href="#M000051">bindens</a>&nbsp;&nbsp;
+      <a href="#M000052">bindist</a>&nbsp;&nbsp;
+      <a href="#M000064">chi2X_</a>&nbsp;&nbsp;
+      <a href="#M000063">chi2_x</a>&nbsp;&nbsp;
+      <a href="#M000043">chi2dist</a>&nbsp;&nbsp;
+      <a href="#M000050">combi</a>&nbsp;&nbsp;
+      <a href="#M000076">fX_</a>&nbsp;&nbsp;
+      <a href="#M000075">f_x</a>&nbsp;&nbsp;
+      <a href="#M000047">fdist</a>&nbsp;&nbsp;
+      <a href="#M000056">normal__X_</a>&nbsp;&nbsp;
+      <a href="#M000057">normal___x</a>&nbsp;&nbsp;
+      <a href="#M000041">normaldist</a>&nbsp;&nbsp;
+      <a href="#M000055">normalxXX_</a>&nbsp;&nbsp;
+      <a href="#M000058">normalx__x</a>&nbsp;&nbsp;
+      <a href="#M000066">pchi2X_</a>&nbsp;&nbsp;
+      <a href="#M000065">pchi2_x</a>&nbsp;&nbsp;
+      <a href="#M000044">pchi2dist</a>&nbsp;&nbsp;
+      <a href="#M000049">perm</a>&nbsp;&nbsp;
+      <a href="#M000078">pfX_</a>&nbsp;&nbsp;
+      <a href="#M000077">pf_x</a>&nbsp;&nbsp;
+      <a href="#M000048">pfdist</a>&nbsp;&nbsp;
+      <a href="#M000060">pnormal__X_</a>&nbsp;&nbsp;
+      <a href="#M000061">pnormal___x</a>&nbsp;&nbsp;
+      <a href="#M000042">pnormaldist</a>&nbsp;&nbsp;
+      <a href="#M000059">pnormalxXX_</a>&nbsp;&nbsp;
+      <a href="#M000062">pnormalx__x</a>&nbsp;&nbsp;
+      <a href="#M000081">poissonX_</a>&nbsp;&nbsp;
+      <a href="#M000082">poisson_x</a>&nbsp;&nbsp;
+      <a href="#M000053">poissondens</a>&nbsp;&nbsp;
+      <a href="#M000054">poissondist</a>&nbsp;&nbsp;
+      <a href="#M000073">pt__X_</a>&nbsp;&nbsp;
+      <a href="#M000074">pt___x</a>&nbsp;&nbsp;
+      <a href="#M000046">ptdist</a>&nbsp;&nbsp;
+      <a href="#M000072">ptxXX_</a>&nbsp;&nbsp;
+      <a href="#M000071">ptx__x</a>&nbsp;&nbsp;
+      <a href="#M000069">t__X_</a>&nbsp;&nbsp;
+      <a href="#M000070">t___x</a>&nbsp;&nbsp;
+      <a href="#M000045">tdist</a>&nbsp;&nbsp;
+      <a href="#M000068">txXX_</a>&nbsp;&nbsp;
+      <a href="#M000067">tx__x</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SQ2PI</td>
+          <td>=</td>
+          <td class="context-item-value">Math.sqrt(2 * Math::PI)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">LOG_2PI</td>
+          <td>=</td>
+          <td class="context-item-value">Math.log(2 * Math::PI)</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+Gamma function
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">N</td>
+          <td>=</td>
+          <td class="context-item-value">8</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">B0</td>
+          <td>=</td>
+          <td class="context-item-value">1.0</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">B1</td>
+          <td>=</td>
+          <td class="context-item-value">-1.0 / 2.0</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">B2</td>
+          <td>=</td>
+          <td class="context-item-value">1.0 / 6.0</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">B4</td>
+          <td>=</td>
+          <td class="context-item-value">-1.0 / 30.0</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">B6</td>
+          <td>=</td>
+          <td class="context-item-value">1.0 / 42.0</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">B8</td>
+          <td>=</td>
+          <td class="context-item-value">-1.0 / 30.0</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">B10</td>
+          <td>=</td>
+          <td class="context-item-value">5.0 / 66.0</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">B12</td>
+          <td>=</td>
+          <td class="context-item-value">-691.0 / 2730.0</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">B14</td>
+          <td>=</td>
+          <td class="context-item-value">7.0 / 6.0</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">B16</td>
+          <td>=</td>
+          <td class="context-item-value">-3617.0 / 510.0</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000079" class="method-detail">
+        <a name="M000079"></a>
+
+        <div class="method-heading">
+          <a href="#M000079" class="method-signature">
+          <span class="method-name">binX_</span><span class="method-args">(n, p, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+discrete distributions
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000079-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000079-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 512</span>
+512:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">binX_</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">p</span>, <span class="ruby-identifier">x</span>); <span class="ruby-identifier">bindist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">p</span>, <span class="ruby-identifier">x</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000080" class="method-detail">
+        <a name="M000080"></a>
+
+        <div class="method-heading">
+          <a href="#M000080" class="method-signature">
+          <span class="method-name">bin_x</span><span class="method-args">(n, p, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000080-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000080-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 513</span>
+513:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">bin_x</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">p</span>, <span class="ruby-identifier">x</span>); <span class="ruby-identifier">bindist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span>, <span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">x</span>);  <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000051" class="method-detail">
+        <a name="M000051"></a>
+
+        <div class="method-heading">
+          <a href="#M000051" class="method-signature">
+          <span class="method-name">bindens</span><span class="method-args">(n, p, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000051-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000051-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 434</span>
+434:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">bindens</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">p</span>, <span class="ruby-identifier">x</span>)
+435:     <span class="ruby-identifier">p</span> = <span class="ruby-identifier">p</span>.<span class="ruby-identifier">to_f</span>
+436:     <span class="ruby-identifier">q</span> = <span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">p</span>
+437:     <span class="ruby-identifier">combi</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>) <span class="ruby-operator">*</span> <span class="ruby-identifier">p</span><span class="ruby-operator">**</span><span class="ruby-identifier">x</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">q</span><span class="ruby-operator">**</span>(<span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">x</span>)
+438:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000052" class="method-detail">
+        <a name="M000052"></a>
+
+        <div class="method-heading">
+          <a href="#M000052" class="method-signature">
+          <span class="method-name">bindist</span><span class="method-args">(n, p, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000052-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000052-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 440</span>
+440:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">bindist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">p</span>, <span class="ruby-identifier">x</span>)
+441:     (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">x</span>).<span class="ruby-identifier">inject</span>(<span class="ruby-value">0</span><span class="ruby-value">.0</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span>, <span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+442:       <span class="ruby-identifier">s</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">bindens</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">p</span>, <span class="ruby-identifier">k</span>)
+443:     <span class="ruby-keyword kw">end</span>
+444:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000064" class="method-detail">
+        <a name="M000064"></a>
+
+        <div class="method-heading">
+          <a href="#M000064" class="method-signature">
+          <span class="method-name">chi2X_</span><span class="method-args">(n, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000064-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000064-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 477</span>
+477:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">chi2X_</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>); <span class="ruby-identifier">chi2dist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000063" class="method-detail">
+        <a name="M000063"></a>
+
+        <div class="method-heading">
+          <a href="#M000063" class="method-signature">
+          <span class="method-name">chi2_x</span><span class="method-args">(n, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+chi2-distribution
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000063-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000063-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 476</span>
+476:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">chi2_x</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>); <span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">chi2dist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000043" class="method-detail">
+        <a name="M000043"></a>
+
+        <div class="method-heading">
+          <a href="#M000043" class="method-signature">
+          <span class="method-name">chi2dist</span><span class="method-args">(n, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+chi-square-distribution interface
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000043-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000043-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 214</span>
+214:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">chi2dist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>); <span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">q_chi2</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+          <a href="#M000050" class="method-signature">
+          <span class="method-name">combi</span><span class="method-args">(n, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000050-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000050-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 425</span>
+425:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">combi</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>)
+426:     <span class="ruby-identifier">raise</span> <span class="ruby-constant">RangeError</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+427:     <span class="ruby-identifier">x</span> = <span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">x</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">x</span><span class="ruby-operator">*</span><span class="ruby-value">2</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">n</span>
+428:     <span class="ruby-identifier">perm</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>) <span class="ruby-operator">/</span> <span class="ruby-identifier">perm</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">x</span>)
+429:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000076" class="method-detail">
+        <a name="M000076"></a>
+
+        <div class="method-heading">
+          <a href="#M000076" class="method-signature">
+          <span class="method-name">fX_</span><span class="method-args">(n1, n2, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000076-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000076-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 503</span>
+503:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fX_</span>(<span class="ruby-identifier">n1</span>, <span class="ruby-identifier">n2</span>, <span class="ruby-identifier">x</span>); <span class="ruby-identifier">fdist</span>(<span class="ruby-identifier">n1</span>, <span class="ruby-identifier">n2</span>, <span class="ruby-identifier">x</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000075" class="method-detail">
+        <a name="M000075"></a>
+
+        <div class="method-heading">
+          <a href="#M000075" class="method-signature">
+          <span class="method-name">f_x</span><span class="method-args">(n1, n2, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+F-distribution
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000075-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000075-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 502</span>
+502:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">f_x</span>(<span class="ruby-identifier">n1</span>, <span class="ruby-identifier">n2</span>, <span class="ruby-identifier">x</span>); <span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">fdist</span>(<span class="ruby-identifier">n1</span>, <span class="ruby-identifier">n2</span>, <span class="ruby-identifier">x</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000047" class="method-detail">
+        <a name="M000047"></a>
+
+        <div class="method-heading">
+          <a href="#M000047" class="method-signature">
+          <span class="method-name">fdist</span><span class="method-args">(n1, n2, f)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+F-distribution interface
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000047-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000047-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 408</span>
+408:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fdist</span>(<span class="ruby-identifier">n1</span>, <span class="ruby-identifier">n2</span>, <span class="ruby-identifier">f</span>); <span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">q_f</span>(<span class="ruby-identifier">n1</span>, <span class="ruby-identifier">n2</span>, <span class="ruby-identifier">f</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000056" class="method-detail">
+        <a name="M000056"></a>
+
+        <div class="method-heading">
+          <a href="#M000056" class="method-signature">
+          <span class="method-name">normal__X_</span><span class="method-args">(z)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000056-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000056-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 462</span>
+462:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">normal__X_</span>(<span class="ruby-identifier">z</span>); <span class="ruby-identifier">normaldist</span>(<span class="ruby-identifier">z</span>) <span class="ruby-operator">-</span> <span class="ruby-value">0</span><span class="ruby-value">.5</span>; <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000057" class="method-detail">
+        <a name="M000057"></a>
+
+        <div class="method-heading">
+          <a href="#M000057" class="method-signature">
+          <span class="method-name">normal___x</span><span class="method-args">(z)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000057-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000057-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 463</span>
+463:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">normal___x</span>(<span class="ruby-identifier">z</span>); <span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">normaldist</span>(<span class="ruby-identifier">z</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000041" class="method-detail">
+        <a name="M000041"></a>
+
+        <div class="method-heading">
+          <a href="#M000041" class="method-signature">
+          <span class="method-name">normaldist</span><span class="method-args">(z)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+normal-distribution interface
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000041-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000041-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 136</span>
+136:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">normaldist</span>(<span class="ruby-identifier">z</span>)
+137:     <span class="ruby-identifier">p_nor</span>(<span class="ruby-identifier">z</span>)
+138:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000055" class="method-detail">
+        <a name="M000055"></a>
+
+        <div class="method-heading">
+          <a href="#M000055" class="method-signature">
+          <span class="method-name">normalxXX_</span><span class="method-args">(z)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+normal-distribution
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000055-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000055-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 461</span>
+461:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">normalxXX_</span>(<span class="ruby-identifier">z</span>); <span class="ruby-identifier">normaldist</span>(<span class="ruby-identifier">z</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000058" class="method-detail">
+        <a name="M000058"></a>
+
+        <div class="method-heading">
+          <a href="#M000058" class="method-signature">
+          <span class="method-name">normalx__x</span><span class="method-args">(z)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000058-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000058-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 464</span>
+464:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">normalx__x</span>(<span class="ruby-identifier">z</span>); <span class="ruby-value">2.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">normaldist</span>(<span class="ruby-identifier">z</span>) <span class="ruby-operator">*</span> <span class="ruby-value">2.0</span>; <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000066" class="method-detail">
+        <a name="M000066"></a>
+
+        <div class="method-heading">
+          <a href="#M000066" class="method-signature">
+          <span class="method-name">pchi2X_</span><span class="method-args">(n, y)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000066-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000066-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 482</span>
+482:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pchi2X_</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">y</span>); <span class="ruby-identifier">pchi2dist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">y</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000065" class="method-detail">
+        <a name="M000065"></a>
+
+        <div class="method-heading">
+          <a href="#M000065" class="method-signature">
+          <span class="method-name">pchi2_x</span><span class="method-args">(n, y)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+inverse of chi2-distribution
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000065-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000065-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 481</span>
+481:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pchi2_x</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">y</span>); <span class="ruby-identifier">pchi2dist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">y</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000044" class="method-detail">
+        <a name="M000044"></a>
+
+        <div class="method-heading">
+          <a href="#M000044" class="method-signature">
+          <span class="method-name">pchi2dist</span><span class="method-args">(n, y)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000044-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000044-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 215</span>
+215:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pchi2dist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">y</span>); <span class="ruby-identifier">pchi2</span>(<span class="ruby-identifier">n</span>, <span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">y</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+          <a href="#M000049" class="method-signature">
+          <span class="method-name">perm</span><span class="method-args">(n, x = n)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+discrete distributions
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000049-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000049-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 414</span>
+414:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">perm</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span> = <span class="ruby-identifier">n</span>)
+415:     <span class="ruby-identifier">raise</span> <span class="ruby-constant">RangeError</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+416:     <span class="ruby-identifier">r</span> = <span class="ruby-value">1</span>
+417:     <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">1</span>
+418:       <span class="ruby-identifier">r</span> <span class="ruby-operator">*=</span> <span class="ruby-identifier">n</span>
+419:       <span class="ruby-identifier">n</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+420:       <span class="ruby-identifier">x</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+421:     <span class="ruby-keyword kw">end</span>
+422:     <span class="ruby-identifier">r</span>
+423:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000078" class="method-detail">
+        <a name="M000078"></a>
+
+        <div class="method-heading">
+          <a href="#M000078" class="method-signature">
+          <span class="method-name">pfX_</span><span class="method-args">(n1, n2, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000078-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000078-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 508</span>
+508:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pfX_</span>(<span class="ruby-identifier">n1</span>, <span class="ruby-identifier">n2</span>, <span class="ruby-identifier">x</span>); <span class="ruby-identifier">pfdist</span>(<span class="ruby-identifier">n1</span>, <span class="ruby-identifier">n2</span>, <span class="ruby-identifier">x</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000077" class="method-detail">
+        <a name="M000077"></a>
+
+        <div class="method-heading">
+          <a href="#M000077" class="method-signature">
+          <span class="method-name">pf_x</span><span class="method-args">(n1, n2, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+inverse of F-distribution
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000077-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000077-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 507</span>
+507:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pf_x</span>(<span class="ruby-identifier">n1</span>, <span class="ruby-identifier">n2</span>, <span class="ruby-identifier">x</span>); <span class="ruby-identifier">pfdist</span>(<span class="ruby-identifier">n1</span>, <span class="ruby-identifier">n2</span>, <span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">x</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000048" class="method-detail">
+        <a name="M000048"></a>
+
+        <div class="method-heading">
+          <a href="#M000048" class="method-signature">
+          <span class="method-name">pfdist</span><span class="method-args">(n1, n2, y)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000048-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000048-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 409</span>
+409:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pfdist</span>(<span class="ruby-identifier">n1</span>, <span class="ruby-identifier">n2</span>, <span class="ruby-identifier">y</span>); <span class="ruby-identifier">pf</span>(<span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">y</span>, <span class="ruby-identifier">n1</span>, <span class="ruby-identifier">n2</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000060" class="method-detail">
+        <a name="M000060"></a>
+
+        <div class="method-heading">
+          <a href="#M000060" class="method-signature">
+          <span class="method-name">pnormal__X_</span><span class="method-args">(y)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000060-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000060-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 469</span>
+469:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pnormal__X_</span>(<span class="ruby-identifier">y</span>); <span class="ruby-identifier">pnormalxXX_</span>(<span class="ruby-identifier">y</span> <span class="ruby-operator">+</span> <span class="ruby-value">0</span><span class="ruby-value">.5</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000061" class="method-detail">
+        <a name="M000061"></a>
+
+        <div class="method-heading">
+          <a href="#M000061" class="method-signature">
+          <span class="method-name">pnormal___x</span><span class="method-args">(y)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000061-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000061-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 470</span>
+470:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pnormal___x</span>(<span class="ruby-identifier">y</span>); <span class="ruby-identifier">pnormalxXX_</span>(<span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">y</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000042" class="method-detail">
+        <a name="M000042"></a>
+
+        <div class="method-heading">
+          <a href="#M000042" class="method-signature">
+          <span class="method-name">pnormaldist</span><span class="method-args">(y)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000042-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000042-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 140</span>
+140:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pnormaldist</span>(<span class="ruby-identifier">y</span>)
+141:     <span class="ruby-identifier">pnorm</span>(<span class="ruby-identifier">y</span>)
+142:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000059" class="method-detail">
+        <a name="M000059"></a>
+
+        <div class="method-heading">
+          <a href="#M000059" class="method-signature">
+          <span class="method-name">pnormalxXX_</span><span class="method-args">(z)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+inverse of normal-distribution
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000059-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000059-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 468</span>
+468:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pnormalxXX_</span>(<span class="ruby-identifier">z</span>); <span class="ruby-identifier">pnormaldist</span>(<span class="ruby-identifier">z</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000062" class="method-detail">
+        <a name="M000062"></a>
+
+        <div class="method-heading">
+          <a href="#M000062" class="method-signature">
+          <span class="method-name">pnormalx__x</span><span class="method-args">(y)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000062-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000062-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 471</span>
+471:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pnormalx__x</span>(<span class="ruby-identifier">y</span>); <span class="ruby-identifier">pnormalxXX_</span>(<span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">y</span><span class="ruby-operator">/</span><span class="ruby-value">2.0</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000081" class="method-detail">
+        <a name="M000081"></a>
+
+        <div class="method-heading">
+          <a href="#M000081" class="method-signature">
+          <span class="method-name">poissonX_</span><span class="method-args">(m, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000081-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000081-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 516</span>
+516:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">poissonX_</span>(<span class="ruby-identifier">m</span>, <span class="ruby-identifier">x</span>); <span class="ruby-identifier">poissondist</span>(<span class="ruby-identifier">m</span>, <span class="ruby-identifier">x</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000082" class="method-detail">
+        <a name="M000082"></a>
+
+        <div class="method-heading">
+          <a href="#M000082" class="method-signature">
+          <span class="method-name">poisson_x</span><span class="method-args">(m, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000082-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000082-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 517</span>
+517:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">poisson_x</span>(<span class="ruby-identifier">m</span>, <span class="ruby-identifier">x</span>); <span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">poissondist</span>(<span class="ruby-identifier">m</span>, <span class="ruby-identifier">x</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000053" class="method-detail">
+        <a name="M000053"></a>
+
+        <div class="method-heading">
+          <a href="#M000053" class="method-signature">
+          <span class="method-name">poissondens</span><span class="method-args">(m, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000053-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000053-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 446</span>
+446:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">poissondens</span>(<span class="ruby-identifier">m</span>, <span class="ruby-identifier">x</span>)
+447:     <span class="ruby-keyword kw">return</span> <span class="ruby-value">0</span><span class="ruby-value">.0</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+448:     <span class="ruby-identifier">m</span> = <span class="ruby-identifier">m</span>.<span class="ruby-identifier">to_f</span>
+449:     <span class="ruby-identifier">m</span> <span class="ruby-operator">**</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">*</span> <span class="ruby-constant">Math</span><span class="ruby-operator">::</span><span class="ruby-constant">E</span> <span class="ruby-operator">**</span> (<span class="ruby-operator">-</span><span class="ruby-identifier">m</span>) <span class="ruby-operator">/</span> <span class="ruby-identifier">perm</span>(<span class="ruby-identifier">x</span>)
+450:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000054" class="method-detail">
+        <a name="M000054"></a>
+
+        <div class="method-heading">
+          <a href="#M000054" class="method-signature">
+          <span class="method-name">poissondist</span><span class="method-args">(m, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000054-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000054-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 452</span>
+452:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">poissondist</span>(<span class="ruby-identifier">m</span>, <span class="ruby-identifier">x</span>)
+453:     (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">x</span>).<span class="ruby-identifier">inject</span>(<span class="ruby-value">0</span><span class="ruby-value">.0</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span>, <span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+454:       <span class="ruby-identifier">s</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">poissondens</span>(<span class="ruby-identifier">m</span>, <span class="ruby-identifier">k</span>)
+455:     <span class="ruby-keyword kw">end</span>
+456:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000073" class="method-detail">
+        <a name="M000073"></a>
+
+        <div class="method-heading">
+          <a href="#M000073" class="method-signature">
+          <span class="method-name">pt__X_</span><span class="method-args">(n, y)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000073-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000073-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 496</span>
+496:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pt__X_</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">y</span>); <span class="ruby-identifier">ptdist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-value">0</span><span class="ruby-value">.5</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">y</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000074" class="method-detail">
+        <a name="M000074"></a>
+
+        <div class="method-heading">
+          <a href="#M000074" class="method-signature">
+          <span class="method-name">pt___x</span><span class="method-args">(n, y)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000074-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000074-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 497</span>
+497:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pt___x</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">y</span>); <span class="ruby-identifier">ptdist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">y</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000046" class="method-detail">
+        <a name="M000046"></a>
+
+        <div class="method-heading">
+          <a href="#M000046" class="method-signature">
+          <span class="method-name">ptdist</span><span class="method-args">(n, y)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000046-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000046-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 301</span>
+301:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ptdist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">y</span>)
+302:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">y</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span><span class="ruby-value">.5</span>
+303:       <span class="ruby-identifier">pt</span>(<span class="ruby-value">2.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">y</span><span class="ruby-operator">*</span><span class="ruby-value">2.0</span>, <span class="ruby-identifier">n</span>)
+304:     <span class="ruby-keyword kw">else</span>
+305:       <span class="ruby-operator">-</span> <span class="ruby-identifier">pt</span>(<span class="ruby-identifier">y</span><span class="ruby-operator">*</span><span class="ruby-value">2.0</span>, <span class="ruby-identifier">n</span>)
+306:     <span class="ruby-keyword kw">end</span>
+307:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000072" class="method-detail">
+        <a name="M000072"></a>
+
+        <div class="method-heading">
+          <a href="#M000072" class="method-signature">
+          <span class="method-name">ptxXX_</span><span class="method-args">(n, y)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000072-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000072-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 495</span>
+495:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ptxXX_</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">y</span>); <span class="ruby-identifier">ptdist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">y</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000071" class="method-detail">
+        <a name="M000071"></a>
+
+        <div class="method-heading">
+          <a href="#M000071" class="method-signature">
+          <span class="method-name">ptx__x</span><span class="method-args">(n, y)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+inverse of t-distribution
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000071-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000071-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 494</span>
+494:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ptx__x</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">y</span>); <span class="ruby-identifier">ptdist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">y</span> <span class="ruby-operator">/</span> <span class="ruby-value">2.0</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000069" class="method-detail">
+        <a name="M000069"></a>
+
+        <div class="method-heading">
+          <a href="#M000069" class="method-signature">
+          <span class="method-name">t__X_</span><span class="method-args">(n, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000069-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000069-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 489</span>
+489:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">t__X_</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>); <span class="ruby-identifier">tdist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>) <span class="ruby-operator">-</span> <span class="ruby-value">0</span><span class="ruby-value">.5</span>; <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000070" class="method-detail">
+        <a name="M000070"></a>
+
+        <div class="method-heading">
+          <a href="#M000070" class="method-signature">
+          <span class="method-name">t___x</span><span class="method-args">(n, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000070-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000070-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 490</span>
+490:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">t___x</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>); <span class="ruby-value">1.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">tdist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000045" class="method-detail">
+        <a name="M000045"></a>
+
+        <div class="method-heading">
+          <a href="#M000045" class="method-signature">
+          <span class="method-name">tdist</span><span class="method-args">(n, t)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+t-distribution interface
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000045-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000045-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 300</span>
+300:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tdist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">t</span>); <span class="ruby-identifier">p_t</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">t</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000068" class="method-detail">
+        <a name="M000068"></a>
+
+        <div class="method-heading">
+          <a href="#M000068" class="method-signature">
+          <span class="method-name">txXX_</span><span class="method-args">(n, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000068-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000068-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 488</span>
+488:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">txXX_</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>); <span class="ruby-identifier">tdist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>); <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000067" class="method-detail">
+        <a name="M000067"></a>
+
+        <div class="method-heading">
+          <a href="#M000067" class="method-signature">
+          <span class="method-name">tx__x</span><span class="method-args">(n, x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+t-distribution
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000067-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000067-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/statistics2.rb, line 487</span>
+487:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tx__x</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>); <span class="ruby-value">2.0</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">tdist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">x</span>) <span class="ruby-operator">*</span> <span class="ruby-value">2.0</span>; <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
