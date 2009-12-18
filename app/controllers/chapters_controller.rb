@@ -18,6 +18,8 @@ class ChaptersController < ApplicationController
   # POST /chapters.xml
   def create
     @story = Story.find(params[:story_id])
+    @story.updated_at = Time.now
+    @story.save
     @previous_chapter = @story.chapters.first(:order => 'chapter_number DESC')
     chapter_number = @previous_chapter.chapter_number if @previous_chapter
     @chapter = Chapter.new(params[:chapter])
@@ -32,13 +34,15 @@ class ChaptersController < ApplicationController
     else
       flash[:notice] = 'Chapter was successfully created.'
     end
-    redirect_to @story
+    redirect_to chapter_path(@story, @chapter.chapter_number)
   end
 
   # PUT /chapters/1
   # PUT /chapters/1.xml
   def update
     @story = Story.find(params[:story_id])
+    @story.updated_at = Time.now
+    @story.save
     @chapter = Chapter.find(params[:id])
 
     if @chapter.update_attributes(params[:chapter])
@@ -46,16 +50,33 @@ class ChaptersController < ApplicationController
     else
       flash[:error] = 'Chapter was not updated.'
     end
-    redirect_to @story
+    redirect_to chapter_path(@story, @chapter.chapter_number)
   end
 
   # DELETE /chapters/1
   # DELETE /chapters/1.xml
   def destroy
-    @story = Story.find(params[:story_id])
+    # chapter delete code
     @chapter = Chapter.find(params[:id])
     @chapter.pages.destroy_all
     @chapter.destroy
+    # renumber chapters
+    @story = Story.find(params[:story_id])
+    @chapters = @story.chapters.all(:order => "chapter_number asc")
+    i = 0
+    @chapters.each do |chapter|
+      i += 1
+      chapter.chapter_number = i
+      chapter.save!
+    end
+    # renumber pages
+    @pages = @story.pages.all(:order => "page_number asc")
+    i = 0
+    @pages.each do |page|
+      i += 1
+      page.page_number = i
+      page.save!
+    end
     redirect_to @story
   end
 end

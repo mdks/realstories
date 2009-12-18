@@ -480,27 +480,29 @@ body.main {
       /* line 61, ../../../app/stylesheets/screen.sass */
       body.main #sidebar #table-of-contents #chapter-links {
         font-size: 1.25em; }
-  /* line 63, ../../../app/stylesheets/screen.sass */
+      /* line 63, ../../../app/stylesheets/screen.sass */
+      body.main #sidebar #table-of-contents .current-chapter {
+        text-decoration: underline; }
+  /* line 65, ../../../app/stylesheets/screen.sass */
   body.main .index {
     display: inline;
     float: right;
     position: relative;
     margin: 0 -160px 1.5em 160px;
-    padding-bottom: 1.5em;
     padding-top: 1.5em; }
-  /* line 67, ../../../app/stylesheets/screen.sass */
+  /* line 68, ../../../app/stylesheets/screen.sass */
   body.main #form {
     padding-left: 40px;
     padding-top: 1em;
     padding-bottom: 1em;
     background: #c9c89f; }
-  /* line 72, ../../../app/stylesheets/screen.sass */
+  /* line 73, ../../../app/stylesheets/screen.sass */
   body.main #back-link {
     background-color: #c9c89f;
     text-align: right;
     padding-right: 1em;
     font-size: 1.5em; }
-  /* line 77, ../../../app/stylesheets/screen.sass */
+  /* line 78, ../../../app/stylesheets/screen.sass */
   body.main #content {
     display: inline;
     float: left;
@@ -511,10 +513,10 @@ body.main {
     /* line 101, ../../../../../../Ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/blueprint/modules/_grid.sass */
     * html body.main #content {
       overflow-x: hidden; }
-    /* line 82, ../../../app/stylesheets/screen.sass */
+    /* line 83, ../../../app/stylesheets/screen.sass */
     body.main #content #story-info {
       background: #c9c89f; }
-    /* line 84, ../../../app/stylesheets/screen.sass */
+    /* line 85, ../../../app/stylesheets/screen.sass */
     body.main #content ul#sorting-list, body.main #content #order-list {
       margin: 0;
       padding: 0;
@@ -546,94 +548,97 @@ body.main {
         /* line 42, ../../../../../../Ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
         body.main #content ul#sorting-list li.last, body.main #content #order-list li.last {
           padding-right: 0px; }
-      /* line 89, ../../../app/stylesheets/screen.sass */
+      /* line 90, ../../../app/stylesheets/screen.sass */
       body.main #content ul#sorting-list li a, body.main #content #order-list li a {
         font-size: 1.25em; }
-    /* line 91, ../../../app/stylesheets/screen.sass */
+    /* line 92, ../../../app/stylesheets/screen.sass */
     body.main #content .story-listing {
       background: #c9c89f;
       margin-top: 1.5em; }
-      /* line 94, ../../../app/stylesheets/screen.sass */
+      /* line 95, ../../../app/stylesheets/screen.sass */
       body.main #content .story-listing .listing-author {
         text-align: center; }
-      /* line 96, ../../../app/stylesheets/screen.sass */
+      /* line 97, ../../../app/stylesheets/screen.sass */
       body.main #content .story-listing .listing-description, body.main #content .story-listing .listing-score, body.main #content .story-listing .listing-timestamps {
         padding-left: 2em;
         padding-right: 2em; }
-      /* line 99, ../../../app/stylesheets/screen.sass */
+      /* line 100, ../../../app/stylesheets/screen.sass */
       body.main #content .story-listing h2 {
         margin-bottom: 0.25em;
         text-align: center; }
-    /* line 102, ../../../app/stylesheets/screen.sass */
+    /* line 103, ../../../app/stylesheets/screen.sass */
     body.main #content #new-story {
       background: #c9c89f;
       margin-top: 1.5em;
       font-size: 1.5em;
       padding-left: 80px; }
-    /* line 107, ../../../app/stylesheets/screen.sass */
+    /* line 108, ../../../app/stylesheets/screen.sass */
     body.main #content #story-info {
       background: #c9c89f;
       padding: 0.5em; }
-      /* line 110, ../../../app/stylesheets/screen.sass */
+      /* line 111, ../../../app/stylesheets/screen.sass */
       body.main #content #story-info #story-timestamps, body.main #content #story-info #story-links {
         padding-left: 2em;
         padding-right: 2em; }
-      /* line 113, ../../../app/stylesheets/screen.sass */
+      /* line 114, ../../../app/stylesheets/screen.sass */
       body.main #content #story-info #story-timestamps {
         text-align: right; }
-      /* line 115, ../../../app/stylesheets/screen.sass */
+      /* line 116, ../../../app/stylesheets/screen.sass */
       body.main #content #story-info h1#story-title {
         font-weight: bold;
         text-align: center;
         margin-bottom: 0.25em; }
-      /* line 119, ../../../app/stylesheets/screen.sass */
+      /* line 120, ../../../app/stylesheets/screen.sass */
       body.main #content #story-info #author-credit {
         padding-left: 160px; }
-    /* line 121, ../../../app/stylesheets/screen.sass */
+    /* line 122, ../../../app/stylesheets/screen.sass */
     body.main #content #page-content {
       background: #C2B572;
       padding: 2em; }
-      /* line 124, ../../../app/stylesheets/screen.sass */
+      /* line 125, ../../../app/stylesheets/screen.sass */
       body.main #content #page-content #page-pagination {
         text-align: center;
         font-size: 2em; }
-      /* line 127, ../../../app/stylesheets/screen.sass */
+      /* line 128, ../../../app/stylesheets/screen.sass */
       body.main #content #page-content #page-links {
         font-size: 1.25em; }
-    /* line 129, ../../../app/stylesheets/screen.sass */
+    /* line 130, ../../../app/stylesheets/screen.sass */
     body.main #content #story-score {
       background: #c9c89f;
       padding: 2em; }
-      /* line 132, ../../../app/stylesheets/screen.sass */
+      /* line 133, ../../../app/stylesheets/screen.sass */
       body.main #content #story-score #voting-links {
         font-size: 1.25em; }
-    /* line 134, ../../../app/stylesheets/screen.sass */
+    /* line 135, ../../../app/stylesheets/screen.sass */
     body.main #content #comments {
       background: #c9c89f; }
-      /* line 136, ../../../app/stylesheets/screen.sass */
+      /* line 137, ../../../app/stylesheets/screen.sass */
       body.main #content #comments h2 {
         text-align: center;
         font-size: 14pt;
         margin-bottom: 0; }
-      /* line 140, ../../../app/stylesheets/screen.sass */
+      /* line 141, ../../../app/stylesheets/screen.sass */
       body.main #content #comments .comment-body {
         border-top: solid 1em #4F6173;
         padding: 2em;
         background: #c9c89f; }
-      /* line 144, ../../../app/stylesheets/screen.sass */
+      /* line 145, ../../../app/stylesheets/screen.sass */
       body.main #content #comments .comment-info {
         margin-top: 1em; }
-      /* line 146, ../../../app/stylesheets/screen.sass */
+      /* line 147, ../../../app/stylesheets/screen.sass */
       body.main #content #comments .comment-links, body.main #content #comments #remove-spam-link, body.main #content #comments .comment-voting-links {
         font-size: 1.25em; }
-      /* line 148, ../../../app/stylesheets/screen.sass */
+      /* line 149, ../../../app/stylesheets/screen.sass */
       body.main #content #comments #remove-spam-link {
         padding-left: 2em; }
-    /* line 150, ../../../app/stylesheets/screen.sass */
+      /* line 151, ../../../app/stylesheets/screen.sass */
+      body.main #content #comments #disabled-text {
+        padding: 2em; }
+    /* line 153, ../../../app/stylesheets/screen.sass */
     body.main #content #new-comment-form {
       padding-left: 160px;
       background-color: #c9c89f;
       padding-top: 2em; }
-      /* line 154, ../../../app/stylesheets/screen.sass */
+      /* line 157, ../../../app/stylesheets/screen.sass */
       body.main #content #new-comment-form p {
         margin-bottom: 0; }

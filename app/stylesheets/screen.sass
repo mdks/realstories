@@ -60,9 +60,10 @@ body.main
         :font-size 1.75em
       #chapter-links
         :font-size 1.25em
+      .current-chapter
+        :text-decoration underline
   .index
     +push(4)
-    :padding-bottom 1.5em
     :padding-top 1.5em
   #form
     +prepend(1)
@@ -147,6 +148,8 @@ body.main
         :font-size 1.25em
       #remove-spam-link
         :padding-left 2em
+      #disabled-text
+        :padding 2em
     #new-comment-form
       +prepend(4)
       :background-color= !page_color

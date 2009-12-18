@@ -4,7 +4,10 @@
       %li
         = h chapter.chapter_number
         \.
-        = link_to chapter.chapter_name, chapter_path(@story, chapter.chapter_number)
+        - if @chapter.chapter_number.to_i == chapter.chapter_number.to_i
+          = link_to chapter.chapter_name, chapter_path(@story, chapter.chapter_number), {:class => "current-chapter"}
+        - else
+          = link_to chapter.chapter_name, chapter_path(@story, chapter.chapter_number)
       - if permitted_to? :edit, chapter
         = link_to 'Edit chapter name', edit_story_chapter_path(@story, chapter)
       - if permitted_to? :destroy, chapter
@@ -62,9 +65,8 @@
           = link_to 'I like it (+1)', vote_path(:id => @story.id, :vote => 1)
           = link_to "I don't like it (-1)", vote_path(:id => @story.id, :vote => 0)
   - else
-    %p
-      %b
-        Voting has been disabled on this story.
+    #story-score
+      Voting has been disabled on this story.
   - if !@story.disable_commenting || permitted_to?(:remove_all_spam, :stories)
     - if @story.comments.size > 0
       #comments
@@ -108,9 +110,8 @@
           %p
             = f.submit 'Post'
   - else
-    %p
-      %b
+    #comments
+      #disabled-text
         Commenting has been disabled on this story.
-      %b
   #back-link
     = link_to 'Back', stories_path

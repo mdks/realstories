@@ -76,15 +76,19 @@ class StoriesController < ApplicationController
     elsif params[:page_number]
       @page = @story.pages.find_by_page_number(params[:page_number])
       @chapter = @page.chapter
-      #@page = Page.find(params[:page_id])
     else
-      @chapter = Chapter.first(:order => 'chapter_number ASC')
+      @chapter = @story.chapters.first(:order => 'chapter_number ASC')
       @page = @chapter.pages.first(:order => 'page_number ASC') if @chapter
     end
-    @previous_page = @story.pages.find_by_page_number(@page.page_number - 1) if @page
-    @next_page = @story.pages.find_by_page_number(@page.page_number + 1) if @page
-    @comment = Comment.new
-    @comments = @story.comments.find(:all, :order => "score desc")
+    # get next and previous page
+    if @page
+      @previous_page = @story.pages.find_by_page_number(@page.page_number - 1)
+      @next_page = @story.pages.find_by_page_number(@page.page_number + 1)
+    end
+    unless @story.disable_commenting
+      @comment = Comment.new
+      @comments = @story.comments.find(:all, :order => "score desc")
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @story }
@@ -144,7 +148,7 @@ class StoriesController < ApplicationController
   # DELETE /stories/1.xml
   def destroy
     @story.votes.destroy_all
-    #@story.chapters.pages.destroy_all unless @story.chapters.pages.nil?
+    @story.comments.destroy_all
     @story.pages.destroy_all
     @story.chapters.destroy_all #unless @story.chapters.nil?
     @story.destroy
