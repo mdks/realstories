@@ -17,10 +17,12 @@ authorization do
     has_permission_on :stories, :to => [:edit, :update] do
       if_attribute :user => is { user }
     end
-    has_permission_on :chapters, :to => [:new, :create, :edit, :update, :destroy] do
+    has_permission_on :chapters, :to => [:new, :create]
+    has_permission_on :chapters,[:edit, :update, :destroy] do
       if_attribute :user => is { user }
     end
-    has_permission_on :pages, :to => [:new, :create, :edit, :update, :destroy] do
+    has_permission_on :pages, :to => [:new, :create]
+    has_permission_on :pages, :to => [:edit, :update, :destroy] do
       if_attribute :user => is { user }
     end
     has_permission_on :comments, :to => [:create, :vote]
