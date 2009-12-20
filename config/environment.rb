@@ -23,13 +23,13 @@ Rails::Initializer.run do |config|
   config.gem 'authlogic'
   config.gem 'rpx_now'
   config.gem 'authlogic_rpx'
-  config.gem 'declarative_authorization'
   config.gem 'RedCloth'
   config.gem 'will_paginate'
   config.gem 'rakismet'
   config.gem 'gravtastic'
   config.gem 'haml'
   config.gem 'compass'
+  config.gem "cancan"
   
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

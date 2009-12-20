@@ -2,8 +2,8 @@ require "#{RAILS_ROOT}/lib/statistics2"
 class CommentsController < ApplicationController
 
   has_rakismet :only => :create
-  filter_resource_access
-
+  load_and_authorize_resource
+  
   # GET /comments/1/edit
   def edit
     if Story.find(params[:story_id]).disable_commenting

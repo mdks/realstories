@@ -1,7 +1,7 @@
 require "#{RAILS_ROOT}/lib/statistics2"
 class StoriesController < ApplicationController
-  filter_resource_access
-  
+  load_and_authorize_resource
+
   # GET /stories
   # GET /stories.xml
   def index

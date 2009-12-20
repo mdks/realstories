@@ -9,14 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091211055255) do
-
-  create_table "assignments", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "role_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20091220040534) do
 
   create_table "chapters", :force => true do |t|
     t.string   "chapter_name"
@@ -40,12 +33,6 @@ ActiveRecord::Schema.define(:version => 20091211055255) do
     t.integer  "page_number"
     t.integer  "chapter_id"
     t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "roles", :force => true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20091211055255) do
     t.datetime "current_login_at"
     t.string   "last_login_ip"
     t.string   "current_login_ip"
+    t.boolean  "is_admin"
   end
 
   create_table "votes", :force => true do |t|

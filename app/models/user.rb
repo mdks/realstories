@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :stories
   has_many :assignments
   has_many :roles, :through => :assignments
-  
+
   validates_uniqueness_of :email
   validates_uniqueness_of :username, :case_sensitive => false
   

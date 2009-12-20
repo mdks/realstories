@@ -42,7 +42,7 @@
         Updated:
         = distance_of_time_in_words(story.updated_at, Time.now)
         ago
-  - if permitted_to? :create, :stories
+  - if can? :create, Story
     #new-story
       = link_to 'New story', new_story_path
   #pagination

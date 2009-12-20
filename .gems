@@ -1,10 +1,10 @@
 authlogic
 rpx_now
 authlogic_rpx
-declarative_authorization
 RedCloth
 will_paginate
 rakismet
 gravtastic
 haml
 compass
+cancan

@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
-  filter_resource_access
-
+  load_and_authorize_resource :nested => :chapter
   # GET /pages/new
   # GET /pages/new.xml
   def new

@@ -1,6 +1,5 @@
 class ChaptersController < ApplicationController
-  filter_resource_access
-
+  load_and_authorize_resource :nested => :story
   # GET /chapters/new
   # GET /chapters/new.xml
   def new
