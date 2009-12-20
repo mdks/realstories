@@ -16,14 +16,26 @@ class PagesController < ApplicationController
   # POST /pages
   # POST /pages.xml
   def create
+    # get chapter
     @chapter = Chapter.find(params[:chapter_id])
+    # get story
     @story = @chapter.story
+    # update story
     @story.updated_at = Time.now
     @story.save
+    # get highest page #
     @previous_page = @story.pages.first(:order => 'page_number DESC')
+    # set page_number variable
     page_number = @previous_page.page_number if @previous_page
+    # create new page
     @page = Page.new(params[:page])
+    # remove images
+    unless current_user.is_pro || current_user.is_admin
+      @page.body.gsub!(/^\![^!]*\!/, "Please donate to post images!")
+    end
+    # set chapter id
     @page.chapter_id = @chapter.id
+    # set page number
     if page_number
       @page.page_number = page_number + 1
     else
@@ -45,7 +57,10 @@ class PagesController < ApplicationController
     @story.updated_at = Time.now
     @story.save
     @page = Page.find(params[:id])
-
+    # remove images
+    unless current_user.is_pro || current_user.is_admin
+      params[:page][:body].gsub!(/^\![^!]*\!/, "Please donate to post images!")
+    end
     if @page.update_attributes(params[:page])
       flash[:notice] = 'Page was successfully updated.'
     else

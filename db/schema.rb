@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091220040534) do
+ActiveRecord::Schema.define(:version => 20091220074508) do
 
   create_table "chapters", :force => true do |t|
     t.string   "chapter_name"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(:version => 20091220040534) do
     t.string   "last_login_ip"
     t.string   "current_login_ip"
     t.boolean  "is_admin"
+    t.boolean  "is_banned"
+    t.boolean  "is_pro"
   end
 
   create_table "votes", :force => true do |t|

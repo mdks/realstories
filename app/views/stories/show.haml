@@ -2,12 +2,12 @@
   %ul#table-of-contents
     - @story.chapters.each do |chapter|
       %li
-        = h chapter.chapter_number
+        = chapter.chapter_number
         \.
         - if @chapter.chapter_number.to_i == chapter.chapter_number.to_i
-          = link_to chapter.chapter_name, chapter_path(@story, chapter.chapter_number), {:class => "current-chapter"}
+          = link_to h(chapter.chapter_name), chapter_path(@story, chapter.chapter_number), {:class => "current-chapter"}
         - else
-          = link_to chapter.chapter_name, chapter_path(@story, chapter.chapter_number)
+          = link_to h(chapter.chapter_name), chapter_path(@story, chapter.chapter_number)
       - if can? :update, chapter
         = link_to 'Edit chapter name', edit_story_chapter_path(@story, chapter)
       - if can? :destroy, chapter
@@ -26,6 +26,10 @@
       by:
       = image_tag(@story.user.gravatar_url(:size=>25))
       = h @story.user.username
+      - if can? :ban, User
+        = link_to 'Ban', ban_url(@story.user), :confirm => 'Ban user?'
+      - if can? :upgrade, User
+        = link_to 'Upgrade', upgrade_url(@story.user)
     #story-links
       - if can? :update, @story
         = link_to 'Edit story info', edit_story_path(@story)
@@ -38,7 +42,7 @@
       = h distance_of_time_in_words(@story.updated_at, Time.now)
   - if @page
     #page-content
-      = white_list(RedCloth.new(@page.body, [:filter_styles]).to_html)
+      = white_list(RedCloth.new(@page.body, [:filter_styles, :filter_classes, :filter_ids]).to_html)
       #page-pagination
         - if @previous_page
           = link_to '<--', page_url(@story, @previous_page.page_number)
@@ -67,13 +71,13 @@
   - else
     #story-score
       Voting has been disabled on this story.
-  - if !@story.disable_commenting #|| permitted_to?(:remove_all_spam, :stories)
+  - if !@story.disable_commenting || can?(:remove_all_spam, Story)
     - if @story.comments.size > 0
       #comments
         %h2
           Comments
         - @comments.each do |comment|
-          - if comment.is_approved #|| permitted_to?( :spam, comment )
+          - if comment.is_approved || can?(:spam, comment)
             .comment
               .comment-body
                 = h comment.body

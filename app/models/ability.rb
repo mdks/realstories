@@ -10,6 +10,7 @@ class Ability
       can :remove_all_spam, Story
       can [:spam, :ham], Comment
       can :vote, :all
+      can [:ban, :upgrade], User
     else
       # guest, normal user
       can :read, :all
@@ -22,7 +23,7 @@ class Ability
         end
         # story
         can :create, Story
-        can :update, Story do |story|
+        can [:update, :destroy], Story do |story|
           story.try(:user) == user
         end
         can [:create, :update, :destroy], Chapter do |chapter|

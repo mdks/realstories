@@ -24,6 +24,10 @@ ActionController::Routing::Routes.draw do |map|
   map.ham 'ham/:id', :controller => 'comments', :action => 'ham'
   map.remove_all_spam 'remove_all_spam/:id', :controller => 'stories', :action => 'remove_all_spam'
 
+  # user ban/upggrade
+  map.ban 'ban/:user_id', :controller => 'users', :action => 'ban'
+  map.upgrade 'upgrade/:user_id', :controller => 'users', :action => 'upgrade'
+
   # chapter route
   map.chapter '/stories/:id/chapters/:chapter_number', :controller => 'stories', :action => 'show'
   # page route
