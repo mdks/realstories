@@ -26,19 +26,23 @@ class UsersController < ApplicationController
 
   def ban
     @user = User.find(params[:user_id])
-    # user never existed, but can't login anymore
-    @user.stories.each do |story|
-      story.pages.destroy_all
-      story.chapters.destroy_all
-      story.comments.destroy_all
-      story.votes.destroy_all
-    end
-    @user.stories.destroy_all
-    @user.is_banned = true
-    if @user.save
-      flash[:notice] = "User was banned."
+    unless @user.is_admin?
+      # user never existed, but can't login anymore
+      @user.stories.each do |story|
+        story.pages.destroy_all
+        story.chapters.destroy_all
+        story.comments.destroy_all
+        story.votes.destroy_all
+      end
+      @user.stories.destroy_all
+      @user.is_banned = true
+      if @user.save
+        flash[:notice] = "User was banned."
+      else
+        flash[:error] = "Error banning user."
+      end
     else
-      flash[:error] = "Error banning user."
+      flash[:notice] = "Can't ban admin."
     end
     redirect_to root_url
   end
