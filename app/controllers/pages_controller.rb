@@ -3,12 +3,14 @@ class PagesController < ApplicationController
   # GET /pages/new
   # GET /pages/new.xml
   def new
+    @content_submission = true
     @chapter = Chapter.find(params[:chapter_id])
     @page = Page.new
   end
 
   # GET /pages/1/edit
   def edit
+    @content_submission = true
     @chapter = Chapter.find(params[:chapter_id])
     @page = Page.find(params[:id])
   end
@@ -87,4 +89,10 @@ class PagesController < ApplicationController
     end
     redirect_to chapter_path(@story, @chapter.chapter_number)
   end
+
+  # parse textile
+  def parse_textile
+   render :text => RedCloth.new(params[:data]).to_html
+  end
+
 end

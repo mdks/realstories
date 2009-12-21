@@ -16,6 +16,8 @@ class Ability
       can :read, :all
       if user.id
         # normal user only
+        # parse textile
+        can :parse_textile, Page
         # comment
         can :create, Comment
         can :update, Comment do |comment|

@@ -32,7 +32,9 @@ ActionController::Routing::Routes.draw do |map|
   map.chapter '/stories/:id/chapters/:chapter_number', :controller => 'stories', :action => 'show'
   # page route
   map.page '/stories/:id/pages/:page_number', :controller => 'stories', :action => 'show'
-  
+
+  map.connect '/textile', :controller => 'pages', :action => 'parse_textile'
+
   # root route
   map.root :controller => "stories"
 
