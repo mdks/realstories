@@ -144,12 +144,14 @@ body.main
         :background= !page_color
       .comment-info
         :margin-top 1em
-      .comment-links, #remove-spam-link, .comment-voting-links
+      .comment-links, .comment-voting-links
         :font-size 1.25em
-      #remove-spam-link
-        :padding-left 2em
       #disabled-text
         :padding 2em
+    #remove-spam-link
+      :font-size 1.25em
+      :background= !page_color
+      :padding-left 2em
     #new-comment-form
       +prepend(4)
       :background-color= !page_color

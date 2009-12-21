@@ -626,19 +626,21 @@ body.main {
       body.main #content #comments .comment-info {
         margin-top: 1em; }
       /* line 147, ../../../app/stylesheets/screen.sass */
-      body.main #content #comments .comment-links, body.main #content #comments #remove-spam-link, body.main #content #comments .comment-voting-links {
+      body.main #content #comments .comment-links, body.main #content #comments .comment-voting-links {
         font-size: 1.25em; }
       /* line 149, ../../../app/stylesheets/screen.sass */
-      body.main #content #comments #remove-spam-link {
-        padding-left: 2em; }
-      /* line 151, ../../../app/stylesheets/screen.sass */
       body.main #content #comments #disabled-text {
         padding: 2em; }
-    /* line 153, ../../../app/stylesheets/screen.sass */
+    /* line 151, ../../../app/stylesheets/screen.sass */
+    body.main #content #remove-spam-link {
+      font-size: 1.25em;
+      background: #c9c89f;
+      padding-left: 2em; }
+    /* line 155, ../../../app/stylesheets/screen.sass */
     body.main #content #new-comment-form {
       padding-left: 160px;
       background-color: #c9c89f;
       padding-top: 2em; }
-      /* line 157, ../../../app/stylesheets/screen.sass */
+      /* line 159, ../../../app/stylesheets/screen.sass */
       body.main #content #new-comment-form p {
         margin-bottom: 0; }

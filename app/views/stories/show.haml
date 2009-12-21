@@ -49,9 +49,9 @@
         %h2
           Comments
         = render :partial => @story.comments
-        - if can? :remove_all_spam, @story
-          #remove-spam-link
-            = link_to 'Remove all unapproved', remove_all_spam_path(@story)
+    - if can? :remove_all_spam, @story
+      #remove-spam-link
+        = link_to 'Remove all unapproved', remove_all_spam_path(@story)
     - if can? :create, Comment
       #new-comment-form
         %h3
