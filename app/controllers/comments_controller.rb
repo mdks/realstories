@@ -34,7 +34,10 @@ class CommentsController < ApplicationController
     else
       flash[:error] = "Commenting has been disabled for this story."
     end
-      redirect_to(story)
+    respond_to do |format|
+      format.html { redirect_to @comment.story }
+      format.js { render :layout => false}
+    end
   end
 
   # PUT /comments/1

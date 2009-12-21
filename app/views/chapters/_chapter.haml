@@ -1,0 +1,17 @@
+%li
+  = chapter.chapter_number
+  \.
+  - if @chapter.chapter_number.to_i == chapter.chapter_number.to_i
+    = link_to h(chapter.chapter_name), chapter_path(@story, chapter.chapter_number), {:class => "chapter-link current-chapter"}
+  - else
+    = link_to h(chapter.chapter_name), chapter_path(@story, chapter.chapter_number), {:class => "chapter-link"}
+- if can? :update, chapter
+  = link_to 'Edit chapter name', edit_story_chapter_path(@story, chapter)
+- if can? :destroy, chapter
+  = link_to 'Destroy chapter', story_chapter_path(@story, chapter), :confirm => 'Are you sure?', :method => :delete
+#chapter-links
+- if can? :create, @story.chapters.new
+  = link_to 'Add a chapter', new_story_chapter_path(@story)
+- if @chapter
+  - if can? :create, @chapter.pages.new
+    = link_to 'Add a page to this chapter', new_chapter_page_path(@chapter)

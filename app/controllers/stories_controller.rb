@@ -84,6 +84,7 @@ class StoriesController < ApplicationController
     if @page
       @previous_page = @story.pages.find_by_page_number(@page.page_number - 1)
       @next_page = @story.pages.find_by_page_number(@page.page_number + 1)
+      @page_content = RedCloth.new(@page.body, [:filter_styles, :filter_classes, :filter_ids]).to_html
     end
     unless @story.disable_commenting
       @comment = Comment.new
@@ -91,8 +92,9 @@ class StoriesController < ApplicationController
     end
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @story }
-      format.atom
+      #format.xml  { render :xml => @story }
+      #format.atom
+      format.js { render :layout => false }
     end
   end
   
@@ -106,8 +108,8 @@ class StoriesController < ApplicationController
   end
   
   # GET /stories/1/edit
-  def edit
-  end
+  #def edit
+  #end
   
   # POST /stories
   # POST /stories.xml

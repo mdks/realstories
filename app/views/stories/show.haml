@@ -1,23 +1,6 @@
 #sidebar
   %ul#table-of-contents
-    - @story.chapters.each do |chapter|
-      %li
-        = chapter.chapter_number
-        \.
-        - if @chapter.chapter_number.to_i == chapter.chapter_number.to_i
-          = link_to h(chapter.chapter_name), chapter_path(@story, chapter.chapter_number), {:class => "current-chapter"}
-        - else
-          = link_to h(chapter.chapter_name), chapter_path(@story, chapter.chapter_number)
-      - if can? :update, chapter
-        = link_to 'Edit chapter name', edit_story_chapter_path(@story, chapter)
-      - if can? :destroy, chapter
-        = link_to 'Destroy chapter', story_chapter_path(@story, chapter), :confirm => 'Are you sure?', :method => :delete
-    #chapter-links
-      - if can? :create, @story.chapters.new
-        = link_to 'Add a chapter', new_story_chapter_path(@story)
-      - if @chapter
-        - if can? :create, @chapter.pages.new
-          = link_to 'Add a page to this chapter', new_chapter_page_path(@chapter)
+    = render :partial => @story.chapters
 #content
   #story-info
     %h1#story-title
@@ -42,18 +25,7 @@
       = h distance_of_time_in_words(@story.updated_at, Time.now)
   - if @page
     #page-content
-      = white_list(RedCloth.new(@page.body, [:filter_styles, :filter_classes, :filter_ids]).to_html)
-      #page-pagination
-        - if @previous_page
-          = link_to '<--', page_url(@story, @previous_page.page_number)
-        = @page.page_number
-        - if @next_page
-          = link_to '-->', page_url(@story, @next_page.page_number)
-      #page-links
-        - if can? :update, @page
-          = link_to 'Edit this page', edit_chapter_page_path(@chapter, @page)
-        - if can? :destroy, @page
-          = link_to 'Remove this page', chapter_page_path(@chapter, @page), :confirm => 'Are you sure?', :method => :delete
+      = render :partial => @page #, :local => {:story => @story, :page => @page, :page_content => @page_content, :next_page => @next_page, :previous_page => :previous_page}
   - unless @story.disable_voting
     #story-score
       Liked it:
@@ -72,33 +44,11 @@
     #story-score
       Voting has been disabled on this story.
   - if !@story.disable_commenting || can?(:remove_all_spam, Story)
-    - if @story.comments.size > 0
-      #comments
+    #comments
+      - if @story.comments.count > 0
         %h2
           Comments
-        - @comments.each do |comment|
-          - if comment.is_approved || can?(:spam, comment)
-            .comment
-              .comment-body
-                = h comment.body
-                .comment-info
-                  .comment-author
-                    = image_tag(comment.user.gravatar_url(:size=>25))
-                    = h comment.user.username
-                .comment-score
-                  = (comment.score * 100).to_i.to_s + "%"
-                .comment-voting-links
-                  = link_to '+1', vote_comment_path(:id => comment.id, :vote => 1)
-                  = link_to '-1', vote_comment_path(:id => comment.id, :vote => 0)
-                .comment-links
-                  - if can? :update, comment
-                    = link_to 'Edit comment', edit_story_comment_path(comment.story, comment)
-                  - if can? :destroy, comment
-                    = link_to 'Remove comment', story_comment_path(comment.story, comment), :confirm => 'Are you sure?', :method => :delete
-                  - if can? :spam, comment
-                    = link_to 'Mark as spam', spam_path(comment)
-                  - if can? :ham, comment
-                    = link_to 'Approve comment', ham_path(comment)
+        = render :partial => @story.comments
         - if can? :remove_all_spam, @story
           #remove-spam-link
             = link_to 'Remove all unapproved', remove_all_spam_path(@story)

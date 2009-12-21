@@ -1,0 +1,3 @@
+$("#new_comment").before('<div class="notice"><%= escape_javascript(flash.delete(:notice)) %></div>');
+$("#comments").append("<%= escape_javascript(render(:partial => @comment)) %>");
+$("#new_comment")[0].reset();

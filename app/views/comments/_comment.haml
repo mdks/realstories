@@ -1,0 +1,22 @@
+- if comment.is_approved || can?(:spam, comment)
+  .comment
+    .comment-body
+      = h comment.body
+      .comment-info
+        .comment-author
+          = image_tag(comment.user.gravatar_url(:size=>25))
+          = h comment.user.username
+      .comment-score
+        = (comment.score * 100).to_i.to_s + "%"
+      .comment-voting-links
+        = link_to '+1', vote_comment_path(:id => comment.id, :vote => 1)
+        = link_to '-1', vote_comment_path(:id => comment.id, :vote => 0)
+      .comment-links
+        - if can? :update, comment
+          = link_to 'Edit comment', edit_story_comment_path(comment.story, comment)
+        - if can? :destroy, comment
+          = link_to 'Remove comment', story_comment_path(comment.story, comment), :confirm => 'Are you sure?', :method => :delete
+        - if can? :spam, comment
+          = link_to 'Mark as spam', spam_path(comment)
+        - if can? :ham, comment
+          = link_to 'Approve comment', ham_path(comment)

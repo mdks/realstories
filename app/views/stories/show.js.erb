@@ -1,0 +1,2 @@
+$("#page-content").html( "<%= escape_javascript(render(:partial => @page)) %>");
+$("#table-of-contents").html( "<%= escape_javascript(render(:partial => @story.chapters)) %>");
