@@ -559,7 +559,7 @@ body.main {
       body.main #content .story-listing .listing-author {
         text-align: center; }
       /* line 97, ../../../app/stylesheets/screen.sass */
-      body.main #content .story-listing .listing-description, body.main #content .story-listing .listing-score, body.main #content .story-listing .listing-timestamps {
+      body.main #content .story-listing .listing-description, body.main #content .story-listing .listing-score, body.main #content .story-listing .listing-timestamps, body.main #content .story-listing .listing-comments-amount {
         padding-left: 2em;
         padding-right: 2em; }
       /* line 100, ../../../app/stylesheets/screen.sass */

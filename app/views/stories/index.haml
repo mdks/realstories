@@ -32,6 +32,9 @@
         = h story.user.username
       .listing-description
         = h story.description
+      .listing-comments-amount
+        = story.comments.size
+        comments
       .listing-score
         Score:
         = (story.score * 100).to_i.to_s + "%"
