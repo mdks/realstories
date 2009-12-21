@@ -10,6 +10,7 @@ jQuery.fn.submitWithAjax = function() {
   return this;
 }
 
+/* not used atm? */
 jQuery.fn.ajaxLink = function() {
     this.bind('click',function(event){
         event.preventDefault();
@@ -19,7 +20,4 @@ jQuery.fn.ajaxLink = function() {
 
 $(document).ready(function() {
     $("#new_comment").submitWithAjax();
-    $("#next-page").ajaxLink();
-    $("#previous-page").ajaxLink();
-    $(".chapter-link").ajaxLink();
 });
