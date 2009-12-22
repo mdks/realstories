@@ -1,6 +1,12 @@
 #sidebar
   %ul#table-of-contents
     = render :partial => @story.chapters
+    #chapter-links
+      - if can? :create, @story.chapters.new
+        = link_to 'Add a chapter', new_story_chapter_path(@story)
+      - if @chapter
+        - if can? :create, @chapter.pages.new
+          = link_to 'Add a page to this chapter', new_chapter_page_path(@chapter)
 #content
   #story-info
     %h1#story-title
