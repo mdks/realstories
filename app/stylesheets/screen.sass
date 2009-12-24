@@ -60,11 +60,12 @@ body.main
   #sidebar
     !sidebar_columns = floor(!blueprint_grid_columns / 3)
     +column(!sidebar_columns)
-    :background= !sidebar_color
+    //:background= !sidebar_color
     #table-of-contents
+      :background= !sidebar_color
       :padding 1em
       +no-bullets
-      :margin 0
+      //:margin 0
       :margin-top 10px
       :margin-bottom 10px
       li
@@ -73,8 +74,10 @@ body.main
         :font-size 1.25em
       .current-chapter
         :text-decoration underline
+    #ads
+      :margin-left 10px
   .index
-    //+push(4)
+    +push(6)
     :padding-top 1.5em
   #form
     +prepend(1)
@@ -87,11 +90,13 @@ body.main
     :padding-right 1em
     :font-size 1.5em
   #ads
-    !ads_columns = floor(!blueprint_grid_columns / 2)
+    !ads_columns = 2
+    //floor(!blueprint_grid_columns / 2)
     +column(!ads_columns)
   #content
-    !content_columns = ceil(2 * !blueprint_grid_columns / 3)
-    +column(!content_columns)
+    !content_columns = 16
+    //ceil(2 * !blueprint_grid_columns / 3)
+    +column(!content_columns, true)
     :background= !content_color
     :margin-bottom 0
     #story-info

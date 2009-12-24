@@ -7,6 +7,8 @@
       - if @chapter
         - if can? :create, @chapter.pages.new
           = link_to 'Add a page to this chapter', new_chapter_page_path(@chapter)
+  #ads
+    = render :partial => "google"
 #content
   #story-info
     %h1#story-title
@@ -74,3 +76,4 @@
         Commenting has been disabled on this story.
   #back-link
     = link_to 'Back', stories_path
+
