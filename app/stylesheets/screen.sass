@@ -16,6 +16,7 @@
 !content_color = #4A4032
 !sort_color = #C7B95B
 !title_color = #362E25
+!comment_border_top = #362E25
 
 // font colors
 +blueprint-typography("body.main")
@@ -159,7 +160,7 @@ body.main
         :font-size 14pt
         :margin-bottom 0
       .comment-body
-        :border-top solid 1em #4F6173
+        :border-top= "solid" "1em" !comment_border_top
         :padding 2em
         :background= !page_color
       .comment-info
