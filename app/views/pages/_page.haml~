@@ -1,0 +1,13 @@
+= unless current_user.is_admin? white_list(@page_content) : @page_content end
+#page-pagination
+  - if @previous_page
+    = link_to '<--', page_url(@story, @previous_page.page_number), :id => 'previous-page'
+  = @page.page_number
+  - if @next_page
+    = link_to '-->', page_url(@story, @next_page.page_number), :id => 'next-page'
+#page-links
+  - if can? :update, @page
+    = link_to 'Edit this page', edit_chapter_page_path(@chapter, @page)
+  - if can? :destroy, @page
+    = link_to 'Remove this page', chapter_page_path(@chapter, @page), :confirm => 'Are you sure?', :method => :delete
+

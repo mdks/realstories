@@ -1,0 +1,39 @@
+!!!
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
+    %title
+      realstories
+
+    = javascript_include_tag 'jquery.min.1.3.2', 'application'
+    - unless @content_submission.nil?
+      = javascript_include_tag 'markitup-include'
+      = javascript_include_tag 'markitup/jquery.markitup', 'markitup/sets/textile/set'
+      = stylesheet_link_tag '/javascripts/markitup/skins/markitup/style.css'
+      = stylesheet_link_tag '/javascripts/markitup/sets/textile/style.css'
+    = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/print.css', :media => 'print'
+    /[if lt IE 8]
+      = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+  %body.main
+    #container
+      #header
+        %h1
+          = link_to 'realstories', root_path
+      #user-nav
+        - if current_user
+          Welcome,
+          = current_user.username
+          = link_to 'Edit Profile', edit_user_path(:current)
+          = link_to 'Logout', logout_path
+        - else
+          = rpx_popup( :link_text => "Login/Register", :app_name => RPX_APP_NAME, :return_url => user_sessions_url, :unobtrusive => false )
+      #notice
+        = flash[:notice]
+      #error
+        = flash[:error]
+      = yield
+      #root-footer
+    #footer
+      realstories accepts responsibility for all damages that this software causes to your system
+
