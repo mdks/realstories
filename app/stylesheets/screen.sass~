@@ -5,30 +5,33 @@
 @import blueprint/reset.sass
 @import compass/layout.sass
 
-!page_color = #C9C89F
-
+!page_color = #D6C484
+!sidebar_color = #994C37
+!container_color = #7D7A4C
+!header_color = #989936
+!footer_color = #FFFFFF
 +blueprint-typography("body.main")
 +sticky-footer(20px, "#container", "#root_footer", "#footer")
 
 form.main
   +blueprint-form
-  
+
 body.main
   +blueprint-utilities
   +blueprint-interaction
-  :background #372D23
+  //:background #372D23
   #container
     +container
-    :background #383D43 
+    :background= !container_color
     a
       +hover-link
       +link-colors(#051E21,#00302D)
   #error, #notice
     +prepend(4)
-    :background= !page_color
+    :background= !header_color
   #header
     +column(!blueprint_grid_columns)
-    :background= !page_color
+    :background= !header_color
     #error
       color: red
     #notice
@@ -41,15 +44,15 @@ body.main
       :color #362E25
   #user-nav
     +prepend(10)
-    :background= !page_color
+    :background= !header_color
     :padding-bottom 0.5em
   #footer
     +prepend(1)
-    :background= !page_color
+    :background= !footer_color
   #sidebar
     !sidebar_columns = floor(!blueprint_grid_columns / 3)
     +column(!sidebar_columns)
-    :background #A08C55
+    :background= !sidebar_color
     #table-of-contents
       :padding 1em
       +no-bullets
@@ -77,7 +80,7 @@ body.main
     :font-size 1.5em
   #content
     !content_columns = ceil(2 * !blueprint_grid_columns / 3)
-    +column(!content_columns, true)  
+    +column(!content_columns, true)
     :background #4F6173
     :margin-bottom 0
     #story-info
@@ -158,3 +161,4 @@ body.main
       :padding-top 2em
       p
         :margin-bottom 0
+
