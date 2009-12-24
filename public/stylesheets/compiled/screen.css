@@ -651,5 +651,8 @@ body.main #content {
     background-color: #d6c484;
     padding-top: 2em; }
     /* line 179, ../../../app/stylesheets/screen.sass */
+    body.main #content #new-comment-form h3 {
+      color: black; }
+    /* line 181, ../../../app/stylesheets/screen.sass */
     body.main #content #new-comment-form p {
       margin-bottom: 0; }
