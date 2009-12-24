@@ -16,7 +16,7 @@
 !content_color = #4A4032
 !sort_color = #C7B95B
 !title_color = #362E25
-!comment_border_top = #362E25
+!comment_border_top = #4A4032
 
 // font colors
 +blueprint-typography("body.main")
@@ -121,7 +121,7 @@ body.main
         :margin-bottom 0.25em
         :text-align center
     #new-story
-      :background= !page_color
+      :background= !header_color
       :margin-top 1.5em
       :font-size 1.5em
       +prepend(2)
@@ -159,8 +159,10 @@ body.main
         :text-align center
         :font-size 14pt
         :margin-bottom 0
+        :color black
       .comment-body
-        :border-top= "solid" "1em" !comment_border_top
+        :border-top solid 1em
+        :border-color= !comment_border_top
         :padding 2em
         :background= !page_color
       .comment-info
