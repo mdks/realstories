@@ -12,14 +12,14 @@
 
 form.main
   +blueprint-form
-
+  
 body.main
   +blueprint-utilities
   +blueprint-interaction
   :background #372D23
   #container
     +container
-    :background #383D43
+    :background #383D43 
     a
       +hover-link
       +link-colors(#051E21,#00302D)
@@ -77,7 +77,7 @@ body.main
     :font-size 1.5em
   #content
     !content_columns = ceil(2 * !blueprint_grid_columns / 3)
-    +column(!content_columns, true)
+    +column(!content_columns, true)  
     :background #4F6173
     :margin-bottom 0
     #story-info
@@ -158,4 +158,3 @@ body.main
       :padding-top 2em
       p
         :margin-bottom 0
-

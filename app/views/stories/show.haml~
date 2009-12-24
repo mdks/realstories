@@ -1,0 +1,76 @@
+#sidebar
+  %ul#table-of-contents
+    = render :partial => @story.chapters
+    #chapter-links
+      - if can? :create, @story.chapters.new
+        = link_to 'Add a chapter', new_story_chapter_path(@story)
+      - if @chapter
+        - if can? :create, @chapter.pages.new
+          = link_to 'Add a page to this chapter', new_chapter_page_path(@chapter)
+#content
+  #story-info
+    %h1#story-title
+      = h @story.title
+    #author-credit
+      by:
+      = image_tag(@story.user.gravatar_url(:size=>25))
+      = h @story.user.username
+      - if can? :ban, User
+        = link_to 'Ban', ban_url(@story.user), :confirm => 'Ban user?'
+      - if can? :upgrade, User
+        = link_to 'Upgrade', upgrade_url(@story.user)
+    #story-links
+      - if can? :update, @story
+        = link_to 'Edit story info', edit_story_path(@story)
+      - if can? :destroy, @story
+        = link_to 'Destroy story', @story, :confirm => 'Are you sure?', :method => :delete
+    #story-timestamps
+      Created at:
+      = h distance_of_time_in_words(@story.created_at, Time.now)
+      Last updated:
+      = h distance_of_time_in_words(@story.updated_at, Time.now)
+  - if @page
+    #page-content
+      = render :partial => @page #, :local => {:story => @story, :page => @page, :page_content => @page_content, :next_page => @next_page, :previous_page => :previous_page}
+  - unless @story.disable_voting
+    #story-score
+      Liked it:
+      = @story.votes_for
+      %br
+      Did not like it:
+      = @story.votes_against
+      %br
+      Score:
+      = (@story.score * 100).to_i.to_s + "%"
+      #voting-links
+        - if can? :vote, @story
+          = link_to 'I like it (+1)', vote_path(:id => @story.id, :vote => 1)
+          = link_to "I don't like it (-1)", vote_path(:id => @story.id, :vote => 0)
+  - else
+    #story-score
+      Voting has been disabled on this story.
+  - if !@story.disable_commenting || can?(:remove_all_spam, Story)
+    #comments
+      - if @story.comments.count > 0
+        %h2
+          Comments
+        = render :partial => @story.comments
+    - if can? :remove_all_spam, @story
+      #remove-spam-link
+        = link_to 'Remove all unapproved', remove_all_spam_path(@story)
+    - if can? :create, Comment
+      #new-comment-form
+        %h3
+          New comment
+        - form_for([@story, @comment]) do |f|
+          = f.error_messages
+          %p
+            = f.text_area :body
+          %p
+            = f.submit 'Post'
+  - else
+    #comments
+      #disabled-text
+        Commenting has been disabled on this story.
+  #back-link
+    = link_to 'Back', stories_path
