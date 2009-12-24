@@ -5,11 +5,19 @@
 @import blueprint/reset.sass
 @import compass/layout.sass
 
+// light
 !page_color = #D6C484
-!sidebar_color = #994C37
-!container_color = #7D7A4C
-!header_color = #989936
-!footer_color = #FFFFFF
+!sidebar_color = #787859
+!header_color = #C7B95B
+!footer_color = #787859
+!listing_color = #DEDE84
+// dark
+!container_color = #362E25
+!content_color = #4A4032
+!sort_color = #C7B95B
+!title_color = #362E25
+
+// font colors
 +blueprint-typography("body.main")
 +sticky-footer(20px, "#container", "#root_footer", "#footer")
 
@@ -47,7 +55,7 @@ body.main
     :background= !header_color
     :padding-bottom 0.5em
   #footer
-    +prepend(1)
+    +prepend(2)
     :background= !footer_color
   #sidebar
     !sidebar_columns = floor(!blueprint_grid_columns / 3)
@@ -78,10 +86,13 @@ body.main
     :text-align right
     :padding-right 1em
     :font-size 1.5em
+  #ads
+    !ads_columns = floor(!blueprint_grid_columns / 2)
+    +column(!ads_columns)
   #content
     !content_columns = ceil(2 * !blueprint_grid_columns / 3)
-    +column(!content_columns, true)
-    :background #4F6173
+    +column(!content_columns)
+    :background= !content_color
     :margin-bottom 0
     #story-info
       :background= !page_color
@@ -89,11 +100,11 @@ body.main
       +no-bullets
       +horizontal-list
       +prepend(2)
-      :background= !page_color
+      :background= !sort_color
       li a
         :font-size 1.25em
     .story-listing
-      :background= !page_color
+      :background= !listing_color
       :margin-top 1.5em
       .listing-author
         :text-align center
@@ -120,6 +131,7 @@ body.main
         :font-weight bold
         :text-align center
         :margin-bottom 0.25em
+        :color= !title_color
       #author-credit
         +prepend(4)
     #page-content
