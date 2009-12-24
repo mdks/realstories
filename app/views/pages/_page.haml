@@ -1,4 +1,4 @@
-= unless current_user.is_admin? : white_list(@page_content) else @page_content end
+= white_list(@page_content)
 #page-pagination
   - if @previous_page
     = link_to '<--', page_url(@story, @previous_page.page_number), :id => 'previous-page'
