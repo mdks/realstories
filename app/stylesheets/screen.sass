@@ -17,7 +17,7 @@
 !sort_color = #C7B95B
 !title_color = #362E25
 !comment_border_top = #4A4032
-
+!body_background = black
 // font colors
 +blueprint-typography("body.main")
 +sticky-footer(20px, "#container", "#root_footer", "#footer")
@@ -28,7 +28,7 @@ form.main
 body.main
   +blueprint-utilities
   +blueprint-interaction
-  //:background #372D23
+  :background= !body_background
   #container
     +container
     :background= !container_color
