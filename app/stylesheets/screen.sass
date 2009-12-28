@@ -6,18 +6,19 @@
 @import compass/layout.sass
 
 // light
-!page_color = #D6C484
-!sidebar_color = #787859
-!header_color = #C7B95B
-!footer_color = #787859
-!listing_color = #DEDE84
+!page_color = white
+!sidebar_color = white
+!header_color = white
+!footer_color = white
+!listing_color = white
+!page_content_color = white
 // dark
-!container_color = #362E25
-!content_color = #4A4032
-!sort_color = #C7B95B
-!title_color = #362E25
-!comment_border_top = #4A4032
-!body_background = black
+!container_color =  white
+!content_color =  white
+!sort_color =  white
+!title_color =  black
+!comment_border_top = black
+!body_background =  white
 // font colors
 +blueprint-typography("body.main")
 +sticky-footer(20px, "#container", "#root_footer", "#footer")
@@ -141,7 +142,7 @@ body.main
       #author-credit
         +prepend(4)
     #page-content
-      :background #C2B572
+      :background= !page_content_color
       :padding 2em
       #page-pagination
         :text-align center
