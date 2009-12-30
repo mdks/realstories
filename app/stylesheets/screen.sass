@@ -6,19 +6,24 @@
 @import compass/layout.sass
 
 // light
+
 !page_color = white
 !sidebar_color = white
 !header_color = white
 !footer_color = white
 !listing_color = white
 !page_content_color = white
+
 // dark
+
 !container_color =  white
 !content_color =  white
 !sort_color =  white
 !title_color =  black
 !comment_border_top = black
 !body_background =  white
+!body_color = black
+
 // font colors
 +blueprint-typography("body.main")
 +sticky-footer(20px, "#container", "#root_footer", "#footer")
@@ -27,6 +32,7 @@ form.main
   +blueprint-form
 
 body.main
+  :color= !body_color
   +blueprint-utilities
   +blueprint-interaction
   :background= !body_background
@@ -121,6 +127,7 @@ body.main
       h2
         :margin-bottom 0.25em
         :text-align center
+        :color black
     #new-story
       :background= !header_color
       :margin-top 1.5em
@@ -154,6 +161,8 @@ body.main
       :padding 2em
       #voting-links
         :font-size 1.25em
+      h2
+        :color black
     #comments
       :background= !page_color
       h2
