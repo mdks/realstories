@@ -1,7 +1,12 @@
-def truncate_words(text, length, end_string = ' ...')
-  returning words = text.split() do
-    words = words[0..(length-1)].join(' ') + (words.length > length ? end_string : '')
-  end
+def shorten (string, count = 140)
+	if string.length >= count
+		shortened = string[0, count]
+		splitted = shortened.split(/\s/)
+		words = splitted.length
+		splitted[0, words-1].join(" ") + ' ...'
+	else
+		string
+	end
 end
 
 atom_feed do |feed|
@@ -14,7 +19,7 @@ atom_feed do |feed|
     feed.entry(story) do |entry|
       # add later..
       entry.title(story.title)
-      entry.content(truncate_words(story.pages.first(:order => 'page_number ASC').body, 140), :type => 'html')
+      entry.content(shorten(story.pages.first(:order => 'page_number ASC').body), :type => 'html')
       entry.updated(story.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ")) # needed to work with Google Reader.
       entry.author do |author|
         author.name(story.user.username)
