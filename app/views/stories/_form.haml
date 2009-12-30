@@ -4,12 +4,7 @@
   = f.error_messages
   %p
     = f.label :title
-    %br
     = f.text_field :title
-  %p
-    = f.label :description
-    %br
-    = f.text_field :description
   %p
     = f.label :disable_commenting
     = f.check_box :disable_commenting
@@ -22,3 +17,4 @@
     = f.submit action
 
 = link_to 'Back', stories_path
+
