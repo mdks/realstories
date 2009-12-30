@@ -5,7 +5,7 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.xml
   def index
-    
+
     # sorting
     if params[:order]
       # get time
@@ -24,48 +24,48 @@ class StoriesController < ApplicationController
         # Order by Score
         # Descending
         if params[:sort] == "desc"
-          @stories = Story.paginate(:page => params[:page], 
+          @stories = Story.paginate(:page => params[:page],
           :order => 'score DESC', :conditions => ["created_at >= ?", time])
         else
-          @stories = Story.paginate(:page => params[:page], 
+          @stories = Story.paginate(:page => params[:page],
           :order => 'score ASC', :conditions => ["created_at >= ?", time])
-        end  
-      # date sorting  
+        end
+      # date sorting
       elsif params[:order] == "latest"
         # Order by Newest
          if params[:sort] == "desc"
-          @stories = Story.paginate(:page => params[:page], 
+          @stories = Story.paginate(:page => params[:page],
           :order => 'created_at DESC', :conditions => ["created_at >= ?", time])
         else
-          @stories = Story.paginate(:page => params[:page], 
+          @stories = Story.paginate(:page => params[:page],
           :order => 'created_at ASC', :conditions => ["created_at >= ?", time])
         end
       elsif params[:order] == "lastupdated"
         # Order by Last Updated
          if params[:sort] == "desc"
-          @stories = Story.paginate(:page => params[:page], 
+          @stories = Story.paginate(:page => params[:page],
           :order => 'updated_at DESC', :conditions => ["updated_at >= ?", time])
         else
-          @stories = Story.paginate(:page => params[:page], 
+          @stories = Story.paginate(:page => params[:page],
           :order => 'updated_at ASC', :conditions => ["updated_at >= ?", time])
         end
       # TODO: hits sorting
       #elsif params[:order] == "hot"
-        # Order by Hits    
-      end  
+        # Order by Hits
+      end
     else
       # no sorting
       @stories = Story.paginate(:page => params[:page])
     end
-      
-    
+
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @stories }
       format.atom { render :layout => false }
     end
   end
-  
+
   # GET /stories/1
   # GET /stories/1.xml
   def show
@@ -96,7 +96,7 @@ class StoriesController < ApplicationController
       #format.atom
     end
   end
-  
+
   # GET /stories/new
   # GET /stories/new.xml
   def new
@@ -105,17 +105,17 @@ class StoriesController < ApplicationController
       format.xml  { render :xml => @story }
     end
   end
-  
+
   # GET /stories/1/edit
   #def edit
   #end
-  
+
   # POST /stories
   # POST /stories.xml
   def create
     @story.user_id = current_user.id
     @story.score = 0
-    
+
     respond_to do |format|
       # easily enable recaptcha
       #if verify_recaptcha(@story) && @story.save
@@ -129,7 +129,7 @@ class StoriesController < ApplicationController
       end
     end
   end
-  
+
   # PUT /stories/1
   # PUT /stories/1.xml
   def update
@@ -144,7 +144,7 @@ class StoriesController < ApplicationController
       end
     end
   end
-  
+
   # DELETE /stories/1
   # DELETE /stories/1.xml
   def destroy
@@ -158,7 +158,7 @@ class StoriesController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
+
   # add vote action
   def vote
     unless @story.disable_voting
@@ -183,15 +183,15 @@ class StoriesController < ApplicationController
     flash[:error] = "You may only vote once!"
     redirect_to(@story)
   end
-  
+
   def remove_all_spam
     Comment.delete_all(["is_approved = ? AND story_id = ?", false, @story.id])
     flash[:notice] = "Deleted all unapproved comments."
     redirect_to(@story)
   end
-  
+
   private
-  
+
     def ci_lower_bound(pos, n, power)
       if n == 0
         return 0
@@ -201,5 +201,5 @@ class StoriesController < ApplicationController
       (phat + z*z/(2*n) - z * Math.sqrt((phat*(1-phat)+z*z/(4*n))/n))/(1+z*z/n)
     end
 
-  
 end
+
