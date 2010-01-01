@@ -1,1 +1,10 @@
-This is RealStories
+RealStories
+
+Requirements
+Ruby, Rubygems, Rails, Git, SQLite-Ruby
+
+Install instructions (assuming you have the basics)
+1. sudo gem install compass
+2. sudo rake gems:install
+3. script/server
+
