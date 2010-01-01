@@ -49,11 +49,6 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
-  # remove these if source is posted
-  ENV['RECAPTCHA_PUBLIC_KEY']  = '6Ld5lwkAAAAAAFWUJsL2Ph_PC1bhShyNN74QacNx'
-  ENV['RECAPTCHA_PRIVATE_KEY'] = '6Ld5lwkAAAAAADC02Pe02avlt4dyN7muiapF-lU_'
-
-  ENV['RPX_API_KEY'] = '76959c3e485a41b7c16b041fe216aef19572f5ed'
   RPX_API_KEY = ENV['RPX_API_KEY']
   RPX_APP_NAME = 'realstories'
 end

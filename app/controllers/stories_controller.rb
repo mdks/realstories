@@ -180,7 +180,7 @@ class StoriesController < ApplicationController
     end
     redirect_to(@story)
   rescue
-    flash[:error] = "You may only vote once!"
+    flash[:error] = "Vote failed!"
     redirect_to(@story)
   end
 
